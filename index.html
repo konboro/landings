@@ -249,7 +249,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .soc-btn:hover{color:var(--sc,var(--gold));border-color:var(--sc,var(--gold));background:rgba(0,0,0,.3)}
 .soc-btn:hover svg{color:var(--sc,var(--gold))}
 
-/* SCROLL CUE */
+/* MAP SECTION */
+.mapsec{padding:2rem 0 0}
+.mapsec .sdesc,.mapsec .slabel,.mapsec .stitle{padding-left:1.25rem;padding-right:1.25rem}
+#world-map{width:100%;height:520px;background:#080a0f;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+@media(min-width:768px){#world-map{height:640px}}
+@media(min-width:1100px){#world-map{height:720px}}
+#world-map .leaflet-container{background:#080a0f}
+#world-map .leaflet-control-zoom a{background:#13151c;color:#888;border-color:var(--b1)}
+#world-map .leaflet-control-zoom a:hover{background:#1c1f28;color:#fff}
+.am{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:1rem;
+  border-radius:3px;border:1px solid rgba(255,255,255,.08);background:#13151c;cursor:pointer;transition:transform .15s}
+.am:hover{transform:scale(1.35)}
+.am.rl{border-color:rgba(234,179,8,.45);background:rgba(234,179,8,.09);box-shadow:0 0 6px rgba(234,179,8,.2)}
+.am.re{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.08)}
+.am.rr{border-color:rgba(59,130,246,.35);background:rgba(59,130,246,.07)}
+.am.rc{border-color:var(--b2);background:#0d0f14}
+.leaflet-popup-content-wrapper{background:#13151c!important;border:1px solid var(--b1)!important;
+  border-radius:3px!important;box-shadow:0 8px 32px rgba(0,0,0,.7)!important;padding:0!important;overflow:hidden}
+.leaflet-popup-content{margin:0!important;width:262px!important}
+.leaflet-popup-tip{background:#13151c!important;border:1px solid var(--b1)}
+.leaflet-popup-close-button{color:#666!important;font-size:18px!important;top:5px!important;right:7px!important}
+.leaflet-popup-close-button:hover{color:#fff!important}
+.mp-head{display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem .55rem;border-bottom:1px solid var(--b1);background:#0d0f14}
+.mp-ico{font-size:1.5rem;line-height:1;flex-shrink:0}
+.mp-nr{flex:1;min-width:0}
+.mp-name{font-family:var(--fh);font-size:.8rem;font-weight:700;letter-spacing:.08em;color:#fff;
+  text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp-loc{font-size:.58rem;color:#4a5068;margin-top:2px;display:flex;align-items:center;gap:.3rem}
+.mp-badge{font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.12rem .45rem;border:1px solid var(--b1);background:#080a0f;color:#555;flex-shrink:0}
+.mp-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--b1)}
+.mp-st{padding:.5rem .55rem;border-right:1px solid var(--b1)}
+.mp-st:last-child{border-right:none}
+.mp-lbl{font-size:.46rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#4a5068;margin-bottom:.2rem}
+.mp-val{font-size:.75rem;font-weight:700;color:#e5e5e5;font-family:var(--fh);letter-spacing:.04em}
+.mp-val.gold{color:var(--gold)}
+.mp-val.red{color:#f87171}
+.mp-val.sm{font-size:.62rem}
+.mp-footer{display:flex;align-items:center;justify-content:space-between;padding:.4rem .75rem;font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.mp-footer.rl{color:var(--gold);border-top:2px solid rgba(234,179,8,.2)}
+.mp-footer.re{color:#8b5cf6;border-top:2px solid rgba(139,92,246,.2)}
+.mp-footer.rr{color:#3b82f6;border-top:2px solid rgba(59,130,246,.2)}
+.mp-footer.rc{color:#555;border-top:1px solid var(--b1)}
+.mp-footer .mp-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
+
 .scroll-cue{display:flex;justify-content:center;padding:.5rem 0 1.5rem;opacity:.3}
 .scroll-cue svg{width:20px;height:20px;color:var(--gold);animation:scrollbounce 2s ease-in-out infinite}
 @keyframes scrollbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
@@ -338,6 +382,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   <div class="scroll-cue" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
   </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- WORLD MAP SECTION -->
+<section class="mapsec sec fi">
+  <div class="slabel">Live world map</div>
+  <h2 class="stitle">Your assets.<br>Real locations.</h2>
+  <p class="sdesc">Every dot is a real asset. Click to inspect ownership data.</p>
+  <div id="world-map"></div>
 </section>
 
 <div class="sep"></div>
@@ -906,8 +960,94 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-const maps = new WeakMap();
+// ─── WORLD MAP ────────────────────────────────────────────────────────────────
+const ASSETS = [
+  // Common
+  {e:'🛴',r:'rc',t:'SCOOTER',n:'COOLTRA SCOOTER #8841',loc:'🇪🇸 Barcelona, Spain',lat:41.385,lon:2.173,s1:'2 TC/km',s2:'83 km',s3:'+166 TC'},
+  {e:'🛵',r:'rc',t:'MOPED',n:'PENNY.RENT #1147',loc:'🇬🇷 Thessaloniki, Greece',lat:40.640,lon:22.944,s1:'3.8 TC/km',s2:'94 km',s3:'+357 TC'},
+  // Rare
+  {e:'🚌',r:'rr',t:'BUS',n:'MPK BUS #2383',loc:'🇵🇱 Lublin, Poland',lat:51.265,lon:22.567,s1:'3.4 TC/km',s2:'132 km',s3:'+376 TC'},
+  {e:'⚡',r:'rr',t:'EV CHARGER',n:'STOCKHOLM HUB #3847',loc:'🇸🇪 Stockholm, Sweden',lat:59.329,lon:18.068,s1:'480 TC/day',s2:'847 sessions',s3:'+508 TC'},
+  {e:'🚉',r:'rr',t:'STATION',n:'ROMA TERMINI',loc:'🇮🇹 Rome, Italy',lat:41.901,lon:12.501,s1:'12 000 TC/day',s2:'68 400 pax',s3:'+12 000 TC'},
+  // Epic
+  {e:'🚂',r:'re',t:'TRAIN',n:'VR IC #2209',loc:'🇫🇮 Helsinki, Finland',lat:60.172,lon:24.941,s1:'12 TC/km',s2:'812 km',s3:'+9 744 TC'},
+  {e:'🚇',r:'re',t:'METRO',n:'PARIS MÉTRO L14 #0774',loc:'🇫🇷 Paris, France',lat:48.860,lon:2.347,s1:'9 TC/km',s2:'496 km',s3:'+4 464 TC'},
+  {e:'⛴️',r:'re',t:'BOAT',n:'GVB FERRY #0312',loc:'🇳🇱 Amsterdam, Netherlands',lat:52.377,lon:4.900,s1:'20 TC/km',s2:'1 980 km',s3:'+39 600 TC'},
+  // Legendary
+  {e:'✈️',r:'rl',t:'PLANE',n:'ANA B787 #001',loc:'🇯🇵 Narita, Japan',lat:35.764,lon:140.386,s1:'25 TC/km',s2:'10 243 km',s3:'+256 075 TC'},
+  {e:'🚠',r:'rl',t:'CABLE CAR',n:'TELECABINE LISBOA',loc:'🇵🇹 Lisbon, Portugal',lat:38.765,lon:-9.097,s1:'20 000 TC/day',s2:'4 812 pax',s3:'+20 000 TC'},
+  {e:'🛫',r:'rl',t:'AIRPORT',n:'DUBAI INTL DXB',loc:'🇦🇪 Dubai, UAE',lat:25.253,lon:55.365,s1:'80 000 TC/day',s2:'1 287 flights',s3:'+102 960 TC'},
+  {e:'🌪️',r:'rl',t:'WIND FARM',n:'MIDDELGRUNDEN #0048',loc:'🇩🇰 Copenhagen, Denmark',lat:55.687,lon:12.646,s1:'1 800 TC/day',s2:'6.4 MWh',s3:'+2 240 TC'},
+  {e:'🏟️',r:'rl',t:'STADIUM',n:'MARACANÃ STADIUM',loc:'🇧🇷 Rio de Janeiro, Brazil',lat:-22.912,lon:-43.230,s1:'25 000 TC/event',s2:'1 match',s3:'+25 000 TC'},
+  {e:'🏭',r:'rl',t:'POWER PLANT',n:'ELEKTRÁRNA POČERADY',loc:'🇨🇿 Počerady, Czech Republic',lat:50.417,lon:13.783,s1:'11 000 TC/tick',s2:'22 TWh/yr',s3:'+264 000 TC'},
+];
 
+const rarityLabel = {rl:'Legendary',re:'Epic',rr:'Rare',rc:'Common'};
+
+function buildPopup(a){
+  return `<div class="mp-head">
+    <div class="mp-ico">${a.e}</div>
+    <div class="mp-nr">
+      <div class="mp-name">${a.n}</div>
+      <div class="mp-loc">${a.loc}</div>
+    </div>
+    <div class="mp-badge">${a.t}</div>
+  </div>
+  <div class="mp-stats">
+    <div class="mp-st"><div class="mp-lbl">Stake</div><div class="mp-val sm">${a.s1}</div></div>
+    <div class="mp-st"><div class="mp-lbl">Last 24h</div><div class="mp-val sm">${a.s2}</div></div>
+    <div class="mp-st"><div class="mp-lbl">Profit</div><div class="mp-val gold">${a.s3}</div></div>
+  </div>
+  <div class="mp-footer ${a.r}">
+    <div style="display:flex;align-items:center;gap:.4rem"><div class="mp-dot"></div>LIVE</div>
+    <div>${rarityLabel[a.r]}</div>
+  </div>`;
+}
+
+function initWorldMap(){
+  const map = L.map('world-map', {
+    center: [54, 15],
+    zoom: 5,
+    minZoom: 3,
+    maxZoom: 14,
+    zoomControl: true,
+    attributionControl: false,
+  });
+
+  L.tileLayer('https://api.maptiler.com/maps/019a8cee-5746-7a6b-8b3e-5b77f70b3ad1/256/{z}/{x}/{y}.png?key=gVLyar0EiT75LpMPvAGQ', {
+    maxZoom: 19, tileSize: 256
+  }).addTo(map);
+
+  ASSETS.forEach(a => {
+    const icon = L.divIcon({
+      html: `<div class="am ${a.r}">${a.e}</div>`,
+      className: '',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+      popupAnchor: [0, -16]
+    });
+    L.marker([a.lat, a.lon], {icon})
+      .addTo(map)
+      .bindPopup(buildPopup(a), {
+        maxWidth: 262,
+        className: 'tc-popup',
+        closeButton: true,
+        autoPan: true,
+      });
+  });
+}
+
+// init map when section scrolls into view
+const mapObs = new IntersectionObserver(entries => {
+  if(entries[0].isIntersecting){
+    initWorldMap();
+    mapObs.disconnect();
+  }
+}, {threshold: 0.1});
+mapObs.observe(document.getElementById('world-map'));
+// ─── END WORLD MAP ────────────────────────────────────────────────────────────
+
+const maps = new WeakMap();
 function tog(el){
   const wasOpen = el.classList.contains('open');
   document.querySelectorAll('.cat.open').forEach(c => c.classList.remove('open'));
