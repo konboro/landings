@@ -94,7 +94,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .hsi{padding:1rem .9rem;text-align:center;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1)}
 .hsi:nth-child(2n){border-right:none}
 .hsi:nth-last-child(-n+2){border-bottom:none}
-.hsn{font-family:var(--fm);font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.2rem}
+.hsn{font-family:var(--fm);font-size:clamp(.85rem,3.5vw,1.4rem);font-weight:700;color:var(--gold);display:block;margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hsl{font-family:var(--fm);font-size:.57rem;text-transform:uppercase;letter-spacing:.12em;color:#4a5068}
 .hero-sub{font-size:.88rem;color:#888;line-height:1.75;margin-bottom:1.6rem;max-width:380px}
 .hero-sub strong{color:#bbc0cc;font-weight:500}
@@ -170,6 +170,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .gchead{display:flex;align-items:center;gap:.65rem;padding:.7rem .8rem;border-bottom:1px solid var(--b1)}
 .gcthumb{width:42px;height:42px;background:#13151c;border:1px solid var(--b2);
   display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+
+/* rarity ramka na gcthumb tylko w accordionie (nie w popupie mapy) */
+.cat[data-rarity="rl"].open .gcthumb{background:#13151c;border:2px solid #eab308}
+.cat[data-rarity="re"].open .gcthumb{background:#13151c;border:2px solid #8b5cf6}
+.cat[data-rarity="rr"].open .gcthumb{background:#13151c;border:2px solid #3b82f6}
+.cat[data-rarity="rc"].open .gcthumb{background:#13151c;border:2px solid #94a3b8}
 .gcnr{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:.18rem;overflow:hidden}
 .gcnr-top{display:flex;align-items:center;gap:.4rem}
 .gcdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
@@ -267,32 +273,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .am.rc{border-color:var(--b2);background:#0d0f14}
 .leaflet-popup-content-wrapper{background:#13151c!important;border:1px solid var(--b1)!important;
   border-radius:3px!important;box-shadow:0 8px 32px rgba(0,0,0,.7)!important;padding:0!important;overflow:hidden}
-.leaflet-popup-content{margin:0!important;width:262px!important}
+.leaflet-popup-content{margin:0!important;width:320px!important;min-width:320px}
 .leaflet-popup-tip{background:#13151c!important;border:1px solid var(--b1)}
-.leaflet-popup-close-button{color:#666!important;font-size:18px!important;top:5px!important;right:7px!important}
+.leaflet-popup-close-button{color:#666!important;font-size:18px!important;top:5px!important;right:7px!important;z-index:10}
 .leaflet-popup-close-button:hover{color:#fff!important}
-.mp-head{display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem .55rem;border-bottom:1px solid var(--b1);background:#0d0f14}
-.mp-ico{font-size:1.5rem;line-height:1;flex-shrink:0}
-.mp-nr{flex:1;min-width:0}
-.mp-name{font-family:var(--fh);font-size:.8rem;font-weight:700;letter-spacing:.08em;color:#fff;
-  text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mp-loc{font-size:.58rem;color:#4a5068;margin-top:2px;display:flex;align-items:center;gap:.3rem}
-.mp-badge{font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:.12rem .45rem;border:1px solid var(--b1);background:#080a0f;color:#555;flex-shrink:0}
-.mp-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--b1)}
-.mp-st{padding:.5rem .55rem;border-right:1px solid var(--b1)}
-.mp-st:last-child{border-right:none}
-.mp-lbl{font-size:.46rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#4a5068;margin-bottom:.2rem}
-.mp-val{font-size:.75rem;font-weight:700;color:#e5e5e5;font-family:var(--fh);letter-spacing:.04em}
-.mp-val.gold{color:var(--gold)}
-.mp-val.red{color:#f87171}
-.mp-val.sm{font-size:.62rem}
-.mp-footer{display:flex;align-items:center;justify-content:space-between;padding:.4rem .75rem;font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.mp-footer.rl{color:var(--gold);border-top:2px solid rgba(234,179,8,.2)}
-.mp-footer.re{color:#8b5cf6;border-top:2px solid rgba(139,92,246,.2)}
-.mp-footer.rr{color:#3b82f6;border-top:2px solid rgba(59,130,246,.2)}
-.mp-footer.rc{color:#555;border-top:1px solid var(--b1)}
-.mp-footer .mp-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.tc-popup .gc{border:none!important;background:transparent!important}
 
 .scroll-cue{display:flex;justify-content:center;padding:.5rem 0 1.5rem;opacity:.3}
 .scroll-cue svg{width:20px;height:20px;color:var(--gold);animation:scrollbounce 2s ease-in-out infinite}
@@ -404,7 +389,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   <div class="catgrid">
 
     <!-- COMMON -->
-    <div class="cat" data-lat="41.3851" data-lon="2.1734" data-icon="🛴" onclick="tog(this)">
+    <div class="cat" data-lat="41.3851" data-lon="2.1734" data-icon="🛴" data-rarity="rc" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛴</div>
         <div class="cinfo"><div class="ctitle">Scooters & Bikes</div><div class="cshort">Zero fuel costs, minimal upkeep. Stack a fleet across a single city and the numbers start adding up faster than you expect.</div></div>
@@ -434,7 +419,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="40.6401" data-lon="22.9444" data-icon="🛵" onclick="tog(this)">
+    <div class="cat" data-lat="40.6401" data-lon="22.9444" data-icon="🛵" data-rarity="rc" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛵</div>
         <div class="cinfo"><div class="ctitle">Mopeds</div><div class="cshort">The cheapest entry into the game. High-density cities like Bangkok, Hanoi or Mumbai have thousands of mopeds on the road at any hour. Volume is the strategy.</div></div>
@@ -465,7 +450,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- RARE -->
-    <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" onclick="tog(this)">
+    <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚌</div>
         <div class="cinfo"><div class="ctitle">Buses & Trams</div><div class="cshort">The fastest way to get started. Low entry price, real city routes, real ridership data. Trams climb to rare tier on the busiest corridors.</div></div>
@@ -496,7 +481,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- RARE (cont.) -->
-    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" onclick="tog(this)">
+    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">⚡</div>
         <div class="cinfo"><div class="ctitle">EV Chargers</div><div class="cshort">Over 12,000 real charging stations on the map. Each one earns from live session counts. Buy a cluster near a motorway and watch commuter traffic do the work.</div></div>
@@ -526,7 +511,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="41.9009" data-lon="12.5009" data-icon="🚉" onclick="tog(this)">
+    <div class="cat" data-lat="41.9009" data-lon="12.5009" data-icon="🚉" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚉</div>
         <div class="cinfo"><div class="ctitle">Stations</div><div class="cshort">Helsinki Central, Roma Termini, Victoria Coach Station. Hundreds of thousands of passengers a day. The income never stops.</div></div>
@@ -557,7 +542,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- EPIC -->
-    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" onclick="tog(this)">
+    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" data-rarity="re" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚂</div>
         <div class="cinfo"><div class="ctitle">Trains</div><div class="cshort">Real intercity rail running real routes. Iconic lines like the VR IC or the Jubilee can reach epic or legendary tier depending on ridership.</div></div>
@@ -587,7 +572,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" onclick="tog(this)">
+    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" data-rarity="re" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚇</div>
         <div class="cinfo"><div class="ctitle">Metro / Tube</div><div class="cshort">Underground networks from Paris to Tokyo. High volume routes mean steady income every hour regardless of weather or season.</div></div>
@@ -616,7 +601,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
         <div class="minimap"><div class="minimap-el"></div></div>
       </div></div>
     </div>
-    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" onclick="tog(this)">
+    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" data-rarity="re" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">⛴️</div>
         <div class="cinfo"><div class="ctitle">Boats</div><div class="cshort">Thames Clippers, Amsterdam canals, Singapore river taxis. Scenic routes with surprisingly solid returns once you understand the tidal patterns.</div></div>
@@ -647,7 +632,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- LEGENDARY -->
-    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" onclick="tog(this)">
+    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">✈️</div>
         <div class="cinfo"><div class="ctitle">Planes</div><div class="cshort">The top of the food chain. Intercontinental range, sky-high income per km and some of the hardest assets to get your hands on.</div></div>
@@ -677,7 +662,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="38.7653" data-lon="-9.0967" data-icon="🚠" onclick="tog(this)">
+    <div class="cat" data-lat="38.7653" data-lon="-9.0967" data-icon="🚠" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚠</div>
         <div class="cinfo"><div class="ctitle">Cable Cars</div><div class="cshort">A handful of cable cars exist worldwide and every one of them is a legendary. Niche infrastructure with a loyal daily ridership and no real competition.</div></div>
@@ -707,7 +692,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" onclick="tog(this)">
+    <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛫</div>
         <div class="cinfo"><div class="ctitle">Airports</div><div class="cshort">Heathrow, Schiphol, Dubai International. Income scales with actual daily flight operations. Busy travel seasons hit different when you own the runway.</div></div>
@@ -737,7 +722,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" onclick="tog(this)">
+    <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🌪️</div>
         <div class="cinfo"><div class="ctitle">Wind Turbines</div><div class="cshort">Real offshore wind farms connected to live weather feeds. A stormy week off the North Sea pays out more than a calm one. You learn to watch the forecast.</div></div>
@@ -773,7 +758,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" onclick="tog(this)">
+    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🏟️</div>
         <div class="cinfo"><div class="ctitle">Stadiums</div><div class="cshort">Wembley, Camp Nou, Maracanã. Quiet most of the week. On match day the income spikes harder than anything else in the game.</div></div>
@@ -803,7 +788,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="50.4167" data-lon="13.7833" data-icon="🏭" onclick="tog(this)">
+    <div class="cat" data-lat="50.4167" data-lon="13.7833" data-icon="🏭" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🏭</div>
         <div class="cinfo"><div class="ctitle">Factories & Power Plants</div><div class="cshort">The heaviest assets in the game. Power plants, coal stations, industrial parks. You need a guild to get in and serious capital to stay in.</div></div>
@@ -963,23 +948,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 // ─── WORLD MAP ────────────────────────────────────────────────────────────────
 const ASSETS = [
   // Common
-  {e:'🛴',r:'rc',t:'SCOOTER',n:'COOLTRA SCOOTER #8841',loc:'🇪🇸 Barcelona, Spain',lat:41.385,lon:2.173,s1:'2 TC/km',s2:'83 km',s3:'+166 TC'},
-  {e:'🛵',r:'rc',t:'MOPED',n:'PENNY.RENT #1147',loc:'🇬🇷 Thessaloniki, Greece',lat:40.640,lon:22.944,s1:'3.8 TC/km',s2:'94 km',s3:'+357 TC'},
+  {e:'🛴',r:'rc',t:'SCOOTER',n:'COOLTRA SCOOTER #8841',loc:'🇪🇸 Barcelona, Spain',lat:41.385,lon:2.173,
+   s1:'2 TC/km',sub:'10 TC/h idle',s2:'83 km',s3:'+166 TC',
+   roi:'−1 340 TC',tot_lbl:'Odometer',tot:'830 km',profit:'+1 660 TC',price:'3 000 VC',fleet:'10 days'},
+  {e:'🛵',r:'rc',t:'MOPED',n:'PENNY.RENT #1147',loc:'🇬🇷 Thessaloniki, Greece',lat:40.640,lon:22.944,
+   s1:'3.8 TC/km',sub:'18 TC/h idle',s2:'94 km',s3:'+357 TC',
+   roi:'−4 643 TC',tot_lbl:'Odometer',tot:'940 km',profit:'+3 357 TC',price:'8 000 VC',fleet:'22 days'},
   // Rare
-  {e:'🚌',r:'rr',t:'BUS',n:'MPK BUS #2383',loc:'🇵🇱 Lublin, Poland',lat:51.265,lon:22.567,s1:'3.4 TC/km',s2:'132 km',s3:'+376 TC'},
-  {e:'⚡',r:'rr',t:'EV CHARGER',n:'STOCKHOLM HUB #3847',loc:'🇸🇪 Stockholm, Sweden',lat:59.329,lon:18.068,s1:'480 TC/day',s2:'847 sessions',s3:'+508 TC'},
-  {e:'🚉',r:'rr',t:'STATION',n:'ROMA TERMINI',loc:'🇮🇹 Rome, Italy',lat:41.901,lon:12.501,s1:'12 000 TC/day',s2:'68 400 pax',s3:'+12 000 TC'},
+  {e:'🚌',r:'rr',t:'BUS',n:'MPK BUS #2383',loc:'🇵🇱 Lublin, Poland',lat:51.265,lon:22.567,
+   s1:'3.4 TC/km',sub:'3.4 TC/h',s2:'132 km',s3:'+376 TC',
+   roi:'−11 729 TC',tot_lbl:'Odometer',tot:'674 km',profit:'+3 271 TC',price:'15 000 VC',fleet:'6 days'},
+  {e:'⚡',r:'rr',t:'EV CHARGER',n:'STOCKHOLM HUB #3847',loc:'🇸🇪 Stockholm, Sweden',lat:59.329,lon:18.068,
+   s1:'480 TC/day',sub:null,s2:'847 sessions',s3:'+508 TC',
+   roi:'−9 240 TC',tot_lbl:'Total sessions',tot:'12 705 ses',profit:'+15 760 TC',price:'25 000 VC',fleet:'31 days'},
+  {e:'🚉',r:'rr',t:'STATION',n:'ROMA TERMINI',loc:'🇮🇹 Rome, Italy',lat:41.901,lon:12.501,
+   s1:'12 000 TC/day',sub:null,s2:'68 400 pax',s3:'+12 000 TC',
+   roi:'−7 410 000 TC',tot_lbl:'Days active',tot:'14 days',profit:'+168 000 TC',price:'7 500 000 VC',fleet:'14 days'},
   // Epic
-  {e:'🚂',r:'re',t:'TRAIN',n:'VR IC #2209',loc:'🇫🇮 Helsinki, Finland',lat:60.172,lon:24.941,s1:'12 TC/km',s2:'812 km',s3:'+9 744 TC'},
-  {e:'🚇',r:'re',t:'METRO',n:'PARIS MÉTRO L14 #0774',loc:'🇫🇷 Paris, France',lat:48.860,lon:2.347,s1:'9 TC/km',s2:'496 km',s3:'+4 464 TC'},
-  {e:'⛴️',r:'re',t:'BOAT',n:'GVB FERRY #0312',loc:'🇳🇱 Amsterdam, Netherlands',lat:52.377,lon:4.900,s1:'20 TC/km',s2:'1 980 km',s3:'+39 600 TC'},
+  {e:'🚂',r:'re',t:'TRAIN',n:'VR IC #2209',loc:'🇫🇮 Helsinki, Finland',lat:60.172,lon:24.941,
+   s1:'12 TC/km',sub:'180 TC/h idle',s2:'812 km',s3:'+9 744 TC',
+   roi:'−21 280 TC',tot_lbl:'Odometer',tot:'4 060 km',profit:'+48 720 TC',price:'70 000 VC',fleet:'5 days'},
+  {e:'🚇',r:'re',t:'METRO',n:'PARIS MÉTRO L14 #0774',loc:'🇫🇷 Paris, France',lat:48.860,lon:2.347,
+   s1:'9 TC/km',sub:'100 TC/h idle',s2:'496 km',s3:'+4 464 TC',
+   roi:'−1 752 TC',tot_lbl:'Odometer',tot:'3 472 km',profit:'+28 248 TC',price:'30 000 VC',fleet:'7 days'},
+  {e:'⛴️',r:'re',t:'BOAT',n:'GVB FERRY #0312',loc:'🇳🇱 Amsterdam, Netherlands',lat:52.377,lon:4.900,
+   s1:'20 TC/km',sub:'350 TC/h idle',s2:'1 980 km',s3:'+39 600 TC',
+   roi:'−41 600 TC',tot_lbl:'Odometer',tot:'7 920 km',profit:'+158 400 TC',price:'200 000 VC',fleet:'4 days'},
   // Legendary
-  {e:'✈️',r:'rl',t:'PLANE',n:'ANA B787 #001',loc:'🇯🇵 Narita, Japan',lat:35.764,lon:140.386,s1:'25 TC/km',s2:'10 243 km',s3:'+256 075 TC'},
-  {e:'🚠',r:'rl',t:'CABLE CAR',n:'TELECABINE LISBOA',loc:'🇵🇹 Lisbon, Portugal',lat:38.765,lon:-9.097,s1:'20 000 TC/day',s2:'4 812 pax',s3:'+20 000 TC'},
-  {e:'🛫',r:'rl',t:'AIRPORT',n:'DUBAI INTL DXB',loc:'🇦🇪 Dubai, UAE',lat:25.253,lon:55.365,s1:'80 000 TC/day',s2:'1 287 flights',s3:'+102 960 TC'},
-  {e:'🌪️',r:'rl',t:'WIND FARM',n:'MIDDELGRUNDEN #0048',loc:'🇩🇰 Copenhagen, Denmark',lat:55.687,lon:12.646,s1:'1 800 TC/day',s2:'6.4 MWh',s3:'+2 240 TC'},
-  {e:'🏟️',r:'rl',t:'STADIUM',n:'MARACANÃ STADIUM',loc:'🇧🇷 Rio de Janeiro, Brazil',lat:-22.912,lon:-43.230,s1:'25 000 TC/event',s2:'1 match',s3:'+25 000 TC'},
-  {e:'🏭',r:'rl',t:'POWER PLANT',n:'ELEKTRÁRNA POČERADY',loc:'🇨🇿 Počerady, Czech Republic',lat:50.417,lon:13.783,s1:'11 000 TC/tick',s2:'22 TWh/yr',s3:'+264 000 TC'},
+  {e:'✈️',r:'rl',t:'PLANE',n:'ANA B787 #001',loc:'🇯🇵 Narita, Japan',lat:35.764,lon:140.386,
+   s1:'25 TC/km',sub:'500 TC/h idle',s2:'10 243 km',s3:'+256 075 TC',
+   roi:'−115 888 TC',tot_lbl:'Odometer',tot:'15 365 km',profit:'+384 112 TC',price:'500 000 VC',fleet:'1 day'},
+  {e:'🚠',r:'rl',t:'CABLE CAR',n:'TELECABINE LISBOA',loc:'🇵🇹 Lisbon, Portugal',lat:38.765,lon:-9.097,
+   s1:'20 000 TC/day',sub:null,s2:'4 812 pax',s3:'+20 000 TC',
+   roi:'−11 860 000 TC',tot_lbl:'Days active',tot:'7 days',profit:'+140 000 TC',price:'12 000 000 VC',fleet:'7 days'},
+  {e:'🛫',r:'rl',t:'AIRPORT',n:'DUBAI INTL DXB',loc:'🇦🇪 Dubai, UAE',lat:25.253,lon:55.365,
+   s1:'80 000 TC/day',sub:null,s2:'1 287 flights',s3:'+102 960 TC',
+   roi:'−199 897 040 TC',tot_lbl:'Days active',tot:'3 days',profit:'+308 880 TC',price:'200 000 000 VC',fleet:'3 days'},
+  {e:'🌪️',r:'rl',t:'WIND FARM',n:'MIDDELGRUNDEN #0048',loc:'🇩🇰 Copenhagen, Denmark',lat:55.687,lon:12.646,
+   s1:'1 800 TC/day',sub:null,s2:'6.4 MWh',s3:'+2 240 TC',
+   roi:'−87 800 TC',tot_lbl:'Total output',tot:'192 MWh',profit:'+62 200 TC',price:'150 000 VC',fleet:'30 days'},
+  {e:'🏟️',r:'rl',t:'STADIUM',n:'MARACANÃ STADIUM',loc:'🇧🇷 Rio de Janeiro, Brazil',lat:-22.912,lon:-43.230,
+   s1:'25 000 TC/event',sub:null,s2:'1 match',s3:'+25 000 TC',
+   roi:'−49 950 000 TC',tot_lbl:'Events held',tot:'2 total',profit:'+50 000 TC',price:'50 000 000 VC',fleet:'2 days'},
+  {e:'🏭',r:'rl',t:'POWER PLANT',n:'ELEKTRÁRNA POČERADY',loc:'🇨🇿 Počerady, Czech Republic',lat:50.417,lon:13.783,
+   s1:'11 000 TC/tick',sub:null,s2:'22 TWh/yr',s3:'+264 000 TC',
+   roi:'−247 360 000 TC',tot_lbl:'Days active',tot:'10 days',profit:'+2 640 000 TC',price:'250 000 000 VC',fleet:'10 days'},
 ];
 
 const ASSET_SVGS = {
@@ -1015,26 +1028,38 @@ const TYPE_MAP = {
   'WIND FARM':'windmill','STADIUM':'stadium','POWER PLANT':'factory','FACTORY':'factory',
 };
 
+const RARITY_COLORS = {rl:'#eab308',re:'#8b5cf6',rr:'#3b82f6',rc:'#555'};
 const rarityLabel = {rl:'Legendary',re:'Epic',rr:'Rare',rc:'Common'};
 
 function buildPopup(a){
-  return `<div class="mp-head">
-    <div class="mp-ico">${a.e}</div>
-    <div class="mp-nr">
-      <div class="mp-name">${a.n}</div>
-      <div class="mp-loc">${a.loc}</div>
+  return `
+    <div class="gchead">
+      <div class="gcthumb" style="border:2px solid ${RARITY_COLORS[a.r]}">${a.e}</div>
+      <div class="gcnr">
+        <div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">${a.n}</span></div>
+        <div class="gcloc">${a.loc}</div>
+      </div>
+      <div class="gcbadges"><span class="gctype">${a.t}</span></div>
     </div>
-    <div class="mp-badge">${a.t}</div>
-  </div>
-  <div class="mp-stats">
-    <div class="mp-st"><div class="mp-lbl">Stake</div><div class="mp-val sm">${a.s1}</div></div>
-    <div class="mp-st"><div class="mp-lbl">Last 24h</div><div class="mp-val sm">${a.s2}</div></div>
-    <div class="mp-st"><div class="mp-lbl">Profit</div><div class="mp-val gold">${a.s3}</div></div>
-  </div>
-  <div class="mp-footer ${a.r}">
-    <div style="display:flex;align-items:center;gap:.4rem"><div class="mp-dot"></div>LIVE</div>
-    <div>${rarityLabel[a.r]}</div>
-  </div>`;
+    <div class="gcstats">
+      <div class="gcst"><div class="gclbl">Stake</div><div class="gcval sm">${a.s1}</div>${a.sub ? `<div class="gcsub">${a.sub}</div>` : ''}</div>
+      <div class="gcst"><div class="gclbl">Last 24h</div><div class="gcval">${a.s2}</div></div>
+      <div class="gcst"><div class="gclbl">Last 24h profit</div><div class="gcval gold">${a.s3}</div></div>
+    </div>
+    <div class="gcstats">
+      <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">${a.roi}</div></div>
+      <div class="gcst"><div class="gclbl">${a.tot_lbl||'Total'}</div><div class="gcval">${a.tot}</div></div>
+      <div class="gcst"><div class="gclbl">Profit</div><div class="gcval gold">${a.profit}</div></div>
+    </div>
+    <div class="gcmeta">
+      <span>PURCHASE <span>${a.price}</span></span>
+      <span>IN FLEET <span>${a.fleet}</span></span>
+    </div>
+    <div class="gcact">
+      <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+      <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+      <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+    </div>`;
 }
 
 function initWorldMap(){
@@ -1060,33 +1085,20 @@ function initWorldMap(){
       ? `drop-shadow(0 0 5px ${color}cc) drop-shadow(0 0 2px ${color}88)`
       : `drop-shadow(0 1px 3px rgba(0,0,0,.9))`;
 
-    const html = `
-      <div style="
-        width:38px;height:38px;
-        display:flex;align-items:center;justify-content:center;
-        border-radius:4px;
-        background:${isLegendary ? `rgba(234,179,8,.12)` : `rgba(13,15,20,.9)`};
-        border:1px solid ${isLegendary ? `rgba(234,179,8,.5)` : `rgba(${color.replace('#','').match(/.{2}/g).map(h=>parseInt(h,16)).join(',')},0.35)`};
-        color:${color};
-        filter:${glow};
-        cursor:pointer;
-        box-sizing:border-box;
-      ">
-        <div style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;">${svg}</div>
-      </div>`;
+    const html = `<div style="width:36px;height:36px;color:${color};filter:${glow};display:flex;align-items:center;justify-content:center;">${svg}</div>`;
 
     const icon = L.divIcon({
       html,
       className: '',
-      iconSize:   [38, 38],
-      iconAnchor: [19, 19],
-      popupAnchor:[0, -22]
+      iconSize:   [36, 36],
+      iconAnchor: [18, 18],
+      popupAnchor:[0, -20]
     });
 
     L.marker([a.lat, a.lon], {icon})
       .addTo(map)
       .bindPopup(buildPopup(a), {
-        maxWidth: 262,
+        maxWidth: 320,
         className: 'tc-popup',
         closeButton: true,
         autoPan: true,
