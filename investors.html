@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#080a0f">
 <title>TYCOON.LIVE — Investors</title>
+<meta name="description" content="Tycoon.live pre-seed investment opportunity. Real-time strategy game built on 70M real-world assets. Q4 2026 beta. Raising now.">
+<meta property="og:title" content="TYCOON.LIVE — Investor Overview">
+<meta property="og:description" content="Pre-seed opportunity. Real-time strategy game built on 70M real-world assets. Income driven by live data. Q4 2026 beta.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tycoon.live/investors.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TYCOON.LIVE — Investors">
+<meta name="twitter:description" content="Pre-seed opportunity. Real-world asset strategy game. 70M assets, live data engine, Q4 2026 beta.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TMH0LK83N"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1TMH0LK83N');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -323,13 +336,33 @@ section,div.sec{position:relative;z-index:1}
 </div>
 
 <script>
-function submitInv(e){
+async function submitInv(e){
   e.preventDefault();
+  const btn = document.querySelector('.cf-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  const payload = {
+    name:    document.getElementById('inv-name').value,
+    org:     document.getElementById('inv-org').value,
+    email:   document.getElementById('inv-email').value,
+    type:    document.getElementById('inv-type').value,
+    message: document.getElementById('inv-msg').value,
+  };
+
+  // TODO: replace with Supabase insert or your own endpoint
+  // Example Supabase:
+  //   await supabase.from('investor_leads').insert(payload);
+  // For now: open a prefilled mailto as guaranteed fallback
+  const body = encodeURIComponent(
+    `Name: ${payload.name}\nOrg: ${payload.org}\nType: ${payload.type}\n\n${payload.message}`
+  );
+  window.location.href = `mailto:hello@tycoon.live?subject=Investor%20inquiry%20from%20${encodeURIComponent(payload.name)}&body=${body}`;
+
   document.getElementById('inv-form').querySelectorAll('input,select,textarea,button').forEach(el=>el.style.display='none');
   document.getElementById('inv-ok').style.display='block';
-  // TODO: hook to Supabase or email service
-  console.log('investor inquiry submitted');
 }
+
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.06});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 </script>
