@@ -40,7 +40,8 @@ body{background:var(--bg);color:var(--txt);font-family:var(--fb);overflow-x:hidd
 
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 1rem;background:rgba(8,10,15,.97);border-bottom:1px solid var(--b1)}
+  padding:0 1rem;background:rgba(8,10,15,.85);border-bottom:1px solid var(--b1);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .logo{font-family:var(--fh);font-size:1.25rem;font-weight:700;letter-spacing:.12em;color:var(--gold)}
 .logo span{color:var(--txt)}
 .nav-inv{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.12em;
@@ -55,23 +56,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 
 /* LIVE BAR */
 .livebar{position:fixed;bottom:0;left:0;right:0;z-index:300;
-  height:calc(44px + var(--sab));background:#000;border-top:3px solid var(--gold);
+  height:calc(40px + var(--sab));background:#000;border-top:4px solid var(--gold);
   display:flex;align-items:stretch;overflow:hidden;padding-bottom:var(--sab)}
-.lb-label{display:flex;align-items:center;gap:.5rem;background:var(--gold);color:#000;
-  font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.12em;
-  padding:0 1.4rem 0 1rem;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%);
-  flex-shrink:0;white-space:nowrap;min-width:80px}
-.lb-label svg{width:13px;height:13px;flex-shrink:0}
-.lb-ticker{flex:1;overflow:hidden;display:flex;align-items:center;padding:0 .5rem}
-.lb-scroll{display:flex;white-space:nowrap;animation:lbs 40s linear infinite;
-  font-family:var(--fm);font-size:.65rem;color:#555;letter-spacing:.04em}
-.lb-scroll span{padding:0 2.5rem}
-.lb-scroll .hi{color:#fff;font-weight:600}
-@keyframes lbs{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.lb-label{display:flex;align-items:center;gap:.45rem;background:var(--gold);color:#000;
+  font-family:var(--fh);font-size:1.1rem;font-weight:700;letter-spacing:.08em;
+  padding:0 1.4rem 0 .9rem;flex-shrink:0;white-space:nowrap;position:relative;z-index:2}
+.lb-label::after{content:'';position:absolute;right:-10px;top:0;height:100%;width:14px;
+  background:var(--gold);transform:skewX(12deg);transform-origin:bottom}
+.lb-label svg{width:15px;height:15px;flex-shrink:0}
+.lb-ticker{flex:1;overflow:hidden;display:flex;align-items:center}
+.lb-ticker:hover .lb-scroll{animation-play-state:paused}
+.lb-scroll{display:inline-block;white-space:nowrap;
+  font-family:var(--fh);font-size:.82rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  animation:lbs 45s linear infinite}
+@keyframes lbs{0%{transform:translate3d(100vw,0,0)}100%{transform:translate3d(-100%,0,0)}}
+.lb-msg{display:inline-flex;align-items:center;gap:.5rem;margin:0 3rem}
+.lb-msg svg{width:13px;height:13px;flex-shrink:0}
+.lb-info{color:#60a5fa}.lb-green{color:#4ade80}.lb-gold{color:var(--gold)}.lb-red{color:#f87171}.lb-white{color:#e5e5e5}
 
 /* HERO */
 .hero{position:relative;z-index:1;padding:2.5rem 1.25rem 2rem;
-  display:flex;flex-direction:column;align-items:center;text-align:center}
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  background:radial-gradient(ellipse 70% 50% at 50% 20%,rgba(234,179,8,.045) 0%,transparent 70%)}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;
   background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.22);
   padding:.28rem .85rem;font-family:var(--fm);font-size:.62rem;font-weight:700;
@@ -88,27 +95,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .hsi:nth-child(2n){border-right:none}
 .hsi:nth-last-child(-n+2){border-bottom:none}
 .hsn{font-family:var(--fm);font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.2rem}
-.hsl{font-family:var(--fm);font-size:.57rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mut)}
-.hero-sub{font-size:.88rem;color:#555;line-height:1.75;margin-bottom:1.6rem;max-width:380px}
-.hero-sub strong{color:#999;font-weight:500}
+.hsl{font-family:var(--fm);font-size:.57rem;text-transform:uppercase;letter-spacing:.12em;color:#4a5068}
+.hero-sub{font-size:.88rem;color:#888;line-height:1.75;margin-bottom:1.6rem;max-width:380px}
+.hero-sub strong{color:#bbc0cc;font-weight:500}
 .pills{display:flex;gap:.4rem;overflow-x:auto;padding:.1rem .05rem .8rem;
   width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .pills::-webkit-scrollbar{display:none}
 .pill{display:inline-flex;align-items:center;gap:.3rem;flex-shrink:0;
   background:var(--surf);border:1px solid var(--b1);font-family:var(--fm);
-  font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:#555;
+  font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:#888;
   padding:.25rem .6rem;white-space:nowrap}
+.pill.pl{color:#f59e0b;border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)}
+.pill.pe{color:#8b5cf6;border-color:rgba(139,92,246,.3);background:rgba(139,92,246,.05)}
+.pill.pr{color:#3b82f6;border-color:rgba(59,130,246,.3);background:rgba(59,130,246,.05)}
 .wlw{display:flex;flex-direction:column;align-items:center;gap:.65rem;width:100%;max-width:460px}
 .wlr{display:flex;width:100%;border:1px solid var(--b2)}
 .wlr input{flex:1;background:#0a0c11;border:none;border-right:1px solid var(--b2);
   color:var(--txt);font-family:var(--fm);font-size:.8rem;padding:.78rem 1rem;outline:none;min-width:0}
-.wlr input::placeholder{color:#252830}
+.wlr input::placeholder{color:#3d4255}
 .wlr input:focus{border-right-color:var(--gold)}
 .wlr button{background:var(--gold);color:#000;border:none;font-family:var(--fh);
   font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:.78rem 1.1rem;cursor:pointer;flex-shrink:0;transition:background .15s}
-.wlr button:hover{background:#fbbf24}
-.wl-note{font-family:var(--fm);font-size:.6rem;color:#252830;letter-spacing:.04em}
+  padding:.78rem 1.1rem;cursor:pointer;flex-shrink:0;transition:background .15s;
+  box-shadow:0 0 0 0 rgba(234,179,8,.5);animation:ctapulse 2.5s ease-out infinite}
+@keyframes ctapulse{0%{box-shadow:0 0 0 0 rgba(234,179,8,.45)}70%{box-shadow:0 0 0 10px rgba(234,179,8,0)}100%{box-shadow:0 0 0 0 rgba(234,179,8,0)}}
+.wlr button:hover{background:#fbbf24;animation:none}
+.wl-note{font-family:var(--fm);font-size:.6rem;color:#4a5068;letter-spacing:.04em}
 .wl-ok{display:none;font-family:var(--fm);font-size:.78rem;color:var(--gold);
   border:1px solid rgba(234,179,8,.3);padding:.7rem 1rem;
   background:rgba(234,179,8,.05);width:100%;text-align:center}
@@ -119,9 +131,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   text-transform:uppercase;color:var(--gold);margin-bottom:.55rem}
 .stitle{font-family:var(--fh);font-size:clamp(1.7rem,7vw,2.8rem);font-weight:700;
   text-transform:uppercase;letter-spacing:.03em;color:#fff;line-height:1.02;margin-bottom:.75rem}
-.sdesc{font-size:.84rem;color:#444;line-height:1.75}
+.sdesc{font-size:.84rem;color:#888;line-height:1.75}
 .rlrow{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.9rem}
-.rli{display:flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.61rem;letter-spacing:.07em;color:#444}
+.rli{display:flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.61rem;letter-spacing:.07em;color:#888}
 .rld{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .rb{font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;padding:.14rem .42rem;border:1px solid;flex-shrink:0;white-space:nowrap}
@@ -143,7 +155,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   color:var(--gold);opacity:.6;margin-bottom:.12rem;line-height:1}
 .ctitle{font-family:var(--fh);font-size:.9rem;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:#fff;line-height:1}
-.cshort{font-family:var(--fb);font-size:.72rem;color:#3a3f52;line-height:1.45;margin-top:.25rem}
+.cshort{font-family:var(--fb);font-size:.72rem;color:#4a5068;line-height:1.45;margin-top:.25rem}
 .cat.open .cshort{display:none}
 .carrow{font-size:.75rem;color:var(--mut);transition:transform .22s;flex-shrink:0;align-self:center}
 .cat.open .carrow{transform:rotate(90deg)}
@@ -163,12 +175,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .gcdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .gcname{font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   color:#eef1f8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.gcloc{font-size:.6rem;font-weight:500;letter-spacing:.05em;color:#3a3f52;
+.gcloc{font-size:.6rem;font-weight:500;letter-spacing:.05em;color:#4a5068;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:.3rem}
 .gcloc-flag{font-size:.75rem;line-height:1;flex-shrink:0}
 .gcbadges{display:flex;gap:.3rem;margin-left:auto;flex-shrink:0;align-items:center}
 .gctype{font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:.18rem .5rem;border:1px solid var(--b2);background:#13151c;color:#555}
+  padding:.18rem .5rem;border:1px solid var(--b2);background:#13151c;color:#666}
 .gcstats{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--b1)}
 .gcst{padding:.65rem .7rem;border-right:1px solid var(--b1)}
 .gcst:last-child{border-right:none}
@@ -194,11 +206,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .gcmeta{display:flex;justify-content:space-between;padding:.38rem .8rem;
   border-bottom:1px solid var(--b1);font-size:.52rem;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
-.gcmeta span{color:#2e3347}
+.gcmeta span{color:#4a5068}
 .gcact{display:grid;grid-template-columns:1fr 1fr 1fr}
 .gcbtn{display:flex;align-items:center;justify-content:center;gap:.32rem;
   padding:.75rem .4rem;font-size:.58rem;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;cursor:default;border-right:1px solid var(--b1);color:#2a2e3a}
+  text-transform:uppercase;cursor:default;border-right:1px solid var(--b1);color:#3a3f52}
 .gcbtn:last-child{border-right:none}
 .gcbtn svg{width:12px;height:12px;flex-shrink:0}
 .gcbtn.s{color:#4a5060}
@@ -218,22 +230,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .howgrid{display:flex;flex-direction:column;gap:1px;background:var(--b1);
   margin-top:1.4rem;border:1px solid var(--b1)}
 .hcard{background:var(--surf);padding:1.1rem .9rem;display:flex;gap:.85rem;align-items:flex-start}
-.hbul{font-family:var(--fm);font-size:1.1rem;font-weight:700;color:var(--gold);
-  line-height:1.6;flex-shrink:0;width:20px;text-align:center;opacity:.7}
+.hbul{font-family:var(--fh);font-size:.78rem;font-weight:700;color:var(--gold);
+  line-height:1.8;flex-shrink:0;width:20px;text-align:center;opacity:.9;
+  border:1px solid rgba(234,179,8,.2);background:rgba(234,179,8,.06);
+  width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:2px}
 .htxt h3{font-family:var(--fh);font-size:.9rem;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:#fff;margin-bottom:.28rem}
-.htxt p{font-size:.78rem;color:#444;line-height:1.62}
-.htxt p strong{color:#666;font-weight:500}
+.htxt p{font-size:.78rem;color:#888;line-height:1.62}
+.htxt p strong{color:#bbc0cc;font-weight:500}
 
 /* SOCIAL */
 .soc-btn{display:inline-flex;align-items:center;gap:.5rem;
   font-family:var(--fm);font-size:.68rem;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;text-decoration:none;
-  color:#444;border:1px solid var(--b1);padding:.5rem 1rem;
+  color:#888;border:1px solid var(--b2);padding:.5rem 1rem;
   background:var(--surf);transition:all .18s}
 .soc-btn svg{width:15px;height:15px;flex-shrink:0}
 .soc-btn:hover{color:var(--sc,var(--gold));border-color:var(--sc,var(--gold));background:rgba(0,0,0,.3)}
 .soc-btn:hover svg{color:var(--sc,var(--gold))}
+
+/* SCROLL CUE */
+.scroll-cue{display:flex;justify-content:center;padding:.5rem 0 1.5rem;opacity:.3}
+.scroll-cue svg{width:20px;height:20px;color:var(--gold);animation:scrollbounce 2s ease-in-out infinite}
+@keyframes scrollbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
 .fi{opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
 .fi.v{opacity:1;transform:none}
@@ -290,22 +309,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     Invest in an <strong>offshore wind farm</strong>. Every asset at real GPS coordinates, earning from live data around the clock.
   </p>
   <div class="pills">
-    <div class="pill">✈️ Planes</div>
-    <div class="pill">🚂 Trains</div>
-    <div class="pill">🚇 Metro</div>
     <div class="pill">🚌 Buses</div>
     <div class="pill">🚊 Trams</div>
-    <div class="pill">⛴️ River-buses</div>
     <div class="pill">🛴 Scooters</div>
     <div class="pill">🚲 Bikes</div>
-    <div class="pill">🏟️ Stadiums</div>
-    <div class="pill">🚉 Stations</div>
-    <div class="pill">🚠 Cable Cars</div>
-    <div class="pill">🛫 Airports</div>
-    <div class="pill">⚡ EV Chargers</div>
-    <div class="pill">🌪️ Wind Farms</div>
-    <div class="pill">🏭 Factories</div>
-    <div class="pill">⚡️ Power Plants</div>
+    <div class="pill pr">🚂 Trains</div>
+    <div class="pill pr">🚇 Metro</div>
+    <div class="pill pr">⚡ EV Chargers</div>
+    <div class="pill pr">🚉 Stations</div>
+    <div class="pill pe">⛴️ River-buses</div>
+    <div class="pill pl">✈️ Planes</div>
+    <div class="pill pl">🚠 Cable Cars</div>
+    <div class="pill pl">🛫 Airports</div>
+    <div class="pill pl">🌪️ Wind Farms</div>
+    <div class="pill pl">🏟️ Stadiums</div>
+    <div class="pill pl">🏭 Factories</div>
+    <div class="pill pl">⚡️ Power Plants</div>
   </div>
   <div class="wlw" id="wh">
     <div class="wlr">
@@ -314,6 +333,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
     <div class="wl-ok" id="oh">✓ &nbsp;You're on the list. We'll reach out before beta launches.</div>
     <p class="wl-note">No spam &nbsp;·&nbsp; Early signups get founding bonuses on launch day</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
   </div>
 </section>
 
@@ -326,132 +348,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 
   <div class="catgrid">
 
-    <!-- helper macro: each cat has data-lat data-lon data-icon -->
-
-    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" onclick="tog(this)">
-      <div class="catrow">
-        <div class="cico">✈️</div>
-        <div class="cinfo"><div class="ctype">Fleet — Air</div><div class="ctitle">Planes</div><div class="cshort">The top of the food chain. Intercontinental range, sky-high income per km and some of the hardest assets to get your hands on.</div></div>
-        <span class="rb rl">Legendary</span><span class="carrow">›</span>
-      </div>
-      <div class="catbody"><div class="cat-expand">
-        <div class="gc">
-          <div class="gchead"><div class="gcthumb">✈️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">ANA B787 #001</span></div><div class="gcloc"><span class="gcloc-flag">🇯🇵</span>Narita, Japan</div></div><div class="gcbadges"><span class="gctype">PLANE</span></div></div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">25 TC/km</div><div class="gcsub">500 TC/h idle</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">10 243<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">256 075<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−115 888 TC</div></div>
-            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">15 365<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">384 112<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcmeta"><span>PURCHASE <span>500 000 VC</span></span><span>IN FLEET <span>1 day</span></span></div>
-          <div class="gcact">
-            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
-            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
-            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
-          </div>
-        </div>
-        <div class="minimap"><div class="minimap-el"></div></div>
-      </div></div>
-    </div>
-
-    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" onclick="tog(this)">
-      <div class="catrow">
-        <div class="cico">🚂</div>
-        <div class="cinfo"><div class="ctype">Fleet — Rail</div><div class="ctitle">Trains</div><div class="cshort">Real intercity rail running real routes. Iconic lines like the VR IC or the Jubilee can reach epic or legendary tier depending on ridership.</div></div>
-        <span class="rb rr">Rare</span><span class="carrow">›</span>
-      </div>
-      <div class="catbody"><div class="cat-expand">
-        <div class="gc">
-          <div class="gchead"><div class="gcthumb">🚂</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">VR IC #2209</span></div><div class="gcloc"><span class="gcloc-flag">🇫🇮</span>Helsinki, Finland</div></div><div class="gcbadges"><span class="gctype">TRAIN</span></div></div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">12 TC/km</div><div class="gcsub">180 TC/h idle</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">812<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">9 744<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−21 280 TC</div></div>
-            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">4 060<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">48 720<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcmeta"><span>PURCHASE <span>70 000 VC</span></span><span>IN FLEET <span>5 days</span></span></div>
-          <div class="gcact">
-            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
-            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
-            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
-          </div>
-        </div>
-        <div class="minimap"><div class="minimap-el"></div></div>
-      </div></div>
-    </div>
-
-    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" onclick="tog(this)">
-      <div class="catrow">
-        <div class="cico">🚇</div>
-        <div class="cinfo"><div class="ctype">Fleet — Metro</div><div class="ctitle">Metro / Tube</div><div class="cshort">Underground networks from Paris to Tokyo. High volume routes mean steady income every hour regardless of weather or season.</div></div>
-        <span class="rb rr">Rare</span><span class="carrow">›</span>
-      </div>
-      <div class="catbody"><div class="cat-expand">
-        <div class="gc">
-          <div class="gchead"><div class="gcthumb">🚇</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">PARIS MÉTRO L14 #0774</span></div><div class="gcloc"><span class="gcloc-flag">🇫🇷</span>Paris, France</div></div><div class="gcbadges"><span class="gctype">TUBE</span></div></div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">9 TC/km</div><div class="gcsub">100 TC/h idle</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">496<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">4 464<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−1 752 TC</div></div>
-            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">3 472<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">28 248<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcmeta"><span>PURCHASE <span>30 000 VC</span></span><span>IN FLEET <span>7 days</span></span></div>
-          <div class="gcact">
-            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
-            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
-            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
-          </div>
-        </div>
-        <div class="minimap"><div class="minimap-el"></div></div>
-      </div></div>
-    </div>
-
-    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" onclick="tog(this)">
-      <div class="catrow">
-        <div class="cico">⛴️</div>
-        <div class="cinfo"><div class="ctype">Fleet — Water</div><div class="ctitle">River-Buses</div><div class="cshort">Thames Clippers, Amsterdam canals, Singapore river taxis. Scenic routes with surprisingly solid returns once you understand the tidal patterns.</div></div>
-        <span class="rb re">Epic</span><span class="carrow">›</span>
-      </div>
-      <div class="catbody"><div class="cat-expand">
-        <div class="gc">
-          <div class="gchead"><div class="gcthumb">⛴️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">GVB FERRY #0312</span></div><div class="gcloc"><span class="gcloc-flag">🇳🇱</span>Amsterdam, Netherlands</div></div><div class="gcbadges"><span class="gctype">RIVER-BUS</span></div></div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">20 TC/km</div><div class="gcsub">350 TC/h idle</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">1 980<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">39 600<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−41 600 TC</div></div>
-            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">7 920<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">158 400<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcmeta"><span>PURCHASE <span>200 000 VC</span></span><span>IN FLEET <span>4 days</span></span></div>
-          <div class="gcact">
-            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
-            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
-            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
-          </div>
-        </div>
-        <div class="minimap"><div class="minimap-el"></div></div>
-      </div></div>
-    </div>
-
+    <!-- COMMON -->
     <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚌</div>
-        <div class="cinfo"><div class="ctype">Fleet — Road</div><div class="ctitle">Buses & Trams</div><div class="cshort">The fastest way to get started. Low entry price, real city routes, real ridership data. Trams climb to rare tier on the busiest corridors.</div></div>
+        <div class="cinfo"><div class="ctitle">Buses & Trams</div><div class="cshort">The fastest way to get started. Low entry price, real city routes, real ridership data. Trams climb to rare tier on the busiest corridors.</div></div>
         <span class="rb rc">Common</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
@@ -481,7 +382,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     <div class="cat" data-lat="41.3851" data-lon="2.1734" data-icon="🛴" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛴</div>
-        <div class="cinfo"><div class="ctype">Fleet — Micro</div><div class="ctitle">Scooters & Bikes</div><div class="cshort">Zero fuel costs, minimal upkeep. Stack a fleet across a single city and the numbers start adding up faster than you expect.</div></div>
+        <div class="cinfo"><div class="ctitle">Scooters & Bikes</div><div class="cshort">Zero fuel costs, minimal upkeep. Stack a fleet across a single city and the numbers start adding up faster than you expect.</div></div>
         <span class="rb rc">Common</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
@@ -508,26 +409,87 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" onclick="tog(this)">
+    <!-- RARE -->
+    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" onclick="tog(this)">
       <div class="catrow">
-        <div class="cico">🏟️</div>
-        <div class="cinfo"><div class="ctype">Infrastructure</div><div class="ctitle">Stadiums</div><div class="cshort">Wembley, Camp Nou, Maracanã. Quiet most of the week. On match day the income spikes harder than anything else in the game.</div></div>
-        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+        <div class="cico">🚂</div>
+        <div class="cinfo"><div class="ctitle">Trains</div><div class="cshort">Real intercity rail running real routes. Iconic lines like the VR IC or the Jubilee can reach epic or legendary tier depending on ridership.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
         <div class="gc">
-          <div class="gchead"><div class="gcthumb">🏟️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">MARACANÃ STADIUM</span></div><div class="gcloc"><span class="gcloc-flag">🇧🇷</span>Rio de Janeiro, Brazil</div></div><div class="gcbadges"><span class="gctype">STADIUM</span></div></div>
+          <div class="gchead"><div class="gcthumb">🚂</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">VR IC #2209</span></div><div class="gcloc"><span class="gcloc-flag">🇫🇮</span>Helsinki, Finland</div></div><div class="gcbadges"><span class="gctype">TRAIN</span></div></div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">25 000 TC</div><div class="gcsub">per event</div></div>
-            <div class="gcst"><div class="gclbl">EVENTS LAST 24H</div><div class="gcval">1<span class="u">match</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">25 000<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">12 TC/km</div><div class="gcsub">180 TC/h idle</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">812<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">9 744<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−49 950 000 TC</div></div>
-            <div class="gcst"><div class="gclbl">EVENTS HELD</div><div class="gcval">2<span class="u">total</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">50 000<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−21 280 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">4 060<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">48 720<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>50 000 000 VC</span></span><span>IN FLEET <span>2 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>70 000 VC</span></span><span>IN FLEET <span>5 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico">🚇</div>
+        <div class="cinfo"><div class="ctitle">Metro / Tube</div><div class="cshort">Underground networks from Paris to Tokyo. High volume routes mean steady income every hour regardless of weather or season.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb">🚇</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">PARIS MÉTRO L14 #0774</span></div><div class="gcloc"><span class="gcloc-flag">🇫🇷</span>Paris, France</div></div><div class="gcbadges"><span class="gctype">TUBE</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">9 TC/km</div><div class="gcsub">100 TC/h idle</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">496<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">4 464<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−1 752 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">3 472<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">28 248<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>30 000 VC</span></span><span>IN FLEET <span>7 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico">⚡</div>
+        <div class="cinfo"><div class="ctitle">EV Chargers</div><div class="cshort">Over 12,000 real charging stations on the map. Each one earns from live session counts. Buy a cluster near a motorway and watch commuter traffic do the work.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb">⚡</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">STOCKHOLM HUB #3847</span></div><div class="gcloc"><span class="gcloc-flag">🇸🇪</span>Stockholm, Sweden</div></div><div class="gcbadges"><span class="gctype">EV CHARGER</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">480 TC</div><div class="gcsub">per day avg</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H SESSIONS</div><div class="gcval">847<span class="u">ses</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">508<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−9 240 TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL SESSIONS</div><div class="gcval">12 705<span class="u">ses</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">15 760<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>25 000 VC</span></span><span>IN FLEET <span>31 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -541,8 +503,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     <div class="cat" data-lat="41.9009" data-lon="12.5009" data-icon="🚉" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚉</div>
-        <div class="cinfo"><div class="ctype">Infrastructure</div><div class="ctitle">Stations</div><div class="cshort">Helsinki Central, Roma Termini, Victoria Coach Station. Hundreds of thousands of passengers a day. The income never stops.</div></div>
-        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+        <div class="cinfo"><div class="ctitle">Stations</div><div class="cshort">Helsinki Central, Roma Termini, Victoria Coach Station. Hundreds of thousands of passengers a day. The income never stops.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
         <div class="gc">
@@ -568,10 +530,72 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
+    <!-- EPIC -->
+    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico">⛴️</div>
+        <div class="cinfo"><div class="ctitle">River-Buses</div><div class="cshort">Thames Clippers, Amsterdam canals, Singapore river taxis. Scenic routes with surprisingly solid returns once you understand the tidal patterns.</div></div>
+        <span class="rb re">Epic</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb">⛴️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">GVB FERRY #0312</span></div><div class="gcloc"><span class="gcloc-flag">🇳🇱</span>Amsterdam, Netherlands</div></div><div class="gcbadges"><span class="gctype">RIVER-BUS</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">20 TC/km</div><div class="gcsub">350 TC/h idle</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">1 980<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">39 600<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−41 600 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">7 920<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">158 400<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>200 000 VC</span></span><span>IN FLEET <span>4 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <!-- LEGENDARY -->
+    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico">✈️</div>
+        <div class="cinfo"><div class="ctitle">Planes</div><div class="cshort">The top of the food chain. Intercontinental range, sky-high income per km and some of the hardest assets to get your hands on.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb">✈️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">ANA B787 #001</span></div><div class="gcloc"><span class="gcloc-flag">🇯🇵</span>Narita, Japan</div></div><div class="gcbadges"><span class="gctype">PLANE</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">25 TC/km</div><div class="gcsub">500 TC/h idle</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">10 243<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">256 075<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−115 888 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">15 365<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">384 112<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>500 000 VC</span></span><span>IN FLEET <span>1 day</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
     <div class="cat" data-lat="38.7653" data-lon="-9.0967" data-icon="🚠" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚠</div>
-        <div class="cinfo"><div class="ctype">Infrastructure</div><div class="ctitle">Cable Cars</div><div class="cshort">A handful of cable cars exist worldwide and every one of them is a legendary. Niche infrastructure with a loyal daily ridership and no real competition.</div></div>
+        <div class="cinfo"><div class="ctitle">Cable Cars</div><div class="cshort">A handful of cable cars exist worldwide and every one of them is a legendary. Niche infrastructure with a loyal daily ridership and no real competition.</div></div>
         <span class="rb rl">Legendary</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
@@ -601,7 +625,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛫</div>
-        <div class="cinfo"><div class="ctype">Infrastructure — Air</div><div class="ctitle">Airports</div><div class="cshort">Heathrow, Schiphol, Dubai International. Income scales with actual daily flight operations. Busy travel seasons hit different when you own the runway.</div></div>
+        <div class="cinfo"><div class="ctitle">Airports</div><div class="cshort">Heathrow, Schiphol, Dubai International. Income scales with actual daily flight operations. Busy travel seasons hit different when you own the runway.</div></div>
         <span class="rb rl">Legendary</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
@@ -628,41 +652,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" onclick="tog(this)">
-      <div class="catrow">
-        <div class="cico">⚡</div>
-        <div class="cinfo"><div class="ctype">Energy — Electric</div><div class="ctitle">EV Chargers</div><div class="cshort">Over 12,000 real charging stations on the map. Each one earns from live session counts. Buy a cluster near a motorway and watch commuter traffic do the work.</div></div>
-        <span class="rb rr">Rare</span><span class="carrow">›</span>
-      </div>
-      <div class="catbody"><div class="cat-expand">
-        <div class="gc">
-          <div class="gchead"><div class="gcthumb">⚡</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">STOCKHOLM HUB #3847</span></div><div class="gcloc"><span class="gcloc-flag">🇸🇪</span>Stockholm, Sweden</div></div><div class="gcbadges"><span class="gctype">EV CHARGER</span></div></div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">480 TC</div><div class="gcsub">per day avg</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H SESSIONS</div><div class="gcval">847<span class="u">ses</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">508<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−9 240 TC</div></div>
-            <div class="gcst"><div class="gclbl">TOTAL SESSIONS</div><div class="gcval">12 705<span class="u">ses</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">15 760<span class="u">TC</span></div></div>
-          </div>
-          <div class="gcmeta"><span>PURCHASE <span>25 000 VC</span></span><span>IN FLEET <span>31 days</span></span></div>
-          <div class="gcact">
-            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
-            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
-            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
-          </div>
-        </div>
-        <div class="minimap"><div class="minimap-el"></div></div>
-      </div></div>
-    </div>
-
     <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🌪️</div>
-        <div class="cinfo"><div class="ctype">Energy — Wind</div><div class="ctitle">Wind Turbines</div><div class="cshort">Real offshore wind farms connected to live weather feeds. A stormy week off the North Sea pays out more than a calm one. You learn to watch the forecast.</div></div>
-        <span class="rb rr">Rare</span><span class="carrow">›</span>
+        <div class="cinfo"><div class="ctitle">Wind Turbines</div><div class="cshort">Real offshore wind farms connected to live weather feeds. A stormy week off the North Sea pays out more than a calm one. You learn to watch the forecast.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
         <div class="gc">
@@ -694,11 +688,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
+    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico">🏟️</div>
+        <div class="cinfo"><div class="ctitle">Stadiums</div><div class="cshort">Wembley, Camp Nou, Maracanã. Quiet most of the week. On match day the income spikes harder than anything else in the game.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb">🏟️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">MARACANÃ STADIUM</span></div><div class="gcloc"><span class="gcloc-flag">🇧🇷</span>Rio de Janeiro, Brazil</div></div><div class="gcbadges"><span class="gctype">STADIUM</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">25 000 TC</div><div class="gcsub">per event</div></div>
+            <div class="gcst"><div class="gclbl">EVENTS LAST 24H</div><div class="gcval">1<span class="u">match</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">25 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−49 950 000 TC</div></div>
+            <div class="gcst"><div class="gclbl">EVENTS HELD</div><div class="gcval">2<span class="u">total</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">50 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>50 000 000 VC</span></span><span>IN FLEET <span>2 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
     <div class="cat" data-lat="50.4167" data-lon="13.7833" data-icon="🏭" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🏭</div>
-        <div class="cinfo"><div class="ctype">Guild Assets</div><div class="ctitle">Factories & Power Plants</div><div class="cshort">The heaviest assets in the game. Power plants, coal stations, industrial parks. You need a guild to get in and serious capital to stay in.</div></div>
-        <span class="rb re">Epic</span><span class="carrow">›</span>
+        <div class="cinfo"><div class="ctitle">Factories & Power Plants</div><div class="cshort">The heaviest assets in the game. Power plants, coal stations, industrial parks. You need a guild to get in and serious capital to stay in.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
         <div class="gc">
@@ -731,14 +755,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   <h2 class="stitle">Real world.<br>Real economy.</h2>
   <p class="sdesc">Every income tick is calculated from live APIs. Energy output, transit ridership, match schedules. Nothing is made up.</p>
   <div class="howgrid">
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Browse the map</h3><p>A live world map built from <strong>real infrastructure data</strong>. Every marker sits at actual GPS coordinates and represents something you can own.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Build your portfolio</h3><p>Buy directly, win auctions, open lootboxes. Each asset class comes with its own rarity and income ceiling. Some you find easily, some you hunt for weeks.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Reality drives income</h3><p>A wind farm earns more when it's <strong>actually windy</strong>. A stadium pays out on <strong>real match days</strong>. Your income follows the real world whether you're watching or not.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Dominate the rankings</h3><p>Trade on the open market and climb the global leaderboard. The best assets are <strong>scarce and people fight over them</strong>. Getting there first matters.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Form consortiums</h3><p>Some assets are too big to buy alone. Pool resources with other players, manage a shared treasury and divide the profits. <strong>Corporate play opens up a completely different tier</strong> of the game.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Build your network</h3><p>Chat, trade, negotiate. <strong>Alliances shift and markets move</strong> fast. Who you know ends up mattering just as much as what you own.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Location gives you an edge</h3><p>Set up a branch close to the infrastructure you own and collect <strong>proximity bonuses</strong> on top of base income. GPS is not just decoration here.</p></div></div>
-    <div class="hcard"><div class="hbul">—</div><div class="htxt"><h3>Deep stats, your own path</h3><p>Every asset tracks utilisation rates, peak hours, weather correlation and ROI over time. Read the data, spot what others miss, and <strong>build a strategy nobody else is running</strong>.</p></div></div>
+    <div class="hcard"><div class="hbul">1</div><div class="htxt"><h3>Browse the map</h3><p>A live world map built from <strong>real infrastructure data</strong>. Every marker sits at actual GPS coordinates and represents something you can own.</p></div></div>
+    <div class="hcard"><div class="hbul">2</div><div class="htxt"><h3>Build your portfolio</h3><p>Buy directly, win auctions, open lootboxes. Each asset class comes with its own rarity and income ceiling. Some you find easily, some you hunt for weeks.</p></div></div>
+    <div class="hcard"><div class="hbul">3</div><div class="htxt"><h3>Reality drives income</h3><p>A wind farm earns more when it's <strong>actually windy</strong>. A stadium pays out on <strong>real match days</strong>. Your income follows the real world whether you're watching or not.</p></div></div>
+    <div class="hcard"><div class="hbul">4</div><div class="htxt"><h3>Dominate the rankings</h3><p>Trade on the open market and climb the global leaderboard. The best assets are <strong>scarce and people fight over them</strong>. Getting there first matters.</p></div></div>
+    <div class="hcard"><div class="hbul">5</div><div class="htxt"><h3>Form consortiums</h3><p>Some assets are too big to buy alone. Pool resources with other players, manage a shared treasury and divide the profits. <strong>Corporate play opens up a completely different tier</strong> of the game.</p></div></div>
+    <div class="hcard"><div class="hbul">6</div><div class="htxt"><h3>Build your network</h3><p>Chat, trade, negotiate. <strong>Alliances shift and markets move</strong> fast. Who you know ends up mattering just as much as what you own.</p></div></div>
+    <div class="hcard"><div class="hbul">7</div><div class="htxt"><h3>Location gives you an edge</h3><p>Set up a branch close to the infrastructure you own and collect <strong>proximity bonuses</strong> on top of base income. GPS is not just decoration here.</p></div></div>
+    <div class="hcard"><div class="hbul">8</div><div class="htxt"><h3>Deep stats, your own path</h3><p>Every asset tracks utilisation rates, peak hours, weather correlation and ROI over time. Read the data, spot what others miss, and <strong>build a strategy nobody else is running</strong>.</p></div></div>
   </div>
 </div>
 
@@ -771,28 +795,66 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 
 <div class="livebar">
   <div class="lb-label">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z"/></svg>
+    <!-- bell icon -->
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 10a6 6 0 0 0-12 0v5l-2 2v1h16v-1l-2-2v-5zm-6 12a3 3 0 0 0 3-3H9a3 3 0 0 0 3 3z"/></svg>
     LIVE
   </div>
   <div class="lb-ticker">
-    <div class="lb-scroll">
-      <span>Wembley — <span class="hi">50 000 000 VC</span></span>
-      <span>Camp Nou · Old Trafford · Maracanã — <span class="hi">in beta</span></span>
-      <span>IFS Cloud Cable Car — <span class="hi">12 000 000 VC</span> — Thames</span>
-      <span>Wind: <span class="hi">4.2 GW</span> — North Sea corridor</span>
-      <span>EV sessions: <span class="hi">1 284 000</span> — EU today</span>
-      <span>Fleet: <span class="hi">Planes · Trains · Metro · Trams · River-Buses · Scooters · Bikes</span></span>
-      <span>Guild assets: <span class="hi">Power Plants · Factories · Warehouses</span></span>
-      <span>Wembley — <span class="hi">50 000 000 VC</span></span>
-      <span>Camp Nou · Old Trafford · Maracanã — <span class="hi">in beta</span></span>
-      <span>IFS Cloud Cable Car — <span class="hi">12 000 000 VC</span> — Thames</span>
-      <span>Wind: <span class="hi">4.2 GW</span> — North Sea corridor</span>
-      <span>EV sessions: <span class="hi">1 284 000</span> — EU today</span>
-      <span>Fleet: <span class="hi">Planes · Trains · Metro · Trams · River-Buses · Scooters · Bikes</span></span>
-      <span>Guild assets: <span class="hi">Power Plants · Factories · Warehouses</span></span>
+    <div class="lb-scroll" id="lb-scroll">
+      <span class="lb-msg lb-gold">
+        <!-- wifi / system online -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.41 5L0 6.41C3.08 9.5 5 13.5 5 18h2c0-5.52 2.23-10.5 5.84-14.12L12 3a19.93 19.93 0 0 0-10.59 2zm3.66 3.66L3.63 10.1C5.7 12.17 7 15 7 18h2c0-3.87-1.57-7.37-4.07-9.93l.14.59zm14.37-3.66A19.93 19.93 0 0 0 12 3l-.16.88C15.77 7.5 18 12.48 18 18h2c0-4.5-1.92-8.5-5-11.59l.44-.75zm-3.66 3.66C13.57 10.63 12 14.13 12 18h2c0-3-.87-5.83-2.37-8.1l.15-.24z"/></svg>
+        SYSTEM ONLINE
+      </span>
+      <span class="lb-msg lb-green">
+        <!-- check icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span class="lb-white">Wembley Stadium</span> — listed at <span class="lb-gold">50 000 000 VC</span>
+      </span>
+      <span class="lb-msg lb-info">
+        <!-- plane icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        <span class="lb-white">ANA B787</span> — 10 243 km in last 24h — <span class="lb-gold">256 075 TC</span>
+      </span>
+      <span class="lb-msg lb-gold">
+        <!-- trophy icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v2H5c0 4.42 3.13 8 7 8s7-3.58 7-8h-2c0 3.31-2.24 6-5 6S7 9.31 7 4h-.02V2H7zm5 12c-2.76 0-5 2.24-5 5v1h10v-1c0-2.76-2.24-5-5-5zM9 22v-1h6v1H9z"/></svg>
+        Camp Nou · Old Trafford · Maracanã — <span class="lb-white">launching in beta</span>
+      </span>
+      <span class="lb-msg lb-green">
+        <!-- wind icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+        North Sea Wind — <span class="lb-gold">4.2 GW</span> output — all farms earning
+      </span>
+      <span class="lb-msg lb-info">
+        <!-- train icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zm0 2c3.51 0 5.44.49 5.93 1H6.07C6.56 4.49 8.49 4 12 4zM6 7h5v3H6V7zm6 0h6v3h-6V7zm-5.5 9a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 6.5 13 1.5 1.5 0 0 1 8 14.5 1.5 1.5 0 0 1 6.5 16zm11 0a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+        Paris Métro L14 — <span class="lb-gold">4 464 TC</span> today · 496 km
+      </span>
+      <span class="lb-msg lb-gold">
+        <!-- lightning icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 21H3l9-18v7h7L8 21v-7l3-.001V21z"/></svg>
+        EV sessions: <span class="lb-white">1 284 000</span> across EU today
+      </span>
+      <span class="lb-msg lb-info">
+        <!-- building icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2v20h4v-4h4v4h4V2H6zm2 14H7v-2h1v2zm0-4H7v-2h1v2zm0-4H7V6h1v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm4 8h-1v-2h1v2zm0-4h-1v-2h1v2zm0-4h-1V6h1v2z"/></svg>
+        Guild asset: Elektrárna Počerady — <span class="lb-gold">264 000 TC</span> per tick
+      </span>
+      <span class="lb-msg lb-green">
+        <!-- ship icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.14.52-.06.78L3.95 19z"/></svg>
+        GVB Ferry #0312 — Amsterdam — <span class="lb-gold">39 600 TC</span> today
+      </span>
     </div>
   </div>
 </div>
+
+<footer style="position:relative;z-index:1;text-align:center;padding:1.5rem 1rem calc(1.5rem + var(--sab));border-top:1px solid var(--b1)">
+  <p style="font-family:var(--fm);font-size:.58rem;color:#4a5068;letter-spacing:.08em">
+    © 2026 TYCOON.LIVE &nbsp;·&nbsp; <a href="/privacy.html" style="color:#4a5068;text-decoration:none;border-bottom:1px solid #2a2e3a">Privacy Policy</a>
+  </p>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
