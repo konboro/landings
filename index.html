@@ -94,7 +94,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .hsi{padding:1rem .9rem;text-align:center;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1)}
 .hsi:nth-child(2n){border-right:none}
 .hsi:nth-last-child(-n+2){border-bottom:none}
-.hsn{font-family:var(--fm);font-size:1.4rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.2rem}
+.hsn{font-family:var(--fm);font-size:clamp(.85rem,3.5vw,1.4rem);font-weight:700;color:var(--gold);display:block;margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hsl{font-family:var(--fm);font-size:.57rem;text-transform:uppercase;letter-spacing:.12em;color:#4a5068}
 .hero-sub{font-size:.88rem;color:#888;line-height:1.75;margin-bottom:1.6rem;max-width:380px}
 .hero-sub strong{color:#bbc0cc;font-weight:500}
@@ -170,6 +170,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .gchead{display:flex;align-items:center;gap:.65rem;padding:.7rem .8rem;border-bottom:1px solid var(--b1)}
 .gcthumb{width:42px;height:42px;background:#13151c;border:1px solid var(--b2);
   display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+
+/* rarity ramka na gcthumb tylko w accordionie (nie w popupie mapy) */
+.cat[data-rarity="rl"].open .gcthumb{background:#13151c;border:2px solid #eab308}
+.cat[data-rarity="re"].open .gcthumb{background:#13151c;border:2px solid #8b5cf6}
+.cat[data-rarity="rr"].open .gcthumb{background:#13151c;border:2px solid #3b82f6}
+.cat[data-rarity="rc"].open .gcthumb{background:#13151c;border:2px solid #94a3b8}
 .gcnr{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:.18rem;overflow:hidden}
 .gcnr-top{display:flex;align-items:center;gap:.4rem}
 .gcdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
@@ -249,7 +255,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .soc-btn:hover{color:var(--sc,var(--gold));border-color:var(--sc,var(--gold));background:rgba(0,0,0,.3)}
 .soc-btn:hover svg{color:var(--sc,var(--gold))}
 
-/* SCROLL CUE */
+/* MAP SECTION */
+.mapsec{padding:2rem 0 0}
+.mapsec .sdesc,.mapsec .slabel,.mapsec .stitle{padding-left:1.25rem;padding-right:1.25rem}
+#world-map{width:100%;height:520px;background:#080a0f;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+@media(min-width:768px){#world-map{height:640px}}
+@media(min-width:1100px){#world-map{height:720px}}
+#world-map .leaflet-container{background:#080a0f}
+#world-map .leaflet-control-zoom a{background:#13151c;color:#888;border-color:var(--b1)}
+#world-map .leaflet-control-zoom a:hover{background:#1c1f28;color:#fff}
+.am{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:1rem;
+  border-radius:3px;border:1px solid rgba(255,255,255,.08);background:#13151c;cursor:pointer;transition:transform .15s}
+.am:hover{transform:scale(1.35)}
+.am.rl{border-color:rgba(234,179,8,.45);background:rgba(234,179,8,.09);box-shadow:0 0 6px rgba(234,179,8,.2)}
+.am.re{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.08)}
+.am.rr{border-color:rgba(59,130,246,.35);background:rgba(59,130,246,.07)}
+.am.rc{border-color:var(--b2);background:#0d0f14}
+.leaflet-popup-content-wrapper{background:#13151c!important;border:1px solid var(--b1)!important;
+  border-radius:3px!important;box-shadow:0 8px 32px rgba(0,0,0,.7)!important;padding:0!important;overflow:hidden}
+.leaflet-popup-content{margin:0!important;width:320px!important;min-width:320px}
+.leaflet-popup-tip{background:#13151c!important;border:1px solid var(--b1)}
+.leaflet-popup-close-button{color:#666!important;font-size:18px!important;top:5px!important;right:7px!important;z-index:10}
+.leaflet-popup-close-button:hover{color:#fff!important}
+.tc-popup .gc{border:none!important;background:transparent!important}
+
 .scroll-cue{display:flex;justify-content:center;padding:.5rem 0 1.5rem;opacity:.3}
 .scroll-cue svg{width:20px;height:20px;color:var(--gold);animation:scrollbounce 2s ease-in-out infinite}
 @keyframes scrollbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
@@ -341,6 +370,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 </section>
 
 <div class="sep"></div>
+
+<!-- WORLD MAP SECTION -->
+<section class="mapsec sec fi">
+  <div class="slabel">Live world map</div>
+  <h2 class="stitle">Your assets.<br>Real locations.</h2>
+  <p class="sdesc">Every dot is a real asset. Click to inspect ownership data.</p>
+  <div id="world-map"></div>
+</section>
+
+<div class="sep"></div>
 <div class="catsec sec fi">
   <div class="slabel">What you can own</div>
   <h2 class="stitle">Every asset.<br>A real location.</h2>
@@ -350,7 +389,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   <div class="catgrid">
 
     <!-- COMMON -->
-    <div class="cat" data-lat="41.3851" data-lon="2.1734" data-icon="🛴" onclick="tog(this)">
+    <div class="cat" data-lat="41.3851" data-lon="2.1734" data-icon="🛴" data-type="scooter" data-rarity="rc" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛴</div>
         <div class="cinfo"><div class="ctitle">Scooters & Bikes</div><div class="cshort">Zero fuel costs, minimal upkeep. Stack a fleet across a single city and the numbers start adding up faster than you expect.</div></div>
@@ -380,7 +419,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="40.6401" data-lon="22.9444" data-icon="🛵" onclick="tog(this)">
+    <div class="cat" data-lat="40.6401" data-lon="22.9444" data-icon="🛵" data-type="moped" data-rarity="rc" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛵</div>
         <div class="cinfo"><div class="ctitle">Mopeds</div><div class="cshort">The cheapest entry into the game. High-density cities like Bangkok, Hanoi or Mumbai have thousands of mopeds on the road at any hour. Volume is the strategy.</div></div>
@@ -411,7 +450,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- RARE -->
-    <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" onclick="tog(this)">
+    <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" data-type="bus" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚌</div>
         <div class="cinfo"><div class="ctitle">Buses & Trams</div><div class="cshort">The fastest way to get started. Low entry price, real city routes, real ridership data. Trams climb to rare tier on the busiest corridors.</div></div>
@@ -442,7 +481,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- RARE (cont.) -->
-    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" onclick="tog(this)">
+    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" data-type="ev_charger" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">⚡</div>
         <div class="cinfo"><div class="ctitle">EV Chargers</div><div class="cshort">Over 12,000 real charging stations on the map. Each one earns from live session counts. Buy a cluster near a motorway and watch commuter traffic do the work.</div></div>
@@ -472,7 +511,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="41.9009" data-lon="12.5009" data-icon="🚉" onclick="tog(this)">
+    <div class="cat" data-lat="41.9009" data-lon="12.5009" data-icon="🚉" data-type="station" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚉</div>
         <div class="cinfo"><div class="ctitle">Stations</div><div class="cshort">Helsinki Central, Roma Termini, Victoria Coach Station. Hundreds of thousands of passengers a day. The income never stops.</div></div>
@@ -503,7 +542,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- EPIC -->
-    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" onclick="tog(this)">
+    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" data-type="train" data-rarity="re" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚂</div>
         <div class="cinfo"><div class="ctitle">Trains</div><div class="cshort">Real intercity rail running real routes. Iconic lines like the VR IC or the Jubilee can reach epic or legendary tier depending on ridership.</div></div>
@@ -533,7 +572,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" onclick="tog(this)">
+    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" data-type="tube" data-rarity="re" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚇</div>
         <div class="cinfo"><div class="ctitle">Metro / Tube</div><div class="cshort">Underground networks from Paris to Tokyo. High volume routes mean steady income every hour regardless of weather or season.</div></div>
@@ -562,7 +601,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
         <div class="minimap"><div class="minimap-el"></div></div>
       </div></div>
     </div>
-    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" onclick="tog(this)">
+    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" data-type="boat" data-rarity="re" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">⛴️</div>
         <div class="cinfo"><div class="ctitle">Boats</div><div class="cshort">Thames Clippers, Amsterdam canals, Singapore river taxis. Scenic routes with surprisingly solid returns once you understand the tidal patterns.</div></div>
@@ -593,7 +632,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     </div>
 
     <!-- LEGENDARY -->
-    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" onclick="tog(this)">
+    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" data-type="plane" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">✈️</div>
         <div class="cinfo"><div class="ctitle">Planes</div><div class="cshort">The top of the food chain. Intercontinental range, sky-high income per km and some of the hardest assets to get your hands on.</div></div>
@@ -623,7 +662,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="38.7653" data-lon="-9.0967" data-icon="🚠" onclick="tog(this)">
+    <div class="cat" data-lat="38.7653" data-lon="-9.0967" data-icon="🚠" data-type="cable_car" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚠</div>
         <div class="cinfo"><div class="ctitle">Cable Cars</div><div class="cshort">A handful of cable cars exist worldwide and every one of them is a legendary. Niche infrastructure with a loyal daily ridership and no real competition.</div></div>
@@ -653,7 +692,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" onclick="tog(this)">
+    <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" data-type="airport" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🛫</div>
         <div class="cinfo"><div class="ctitle">Airports</div><div class="cshort">Heathrow, Schiphol, Dubai International. Income scales with actual daily flight operations. Busy travel seasons hit different when you own the runway.</div></div>
@@ -683,7 +722,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" onclick="tog(this)">
+    <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" data-type="windmill" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🌪️</div>
         <div class="cinfo"><div class="ctitle">Wind Turbines</div><div class="cshort">Real offshore wind farms connected to live weather feeds. A stormy week off the North Sea pays out more than a calm one. You learn to watch the forecast.</div></div>
@@ -719,7 +758,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" onclick="tog(this)">
+    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" data-type="stadium" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🏟️</div>
         <div class="cinfo"><div class="ctitle">Stadiums</div><div class="cshort">Wembley, Camp Nou, Maracanã. Quiet most of the week. On match day the income spikes harder than anything else in the game.</div></div>
@@ -749,7 +788,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
       </div></div>
     </div>
 
-    <div class="cat" data-lat="50.4167" data-lon="13.7833" data-icon="🏭" onclick="tog(this)">
+    <div class="cat" data-lat="50.4167" data-lon="13.7833" data-icon="🏭" data-type="factory" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🏭</div>
         <div class="cinfo"><div class="ctitle">Factories & Power Plants</div><div class="cshort">The heaviest assets in the game. Power plants, coal stations, industrial parks. You need a guild to get in and serious capital to stay in.</div></div>
@@ -906,8 +945,178 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-const maps = new WeakMap();
+// ─── WORLD MAP ────────────────────────────────────────────────────────────────
+const ASSETS = [
+  // Common
+  {e:'🛴',r:'rc',t:'SCOOTER',n:'COOLTRA SCOOTER #8841',loc:'🇪🇸 Barcelona, Spain',lat:41.385,lon:2.173,
+   s1:'2 TC/km',sub:'10 TC/h idle',s2:'83 km',s3:'+166 TC',
+   roi:'−1 340 TC',tot_lbl:'Odometer',tot:'830 km',profit:'+1 660 TC',price:'3 000 VC',fleet:'10 days'},
+  {e:'🛵',r:'rc',t:'MOPED',n:'PENNY.RENT #1147',loc:'🇬🇷 Thessaloniki, Greece',lat:40.640,lon:22.944,
+   s1:'3.8 TC/km',sub:'18 TC/h idle',s2:'94 km',s3:'+357 TC',
+   roi:'−4 643 TC',tot_lbl:'Odometer',tot:'940 km',profit:'+3 357 TC',price:'8 000 VC',fleet:'22 days'},
+  // Rare
+  {e:'🚌',r:'rr',t:'BUS',n:'MPK BUS #2383',loc:'🇵🇱 Lublin, Poland',lat:51.265,lon:22.567,
+   s1:'3.4 TC/km',sub:'3.4 TC/h',s2:'132 km',s3:'+376 TC',
+   roi:'−11 729 TC',tot_lbl:'Odometer',tot:'674 km',profit:'+3 271 TC',price:'15 000 VC',fleet:'6 days'},
+  {e:'⚡',r:'rr',t:'EV CHARGER',n:'STOCKHOLM HUB #3847',loc:'🇸🇪 Stockholm, Sweden',lat:59.329,lon:18.068,
+   s1:'480 TC/day',sub:null,s2:'847 sessions',s3:'+508 TC',
+   roi:'−9 240 TC',tot_lbl:'Total sessions',tot:'12 705 ses',profit:'+15 760 TC',price:'25 000 VC',fleet:'31 days'},
+  {e:'🚉',r:'rr',t:'STATION',n:'ROMA TERMINI',loc:'🇮🇹 Rome, Italy',lat:41.901,lon:12.501,
+   s1:'12 000 TC/day',sub:null,s2:'68 400 pax',s3:'+12 000 TC',
+   roi:'−7 410 000 TC',tot_lbl:'Days active',tot:'14 days',profit:'+168 000 TC',price:'7 500 000 VC',fleet:'14 days'},
+  // Epic
+  {e:'🚂',r:'re',t:'TRAIN',n:'VR IC #2209',loc:'🇫🇮 Helsinki, Finland',lat:60.172,lon:24.941,
+   s1:'12 TC/km',sub:'180 TC/h idle',s2:'812 km',s3:'+9 744 TC',
+   roi:'−21 280 TC',tot_lbl:'Odometer',tot:'4 060 km',profit:'+48 720 TC',price:'70 000 VC',fleet:'5 days'},
+  {e:'🚇',r:'re',t:'METRO',n:'PARIS MÉTRO L14 #0774',loc:'🇫🇷 Paris, France',lat:48.860,lon:2.347,
+   s1:'9 TC/km',sub:'100 TC/h idle',s2:'496 km',s3:'+4 464 TC',
+   roi:'−1 752 TC',tot_lbl:'Odometer',tot:'3 472 km',profit:'+28 248 TC',price:'30 000 VC',fleet:'7 days'},
+  {e:'⛴️',r:'re',t:'BOAT',n:'GVB FERRY #0312',loc:'🇳🇱 Amsterdam, Netherlands',lat:52.377,lon:4.900,
+   s1:'20 TC/km',sub:'350 TC/h idle',s2:'1 980 km',s3:'+39 600 TC',
+   roi:'−41 600 TC',tot_lbl:'Odometer',tot:'7 920 km',profit:'+158 400 TC',price:'200 000 VC',fleet:'4 days'},
+  // Legendary
+  {e:'✈️',r:'rl',t:'PLANE',n:'ANA B787 #001',loc:'🇯🇵 Narita, Japan',lat:35.764,lon:140.386,
+   s1:'25 TC/km',sub:'500 TC/h idle',s2:'10 243 km',s3:'+256 075 TC',
+   roi:'−115 888 TC',tot_lbl:'Odometer',tot:'15 365 km',profit:'+384 112 TC',price:'500 000 VC',fleet:'1 day'},
+  {e:'🚠',r:'rl',t:'CABLE CAR',n:'TELECABINE LISBOA',loc:'🇵🇹 Lisbon, Portugal',lat:38.765,lon:-9.097,
+   s1:'20 000 TC/day',sub:null,s2:'4 812 pax',s3:'+20 000 TC',
+   roi:'−11 860 000 TC',tot_lbl:'Days active',tot:'7 days',profit:'+140 000 TC',price:'12 000 000 VC',fleet:'7 days'},
+  {e:'🛫',r:'rl',t:'AIRPORT',n:'DUBAI INTL DXB',loc:'🇦🇪 Dubai, UAE',lat:25.253,lon:55.365,
+   s1:'80 000 TC/day',sub:null,s2:'1 287 flights',s3:'+102 960 TC',
+   roi:'−199 897 040 TC',tot_lbl:'Days active',tot:'3 days',profit:'+308 880 TC',price:'200 000 000 VC',fleet:'3 days'},
+  {e:'🌪️',r:'rl',t:'WIND FARM',n:'MIDDELGRUNDEN #0048',loc:'🇩🇰 Copenhagen, Denmark',lat:55.687,lon:12.646,
+   s1:'1 800 TC/day',sub:null,s2:'6.4 MWh',s3:'+2 240 TC',
+   roi:'−87 800 TC',tot_lbl:'Total output',tot:'192 MWh',profit:'+62 200 TC',price:'150 000 VC',fleet:'30 days'},
+  {e:'🏟️',r:'rl',t:'STADIUM',n:'MARACANÃ STADIUM',loc:'🇧🇷 Rio de Janeiro, Brazil',lat:-22.912,lon:-43.230,
+   s1:'25 000 TC/event',sub:null,s2:'1 match',s3:'+25 000 TC',
+   roi:'−49 950 000 TC',tot_lbl:'Events held',tot:'2 total',profit:'+50 000 TC',price:'50 000 000 VC',fleet:'2 days'},
+  {e:'🏭',r:'rl',t:'POWER PLANT',n:'ELEKTRÁRNA POČERADY',loc:'🇨🇿 Počerady, Czech Republic',lat:50.417,lon:13.783,
+   s1:'11 000 TC/tick',sub:null,s2:'22 TWh/yr',s3:'+264 000 TC',
+   roi:'−247 360 000 TC',tot_lbl:'Days active',tot:'10 days',profit:'+2 640 000 TC',price:'250 000 000 VC',fleet:'10 days'},
+];
 
+const ASSET_SVGS = {
+  plane:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>`,
+  bus:        `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4S4 2.5 4 6v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h10v5z"/></svg>`,
+  train:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zm0 2c3.51 0 5.44.49 5.93 1H6.07C6.56 4.49 8.49 4 12 4zM6 7h5v4H6zm6 0h6v4h-6zm-4.5 8c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`,
+  tube:       `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 4 2.5 4 6v9.5A2.5 2.5 0 0 0 6.5 18l-1 1v1h13v-1l-1-1a2.5 2.5 0 0 0 2.5-2.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 5.5.5 6 1H6c.5-.5 2.5-1 6-1zM6 7h5v4H6zm7 0h5v4h-5zm-5.5 8A1.5 1.5 0 0 1 6 13.5 1.5 1.5 0 0 1 7.5 12 1.5 1.5 0 0 1 9 13.5 1.5 1.5 0 0 1 7.5 15zm9 0A1.5 1.5 0 0 1 15 13.5a1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5z"/></svg>`,
+  boat:       `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zm-2.58-1.58-1.43-.86C15.09 18.21 14.05 18 13 18c-1.05 0-2.09.21-3 .56l-1.42-.86.42-.7C9.88 16.36 11.43 16 13 16s3.12.36 4 1zM10 9H7l-.76-1.14A1 1 0 0 0 5.38 7.5L4 14h16l-3-6h-4V6h-3z"/></svg>`,
+  scooter:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h5.08a1 1 0 0 0 1-.85 6 6 0 0 1 5-5.07"/><circle cx="19" cy="19" r="2"/><circle cx="5" cy="19" r="2"/><path d="M18 7h-2a1 1 0 0 0-1 1.15L16.69 19"/></svg>`,
+  moped:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1zM19 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>`,
+  bike:       `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4C7.3 8.8 7 9.4 7 10c0 .6.3 1.2.8 1.6l3.2 2.7V19h2v-5.5l-2.2-3zm9.2 2c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>`,
+  ev_charger: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0v-6.998a2 2 0 0 0-.59-1.42L18 5"/><path d="M14 21V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16"/><path d="M2 21h13"/><path d="M3 7h11"/><path d="m9 11-2 3h3l-2 3"/></svg>`,
+  station:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 4 2.5 4 6v9.5A2.5 2.5 0 0 0 6.5 18l-1 1v1h13v-1l-1-1a2.5 2.5 0 0 0 2.5-2.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 5.5.5 6 1H6c.5-.5 2.5-1 6-1zM6 7h5v4H6zm7 0h5v4h-5z"/></svg>`,
+  windmill:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c2.76 0 5-2.01 5-4.5S14.76 3 12 3v9"/><path d="M12 12c0 2.76 2.01 5 4.5 5S21 14.76 21 12h-9"/><path d="M12 12c-2.76 0-5 2.01-5 4.5S9.24 21 12 21v-9"/><path d="M12 12c0-2.76-2.01-5-4.5-5S3 9.24 3 12h9"/></svg>`,
+  stadium:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>`,
+  cable_car:  `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H7L5.5 4.5 4 6H3v2h1l2 9h12l2-9h1V6h-1L18.5 4.5 17 6zm0 9H7l-1.5-7h9.5V6h2l1.5 7z"/></svg>`,
+  airport:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>`,
+  factory:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18V9l5 3V9l5 3V4l5 14H4z"/></svg>`,
+};
+
+const ASSET_COLORS = {
+  plane:'#a78bfa', bus:'#6ee7b7', train:'#93c5fd', tube:'#60a5fa',
+  boat:'#38bdf8', scooter:'#86efac', moped:'#fdba74', bike:'#a3e635',
+  ev_charger:'#34d399', station:'#60a5fa', windmill:'#7dd3fc',
+  stadium:'#fbbf24', cable_car:'#fbbf24', airport:'#fbbf24',
+  factory:'#fbbf24',
+};
+
+const TYPE_MAP = {
+  'SCOOTER':'scooter','MOPED':'moped','BUS':'bus','EV CHARGER':'ev_charger',
+  'STATION':'station','TRAIN':'train','METRO':'tube','BOAT':'boat',
+  'PLANE':'plane','CABLE CAR':'cable_car','AIRPORT':'airport',
+  'WIND FARM':'windmill','STADIUM':'stadium','POWER PLANT':'factory','FACTORY':'factory',
+};
+
+const RARITY_COLORS = {rl:'#eab308',re:'#8b5cf6',rr:'#3b82f6',rc:'#555'};
+const rarityLabel = {rl:'Legendary',re:'Epic',rr:'Rare',rc:'Common'};
+
+function buildPopup(a){
+  return `
+    <div class="gchead">
+      <div class="gcthumb" style="border:2px solid ${RARITY_COLORS[a.r]}">${a.e}</div>
+      <div class="gcnr">
+        <div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">${a.n}</span></div>
+        <div class="gcloc">${a.loc}</div>
+      </div>
+      <div class="gcbadges"><span class="gctype">${a.t}</span></div>
+    </div>
+    <div class="gcstats">
+      <div class="gcst"><div class="gclbl">Stake</div><div class="gcval sm">${a.s1}</div>${a.sub ? `<div class="gcsub">${a.sub}</div>` : ''}</div>
+      <div class="gcst"><div class="gclbl">Last 24h</div><div class="gcval">${a.s2}</div></div>
+      <div class="gcst"><div class="gclbl">Last 24h profit</div><div class="gcval gold">${a.s3}</div></div>
+    </div>
+    <div class="gcstats">
+      <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">${a.roi}</div></div>
+      <div class="gcst"><div class="gclbl">${a.tot_lbl||'Total'}</div><div class="gcval">${a.tot}</div></div>
+      <div class="gcst"><div class="gclbl">Profit</div><div class="gcval gold">${a.profit}</div></div>
+    </div>
+    <div class="gcmeta">
+      <span>PURCHASE <span>${a.price}</span></span>
+      <span>IN FLEET <span>${a.fleet}</span></span>
+    </div>
+    <div class="gcact">
+      <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+      <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
+      <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
+    </div>`;
+}
+
+function initWorldMap(){
+  const map = L.map('world-map', {
+    center: [54, 15],
+    zoom: 5,
+    minZoom: 3,
+    maxZoom: 14,
+    zoomControl: true,
+    attributionControl: false,
+  });
+
+  L.tileLayer('https://api.maptiler.com/maps/dataviz-dark/{z}/{x}/{y}.png?key=gVLyar0EiT75LpMPvAGQ', {
+    maxZoom: 19, tileSize: 256
+  }).addTo(map);
+
+  ASSETS.forEach(a => {
+    const typeKey = TYPE_MAP[a.t] || 'bus';
+    const color   = ASSET_COLORS[typeKey] || '#aaa';
+    const svg     = ASSET_SVGS[typeKey]   || ASSET_SVGS.bus;
+    const isLegendary = a.r === 'rl';
+    const glow = isLegendary
+      ? `drop-shadow(0 0 5px ${color}cc) drop-shadow(0 0 2px ${color}88)`
+      : `drop-shadow(0 1px 3px rgba(0,0,0,.9))`;
+
+    const html = `<div style="width:36px;height:36px;color:${color};filter:${glow};display:flex;align-items:center;justify-content:center;">${svg}</div>`;
+
+    const icon = L.divIcon({
+      html,
+      className: '',
+      iconSize:   [36, 36],
+      iconAnchor: [18, 18],
+      popupAnchor:[0, -20]
+    });
+
+    L.marker([a.lat, a.lon], {icon})
+      .addTo(map)
+      .bindPopup(buildPopup(a), {
+        maxWidth: 320,
+        className: 'tc-popup',
+        closeButton: true,
+        autoPan: true,
+      });
+  });
+}
+
+// init map when section scrolls into view
+const mapObs = new IntersectionObserver(entries => {
+  if(entries[0].isIntersecting){
+    initWorldMap();
+    mapObs.disconnect();
+  }
+}, {threshold: 0.1});
+mapObs.observe(document.getElementById('world-map'));
+// ─── END WORLD MAP ────────────────────────────────────────────────────────────
+
+const maps = new WeakMap();
 function tog(el){
   const wasOpen = el.classList.contains('open');
   document.querySelectorAll('.cat.open').forEach(c => c.classList.remove('open'));
@@ -915,13 +1124,19 @@ function tog(el){
     el.classList.add('open');
     // init map if desktop and not already created
     if(window.innerWidth >= 768 && !maps.has(el)){
-      const lat = parseFloat(el.dataset.lat);
-      const lon = parseFloat(el.dataset.lon);
-      const icon = el.dataset.icon;
-      // wait for CSS transition to fully complete before init
+      const lat     = parseFloat(el.dataset.lat);
+      const lon     = parseFloat(el.dataset.lon);
+      const typeKey = el.dataset.type || 'bus';
+      const color   = ASSET_COLORS[typeKey] || '#eab308';
+      const svg     = ASSET_SVGS[typeKey]   || ASSET_SVGS.bus;
+      const rarity  = el.dataset.rarity || 'rc';
+      const isLegendary = rarity === 'rl';
+      const glow = isLegendary
+        ? `drop-shadow(0 0 7px ${color}cc) drop-shadow(0 0 3px ${color}88)`
+        : `drop-shadow(0 1px 4px rgba(0,0,0,.95))`;
+
       setTimeout(() => {
         const mapEl = el.querySelector('.minimap-el');
-        // force explicit size on container
         mapEl.style.width  = '220px';
         mapEl.style.height = '280px';
         const m = L.map(mapEl, {
@@ -936,14 +1151,16 @@ function tog(el){
           keyboard: false,
           tap: false,
         });
-        L.tileLayer('https://api.maptiler.com/maps/019a8cee-5746-7a6b-8b3e-5b77f70b3ad1/256/{z}/{x}/{y}.png?key=gVLyar0EiT75LpMPvAGQ', {
+        // Same tile style as main world map
+        L.tileLayer('https://api.maptiler.com/maps/dataviz-dark/{z}/{x}/{y}.png?key=gVLyar0EiT75LpMPvAGQ', {
           maxZoom: 19, tileSize: 256
         }).addTo(m);
+        // Same SVG icon style as main world map markers
         const divIcon = L.divIcon({
-          html: `<div style="font-size:1.6rem;filter:drop-shadow(0 0 8px rgba(234,179,8,.9))">${icon}</div>`,
+          html: `<div style="width:36px;height:36px;color:${color};filter:${glow};display:flex;align-items:center;justify-content:center;">${svg}</div>`,
           className: '',
-          iconSize: [32, 32],
-          iconAnchor: [16, 16]
+          iconSize:   [36, 36],
+          iconAnchor: [18, 18]
         });
         L.marker([lat, lon], {icon: divIcon}).addTo(m);
         m.invalidateSize();
