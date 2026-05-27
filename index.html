@@ -226,11 +226,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   border-top:1px solid var(--b1);opacity:.35;cursor:default;font-size:.58rem}
 
 /* MINI MAP */
-.minimap{display:none;width:220px;height:280px;flex-shrink:0;
-  border-left:1px solid var(--b1);margin:.65rem .9rem .9rem 0;background:#0a0c11}
-.minimap-el{width:100%;height:100%}
+.minimap{display:none;width:260px;flex-shrink:0;
+  border-left:1px solid var(--b1);margin:.65rem .9rem .9rem 0;background:#0a0c11;
+  flex-direction:column}
+.minimap-el{width:100%;flex:1;min-height:0}
 .minimap .leaflet-container{background:#080a0f !important;width:100% !important;height:100% !important}
 .minimap .leaflet-control-zoom,.minimap .leaflet-control-attribution{display:none !important}
+/* Bus HUD strip */
+.bus-hud{font-family:var(--fm);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.45rem .7rem;border-top:1px solid var(--b1);display:flex;justify-content:space-between;
+  align-items:center;gap:.5rem;background:#06080d;flex-shrink:0}
+.bus-hud-stop{color:#fff;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.bus-hud-state{display:flex;align-items:center;gap:.32rem;flex-shrink:0}
+.bus-dot-moving{width:7px;height:7px;background:#4ade80;border-radius:50%;
+  animation:busmove 0.7s ease-in-out infinite}
+.bus-dot-stopped{width:7px;height:7px;background:var(--gold);border-radius:50%}
+@keyframes busmove{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+/* Bus marker pulse */
+@keyframes busmarker-move{0%,100%{filter:drop-shadow(0 0 5px #6ee7b7cc)}50%{filter:drop-shadow(0 0 12px #6ee7b7ff) drop-shadow(0 0 3px #6ee7b7)}}
+@keyframes busmarker-stop{0%,100%{filter:drop-shadow(0 0 6px #eab308cc)}50%{filter:drop-shadow(0 0 2px #eab30844)}}
+.bus-marker-moving{animation:busmarker-move .7s ease-in-out infinite}
+.bus-marker-stopped{animation:busmarker-stop 1.4s ease-in-out infinite}
 
 /* HOW IT WORKS */
 .howgrid{display:flex;flex-direction:column;gap:1px;background:var(--b1);
@@ -302,7 +318,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   .sec{padding:4rem 2rem;max-width:800px;margin:0 auto}
   .catsec{padding:4rem 2rem;max-width:800px;margin:0 auto}
   .cat-expand{flex-direction:row;align-items:stretch}
-  .minimap{display:block}
+  .minimap{display:flex;height:310px}
+  .minimap-el{height:270px}
+  .cat.open .catbody{max-height:1100px}
   .howgrid{display:grid;grid-template-columns:repeat(2,1fr)}
 }
 @media(min-width:1100px){
@@ -445,11 +463,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
             <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4-4 4 4M7 5v14M21 15l-4 4-4-4m4 4V5"/></svg>TRADE</div>
           </div>
         </div>
-        <div class="minimap"><div class="minimap-el"></div></div>
-      </div></div>
-    </div>
-
-    <!-- RARE -->
+        <div class="minimap" id="bus-minimap">
+          <div class="minimap-el" id="bus-minimap-el"></div>
+          <div class="bus-hud" id="bus-hud">
+            <span class="bus-hud-stop" id="bus-hud-stop">Dworzec PKS</span>
+            <span class="bus-hud-state">
+              <span class="bus-dot-moving" id="bus-dot"></span>
+              <span style="color:#4ade80;font-weight:700" id="bus-status">W TRASIE</span>
+            </span>
+          </div>
+        </div>
     <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" data-type="bus" data-rarity="rr" onclick="tog(this)">
       <div class="catrow">
         <div class="cico">🚌</div>
@@ -1116,13 +1139,166 @@ const mapObs = new IntersectionObserver(entries => {
 mapObs.observe(document.getElementById('world-map'));
 // ─── END WORLD MAP ────────────────────────────────────────────────────────────
 
+// ─── BUS SIMULATION — LINIA 10 MPK LUBLIN ─────────────────────────────────────
+// Trasa: Dworzec PKS → ul. Kunickiego → ul. 1 Maja → Centrum
+//        → Krakowskie Przedmieście → Al. Racławickie → Politechnika
+// Punkty GPS odwzorowują rzeczywistą geometrię ulic Lublina
+
+const BUS_STOPS = [
+  { name: "Dworzec PKS",           lat: 51.24720, lon: 22.57300 },
+  { name: "Dworzec Główny 01",     lat: 51.24810, lon: 22.57060 },
+  { name: "Dworzec Główny 02",     lat: 51.24890, lon: 22.56720 },
+  { name: "1 Maja",                lat: 51.24960, lon: 22.56440 },
+  { name: "Centrum",               lat: 51.25110, lon: 22.56220 },
+  { name: "Pl. Lecha Kaczyńskiego",lat: 51.25290, lon: 22.56180 },
+  { name: "Krakowskie Przedm.",    lat: 51.25470, lon: 22.56310 },
+  { name: "Lipowa",                lat: 51.25710, lon: 22.56490 },
+  { name: "Al. Racławickie 01",    lat: 51.25890, lon: 22.56710 },
+  { name: "Al. Racławickie 02",    lat: 51.26040, lon: 22.56980 },
+  { name: "Narutowicza",          lat: 51.26180, lon: 22.57280 },
+  { name: "Politechnika",         lat: 51.26340, lon: 22.57610 },
+];
+
+// Dense GPS path snapping to real Lublin streets
+// ul. Kunickiego → ul. Dworcowa → ul. 1 Maja → ul. Królewska
+// → Krakowskie Przedmieście → Al. Racławickie
+const BUS_ROUTE = [
+  // Dworzec PKS area — ul. Dworcowa
+  [51.24720, 22.57300],[51.24740, 22.57240],[51.24760, 22.57170],[51.24790, 22.57100],
+  // → ul. 1 Maja heading north
+  [51.24810, 22.57060],[51.24840, 22.56980],[51.24860, 22.56870],[51.24890, 22.56720],
+  [51.24910, 22.56640],[51.24930, 22.56560],[51.24960, 22.56440],
+  // Centrum junction — skręt w prawo
+  [51.24990, 22.56370],[51.25030, 22.56310],[51.25070, 22.56270],[51.25110, 22.56220],
+  // Pl. Lecha Kaczyńskiego — prosto
+  [51.25150, 22.56200],[51.25190, 22.56190],[51.25230, 22.56185],[51.25290, 22.56180],
+  // Krakowskie Przedmieście — skręt
+  [51.25330, 22.56200],[51.25370, 22.56230],[51.25410, 22.56260],[51.25470, 22.56310],
+  // ul. Lipowa — lekki łuk
+  [51.25510, 22.56340],[51.25550, 22.56370],[51.25590, 22.56400],[51.25630, 22.56430],
+  [51.25670, 22.56460],[51.25710, 22.56490],
+  // Al. Racławickie — długa prosta z lekkim skosem
+  [51.25750, 22.56530],[51.25790, 22.56570],[51.25830, 22.56610],[51.25860, 22.56650],
+  [51.25890, 22.56710],[51.25920, 22.56760],[51.25950, 22.56810],[51.25980, 22.56870],
+  [51.26010, 22.56920],[51.26040, 22.56980],
+  // Narutowicza — skręt
+  [51.26070, 22.57040],[51.26090, 22.57100],[51.26120, 22.57160],[51.26150, 22.57220],
+  [51.26180, 22.57280],
+  // Politechnika — dojazd
+  [51.26210, 22.57350],[51.26240, 22.57420],[51.26280, 22.57510],[51.26310, 22.57570],
+  [51.26340, 22.57610],
+];
+
+// Build stop-to-route-index mapping (nearest point on route)
+function nearestRouteIdx(lat, lon) {
+  let best = 0, bestD = Infinity;
+  BUS_ROUTE.forEach(([rlat, rlon], i) => {
+    const d = Math.hypot(rlat - lat, rlon - lon);
+    if (d < bestD) { bestD = d; best = i; }
+  });
+  return best;
+}
+const STOP_INDICES = BUS_STOPS.map(s => nearestRouteIdx(s.lat, s.lon));
+
+let busSimTimer = null;
+let busSimReverse = false;
+
+function startBusSim(map, marker, markerEl) {
+  let routeIdx  = 0;   // current point index in BUS_ROUTE
+  let stopIdx   = 0;   // current / approaching stop
+  let stopped   = false;
+  let stopTimer = 0;
+  const STOP_DWELL = 3000;   // ms stopped at each stop
+  const STEP_MS    = 60;     // animation tick
+  const STEPS_BTW  = 4;      // route points per tick (speed)
+
+  const hudStop   = document.getElementById('bus-hud-stop');
+  const hudDot    = document.getElementById('bus-dot');
+  const hudStatus = document.getElementById('bus-status');
+
+  function setMoving() {
+    markerEl.className = 'bus-marker-moving';
+    if (hudDot)    { hudDot.className = 'bus-dot-moving'; }
+    if (hudStatus) { hudStatus.textContent = 'W TRASIE'; hudStatus.style.color = '#4ade80'; }
+  }
+  function setStopped(name) {
+    markerEl.className = 'bus-marker-stopped';
+    if (hudDot)    { hudDot.className = 'bus-dot-stopped'; }
+    if (hudStatus) { hudStatus.textContent = 'PRZYSTANEK'; hudStatus.style.color = '#eab308'; }
+    if (hudStop)   { hudStop.textContent = name; }
+  }
+
+  function tick() {
+    if (stopped) {
+      stopTimer -= STEP_MS;
+      if (stopTimer <= 0) {
+        stopped = false;
+        setMoving();
+        // advance past stop point
+        routeIdx = Math.min(routeIdx + 1, BUS_ROUTE.length - 1);
+      }
+      return;
+    }
+
+    // advance along route
+    routeIdx += STEPS_BTW;
+
+    // Check if we've reached end → reverse direction
+    if (routeIdx >= BUS_ROUTE.length - 1) {
+      routeIdx = BUS_ROUTE.length - 1;
+      busSimReverse = true;
+    }
+    if (busSimReverse) {
+      routeIdx -= STEPS_BTW;
+      if (routeIdx <= 0) {
+        routeIdx = 0;
+        busSimReverse = false;
+        stopIdx = 0;
+      }
+    }
+
+    const [lat, lon] = BUS_ROUTE[routeIdx];
+    marker.setLatLng([lat, lon]);
+    map.panTo([lat, lon], { animate: true, duration: STEP_MS / 1000 });
+
+    // Check if near a stop
+    const nextStopRouteIdx = busSimReverse
+      ? STOP_INDICES.slice(0, stopIdx + 1).reverse()[0]
+      : STOP_INDICES[stopIdx];
+
+    if (!busSimReverse && routeIdx >= nextStopRouteIdx) {
+      const stop = BUS_STOPS[stopIdx];
+      setStopped(stop.name);
+      stopped    = true;
+      stopTimer  = STOP_DWELL;
+      stopIdx    = Math.min(stopIdx + 1, BUS_STOPS.length - 1);
+    } else if (busSimReverse) {
+      const revStopIdx = BUS_STOPS.length - 1 - stopIdx;
+      if (revStopIdx >= 0 && routeIdx <= STOP_INDICES[revStopIdx]) {
+        setStopped(BUS_STOPS[revStopIdx].name);
+        stopped   = true;
+        stopTimer = STOP_DWELL;
+        stopIdx   = Math.min(stopIdx + 1, BUS_STOPS.length - 1);
+      }
+    }
+  }
+
+  setMoving();
+  if (hudStop) hudStop.textContent = BUS_STOPS[0].name;
+  if (busSimTimer) clearInterval(busSimTimer);
+  busSimTimer = setInterval(tick, STEP_MS);
+}
+// ─── END BUS SIMULATION ────────────────────────────────────────────────────────
+
 const maps = new WeakMap();
 function tog(el){
   const wasOpen = el.classList.contains('open');
   document.querySelectorAll('.cat.open').forEach(c => c.classList.remove('open'));
+  // Pause bus sim when closing
+  if (wasOpen && busSimTimer) { clearInterval(busSimTimer); busSimTimer = null; }
+
   if(!wasOpen){
     el.classList.add('open');
-    // init map if desktop and not already created
     if(window.innerWidth >= 768 && !maps.has(el)){
       const lat     = parseFloat(el.dataset.lat);
       const lon     = parseFloat(el.dataset.lon);
@@ -1130,6 +1306,7 @@ function tog(el){
       const color   = ASSET_COLORS[typeKey] || '#eab308';
       const svg     = ASSET_SVGS[typeKey]   || ASSET_SVGS.bus;
       const rarity  = el.dataset.rarity || 'rc';
+      const isBus   = typeKey === 'bus';
       const isLegendary = rarity === 'rl';
       const glow = isLegendary
         ? `drop-shadow(0 0 7px ${color}cc) drop-shadow(0 0 3px ${color}88)`
@@ -1137,11 +1314,16 @@ function tog(el){
 
       setTimeout(() => {
         const mapEl = el.querySelector('.minimap-el');
-        mapEl.style.width  = '220px';
-        mapEl.style.height = '280px';
+        mapEl.style.width  = isBus ? '260px' : '220px';
+        mapEl.style.height = isBus ? '270px' : '280px';
+
+        const startLat = isBus ? BUS_ROUTE[0][0] : lat;
+        const startLon = isBus ? BUS_ROUTE[0][1] : lon;
+        const zoom     = isBus ? 14 : 13;
+
         const m = L.map(mapEl, {
-          center: [lat, lon],
-          zoom: 13,
+          center: [startLat, startLon],
+          zoom,
           zoomControl: false,
           attributionControl: false,
           dragging: false,
@@ -1151,21 +1333,77 @@ function tog(el){
           keyboard: false,
           tap: false,
         });
-        // Same tile style as main world map
+
         L.tileLayer('https://api.maptiler.com/maps/dataviz-dark/{z}/{x}/{y}.png?key=gVLyar0EiT75LpMPvAGQ', {
           maxZoom: 19, tileSize: 256
         }).addTo(m);
-        // Same SVG icon style as main world map markers
-        const divIcon = L.divIcon({
-          html: `<div style="width:36px;height:36px;color:${color};filter:${glow};display:flex;align-items:center;justify-content:center;">${svg}</div>`,
-          className: '',
-          iconSize:   [36, 36],
-          iconAnchor: [18, 18]
-        });
-        L.marker([lat, lon], {icon: divIcon}).addTo(m);
-        m.invalidateSize();
-        maps.set(el, m);
+
+        if (isBus) {
+          // Draw the route polyline
+          L.polyline(BUS_ROUTE, {
+            color: '#6ee7b7',
+            weight: 3,
+            opacity: 0.55,
+            dashArray: null,
+          }).addTo(m);
+
+          // Draw stop dots
+          BUS_STOPS.forEach((stop, i) => {
+            const isTerminus = i === 0 || i === BUS_STOPS.length - 1;
+            L.circleMarker([stop.lat, stop.lon], {
+              radius:      isTerminus ? 5 : 3,
+              color:       isTerminus ? '#eab308' : '#6ee7b7',
+              fillColor:   isTerminus ? '#eab308' : '#080a0f',
+              fillOpacity: 1,
+              weight:      isTerminus ? 2 : 1.5,
+            }).addTo(m);
+          });
+
+          // Bus marker with pulsing wrapper div
+          const markerEl = document.createElement('div');
+          markerEl.className = 'bus-marker-moving';
+          markerEl.style.cssText = `width:36px;height:36px;color:${color};display:flex;align-items:center;justify-content:center;`;
+          markerEl.innerHTML = ASSET_SVGS.bus;
+
+          const busIcon = L.divIcon({
+            html: markerEl.outerHTML,
+            className: '',
+            iconSize:   [36, 36],
+            iconAnchor: [18, 18],
+          });
+          const busMarker = L.marker([startLat, startLon], { icon: busIcon, zIndexOffset: 1000 }).addTo(m);
+
+          // We need live reference to the inner div for class toggling
+          // Re-get after Leaflet inserts it into DOM
+          m.invalidateSize();
+          maps.set(el, m);
+
+          // Start simulation after marker is in DOM
+          requestAnimationFrame(() => {
+            const liveEl = mapEl.querySelector('.bus-marker-moving, .bus-marker-stopped');
+            if (liveEl) startBusSim(m, busMarker, liveEl);
+          });
+
+        } else {
+          // Standard static marker for all other asset types
+          const divIcon = L.divIcon({
+            html: `<div style="width:36px;height:36px;color:${color};filter:${glow};display:flex;align-items:center;justify-content:center;">${svg}</div>`,
+            className: '',
+            iconSize:   [36, 36],
+            iconAnchor: [18, 18],
+          });
+          L.marker([lat, lon], { icon: divIcon }).addTo(m);
+          m.invalidateSize();
+          maps.set(el, m);
+        }
       }, 500);
+    } else if (maps.has(el) && el.dataset.type === 'bus') {
+      // Re-open: restart sim
+      const m = maps.get(el);
+      const mapEl = el.querySelector('.minimap-el');
+      const liveEl = mapEl.querySelector('.bus-marker-moving, .bus-marker-stopped');
+      const busMarker = Object.values(m._layers).find(l => l instanceof L.Marker);
+      if (liveEl && busMarker) startBusSim(m, busMarker, liveEl);
     }
   }
 }
