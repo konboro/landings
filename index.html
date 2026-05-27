@@ -98,9 +98,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .hsl{font-family:var(--fm);font-size:.57rem;text-transform:uppercase;letter-spacing:.12em;color:#4a5068}
 .hero-sub{font-size:.88rem;color:#888;line-height:1.75;margin-bottom:1.6rem;max-width:380px}
 .hero-sub strong{color:#bbc0cc;font-weight:500}
-.pills{display:flex;gap:.4rem;overflow-x:auto;padding:.1rem .05rem .8rem;
-  width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.pills::-webkit-scrollbar{display:none}
+.pills{width:100%;overflow:hidden;margin-bottom:.9rem;
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.pills-track{display:flex;gap:.4rem;width:max-content;
+  animation:pills-scroll 28s linear infinite}
+.pills-track:hover{animation-play-state:paused}
+@keyframes pills-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .pill{display:inline-flex;align-items:center;gap:.3rem;flex-shrink:0;
   background:var(--surf);border:1px solid var(--b1);font-family:var(--fm);
   font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:#888;
@@ -200,7 +204,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
 .catrow{text-align:left !important}
 .cinfo{text-align:left !important}
 .ctype,.ctitle,.cshort{text-align:left !important}
-.rlrow,.rli,.wlw,.wlr,.wl-note,.wl-ok,.pills,.hcard{text-align:left}
+.rlrow,.rli,.wlw,.wlr,.wl-note,.wl-ok,.hcard{text-align:left}
 
 /* prevent number overflow in stat cells */
 .gcval{font-size:.82rem;font-weight:700;color:#eef1f8;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -297,7 +301,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
   .hsi{border-bottom:none}
   .hsi:nth-child(2n){border-right:1px solid var(--b1)}
   .hsi:last-child{border-right:none}
-  .pills{justify-content:center;overflow-x:visible;flex-wrap:wrap;padding-bottom:.4rem}
   .wlw{max-width:460px}
   .sec{padding:4rem 2rem;max-width:800px;margin:0 auto}
   .catsec{padding:4rem 2rem;max-width:800px;margin:0 auto}
@@ -368,6 +371,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     Invest in an <strong>offshore wind farm</strong>. Every asset at real GPS coordinates, earning from live data around the clock.
   </p>
   <div class="pills">
+    <div class="pills-track">
     <div class="pill">🛴 Scooters</div>
     <div class="pill">🚲 Bikes</div>
     <div class="pill">🛵 Mopeds</div>
@@ -385,6 +389,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:52px;
     <div class="pill pl">🏟️ Stadiums</div>
     <div class="pill pl">🏭 Factories</div>
     <div class="pill pl">⚡️ Power Plants</div>
+    <div class="pill">🛴 Scooters</div>
+    <div class="pill">🚲 Bikes</div>
+    <div class="pill">🛵 Mopeds</div>
+    <div class="pill pr">🚌 Buses</div>
+    <div class="pill pr">🚊 Trams</div>
+    <div class="pill pr">⚡ EV Chargers</div>
+    <div class="pill pr">🚉 Stations</div>
+    <div class="pill pe">🚂 Trains</div>
+    <div class="pill pe">🚇 Metro</div>
+    <div class="pill pe">⛴️ Boats</div>
+    <div class="pill pl">✈️ Planes</div>
+    <div class="pill pl">🚠 Cable Cars</div>
+    <div class="pill pl">🛫 Airports</div>
+    <div class="pill pl">🌪️ Wind Farms</div>
+    <div class="pill pl">🏟️ Stadiums</div>
+    <div class="pill pl">🏭 Factories</div>
+    <div class="pill pl">⚡️ Power Plants</div>
+    </div>
   </div>
   <div class="wlw" id="wh">
     <div class="wlr">
