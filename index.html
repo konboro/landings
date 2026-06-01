@@ -215,10 +215,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
 .rlrow,.rli,.wlw,.wlr,.wl-note,.wl-ok,.hcard{text-align:left}
 
 /* prevent number overflow in stat cells */
-.gcval{font-size:.82rem;font-weight:700;color:#eef1f8;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gcval{font-size:.82rem;font-weight:700;color:#eef1f8;line-height:1.2;word-break:break-word;overflow-wrap:anywhere}
 .gcval .u{font-size:.55rem;font-weight:500;opacity:.5;margin-left:.05rem}
 .gcval.gold{color:#eab308}
 .gcval.red{color:#e05040}
+.gcval.pos{color:#22c55e}
 .gcval.sm{font-size:.78rem}
 .gcsub{font-size:.6rem;color:#eef1f8;opacity:.45;margin-top:.22rem}
 .gcmeta{display:flex;justify-content:space-between;padding:.38rem .8rem;
@@ -641,16 +642,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
         <div class="gc">
           <div class="gchead"><div class="gcthumb">⚡</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">STOCKHOLM HUB #3847</span></div><div class="gcloc"><span class="gcloc-flag">🇸🇪</span>Stockholm, Sweden</div></div><div class="gcbadges"><span class="gctype">EV CHARGER</span></div></div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">480 TC</div><div class="gcsub">per day avg</div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">20 TC/session</div></div>
             <div class="gcst"><div class="gclbl">LAST 24H SESSIONS</div><div class="gcval">847<span class="u">ses</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">508<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">16 940<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−9 240 TC</div></div>
-            <div class="gcst"><div class="gclbl">TOTAL SESSIONS</div><div class="gcval">12 705<span class="u">ses</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">15 760<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−674 860 TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL SESSIONS</div><div class="gcval">26 257<span class="u">ses</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">525 140<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>25 000 VC</span></span><span>IN FLEET <span>31 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>1.2M TC</span></span><span>IN FLEET <span>31 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -671,16 +672,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
         <div class="gc">
           <div class="gchead"><div class="gcthumb">🚉</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">ROMA TERMINI</span></div><div class="gcloc"><span class="gcloc-flag">🇮🇹</span>Rome, Italy</div></div><div class="gcbadges"><span class="gctype">STATION</span></div></div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">12 000 TC</div><div class="gcsub">per day</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PASSENGERS</div><div class="gcval">68 400<span class="u">pax</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">12 000<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">14 000 TC/ops</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H OPS</div><div class="gcval">900<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+12.6M<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−7 410 000 TC</div></div>
-            <div class="gcst"><div class="gclbl">DAYS ACTIVE</div><div class="gcval">14<span class="u">days</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">168 000<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+24M TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL OPERATIONS</div><div class="gcval">216 000<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+3.02B<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>7 500 000 VC</span></span><span>IN FLEET <span>14 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>3B TC</span></span><span>IN FLEET <span>240 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -792,16 +793,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
         <div class="gc">
           <div class="gchead"><div class="gcthumb">✈️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">ANA B787 #001</span></div><div class="gcloc"><span class="gcloc-flag">🇯🇵</span>Narita, Japan</div></div><div class="gcbadges"><span class="gctype">PLANE</span></div></div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">25 TC/km</div><div class="gcsub">500 TC/h idle</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">10 243<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">256 075<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">900 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">8 500<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+7.65M<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−115 888 TC</div></div>
-            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">15 365<span class="u">km</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">384 112<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+6.55M TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL KM</div><div class="gcval">229 500<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+206.55M<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>500 000 VC</span></span><span>IN FLEET <span>1 day</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>200M TC</span></span><span>IN FLEET <span>27 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -827,11 +828,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
             <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">20 000<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−11 860 000 TC</div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−11.86M TC</div></div>
             <div class="gcst"><div class="gclbl">DAYS ACTIVE</div><div class="gcval">7<span class="u">days</span></div></div>
             <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">140 000<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>12 000 000 VC</span></span><span>IN FLEET <span>7 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>12M TC</span></span><span>IN FLEET <span>30 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -904,16 +905,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
 0 40 0 40 -80 0 -80 0 0 40 0 40 -120 0 -120 0 0 40 0 40 -80 0 -80 0 0 40 0
 40 -120 0 -120 0 0 40 0 40 -40 0 -40 0 0 -80z"/></g></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">DUBAI INTL DXB</span></div><div class="gcloc"><span class="gcloc-flag">🇦🇪</span>Dubai, UAE</div></div><div class="gcbadges"><span class="gctype">AIRPORT</span></div></div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">80 000 TC</div><div class="gcsub">per day</div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H FLIGHTS</div><div class="gcval">1 287<span class="u">ops</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">102 960<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">40 000 TC/ops</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H OPS</div><div class="gcval">1 200<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+48M<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−199 897 040 TC</div></div>
-            <div class="gcst"><div class="gclbl">DAYS ACTIVE</div><div class="gcval">3<span class="u">days</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">308 880<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−32.86B TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL OPERATIONS</div><div class="gcval">3 600<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+144M<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>200 000 000 VC</span></span><span>IN FLEET <span>3 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>33B TC</span></span><span>IN FLEET <span>3 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -1040,16 +1041,16 @@ M3762 2610 c-17 -11 -52 -25 -77 -31 -25 -6 -66 -25 -91 -42 -25 -16 -66 -34
             <div style="font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .38rem;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.07);color:#3b82f6;white-space:nowrap">STRONG</div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">1 800 TC</div><div class="gcsub">per day avg</div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">1 400 TC/MWh</div></div>
             <div class="gcst"><div class="gclbl">LAST 24H OUTPUT</div><div class="gcval">6.4<span class="u">MWh</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">2 240<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">8 960<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−87 800 TC</div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−1.73M TC</div></div>
             <div class="gcst"><div class="gclbl">TOTAL OUTPUT</div><div class="gcval">192<span class="u">MWh</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">62 200<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">268 800<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>150 000 VC</span></span><span>IN FLEET <span>30 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>2M TC</span></span><span>IN FLEET <span>30 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -1070,16 +1071,16 @@ M3762 2610 c-17 -11 -52 -25 -77 -31 -25 -6 -66 -25 -91 -42 -25 -16 -66 -34
         <div class="gc">
           <div class="gchead"><div class="gcthumb">🏟️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">MARACANÃ STADIUM</span></div><div class="gcloc"><span class="gcloc-flag">🇧🇷</span>Rio de Janeiro, Brazil</div></div><div class="gcbadges"><span class="gctype">STADIUM</span></div></div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">25 000 TC</div><div class="gcsub">per event</div></div>
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">1 500 000 TC/event</div></div>
             <div class="gcst"><div class="gclbl">EVENTS LAST 24H</div><div class="gcval">1<span class="u">match</span></div></div>
-            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">25 000<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+1.5M<span class="u">TC</span></div></div>
           </div>
           <div class="gcstats">
-            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−49 950 000 TC</div></div>
-            <div class="gcst"><div class="gclbl">EVENTS HELD</div><div class="gcval">2<span class="u">total</span></div></div>
-            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">50 000<span class="u">TC</span></div></div>
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−1.27B TC</div></div>
+            <div class="gcst"><div class="gclbl">EVENTS HELD</div><div class="gcval">21<span class="u">events</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+31.5M<span class="u">TC</span></div></div>
           </div>
-          <div class="gcmeta"><span>PURCHASE <span>50 000 000 VC</span></span><span>IN FLEET <span>2 days</span></span></div>
+          <div class="gcmeta"><span>PURCHASE <span>1.3B TC</span></span><span>IN FLEET <span>51 days</span></span></div>
           <div class="gcact">
             <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
             <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>SELL</div>
@@ -1254,11 +1255,11 @@ const ASSETS = [
    s1:'3.4 TC/km',sub:'3.4 TC/h',s2:'132 km',s3:'+376 TC',
    roi:'−11 729 TC',tot_lbl:'Odometer',tot:'674 km',profit:'+3 271 TC',price:'15 000 VC',fleet:'6 days'},
   {e:'⚡',r:'rr',t:'EV CHARGER',n:'STOCKHOLM HUB #3847',loc:'🇸🇪 Stockholm, Sweden',lat:59.329,lon:18.068,
-   s1:'480 TC/day',sub:null,s2:'847 sessions',s3:'+508 TC',
-   roi:'−9 240 TC',tot_lbl:'Total sessions',tot:'12 705 ses',profit:'+15 760 TC',price:'25 000 VC',fleet:'31 days'},
+   s1:'20 TC/session',sub:null,s2:'847 sessions',s3:'+16 940 TC',
+   roi:'−674 860 TC',tot_lbl:'Total sessions',tot:'26 257 ses',profit:'+525 140 TC',price:'1.2M TC',fleet:'31 days'},
   {e:'🚉',r:'rr',t:'STATION',n:'ROMA TERMINI',loc:'🇮🇹 Rome, Italy',lat:41.901,lon:12.501,
-   s1:'12 000 TC/day',sub:null,s2:'68 400 pax',s3:'+12 000 TC',
-   roi:'−7 410 000 TC',tot_lbl:'Days active',tot:'14 days',profit:'+168 000 TC',price:'7 500 000 VC',fleet:'14 days'},
+   s1:'14 000 TC/ops',sub:null,s2:'900 ops',s3:'+12.6M TC',
+   roi:'+24M TC',roi_pos:true,tot_lbl:'Total operations',tot:'216 000 ops',profit:'+3.02B TC',price:'3B TC',fleet:'240 days'},
   // Epic
   {e:'🚂',r:'re',t:'TRAIN',n:'VR IC #2209',loc:'🇫🇮 Helsinki, Finland',lat:60.172,lon:24.941,
    s1:'12 TC/km',sub:'180 TC/h idle',s2:'812 km',s3:'+9 744 TC',
@@ -1271,20 +1272,20 @@ const ASSETS = [
    roi:'−41 600 TC',tot_lbl:'Odometer',tot:'7 920 km',profit:'+158 400 TC',price:'200 000 VC',fleet:'4 days'},
   // Legendary
   {e:'✈️',r:'rl',t:'PLANE',n:'ANA B787 #001',loc:'🇯🇵 Narita, Japan',lat:35.764,lon:140.386,
-   s1:'25 TC/km',sub:'500 TC/h idle',s2:'10 243 km',s3:'+256 075 TC',
-   roi:'−115 888 TC',tot_lbl:'Odometer',tot:'15 365 km',profit:'+384 112 TC',price:'500 000 VC',fleet:'1 day'},
+   s1:'900 TC/km',sub:null,s2:'8 500 km',s3:'+7.65M TC',
+   roi:'+6.55M TC',roi_pos:true,tot_lbl:'Total km',tot:'229 500 km',profit:'+206.55M TC',price:'200M TC',fleet:'27 days'},
   {e:'🚠',r:'rl',t:'CABLE CAR',n:'TELECABINE LISBOA',loc:'🇵🇹 Lisbon, Portugal',lat:38.765,lon:-9.097,
    s1:'20 000 TC/day',sub:null,s2:'4 812 pax',s3:'+20 000 TC',
-   roi:'−11 860 000 TC',tot_lbl:'Days active',tot:'7 days',profit:'+140 000 TC',price:'12 000 000 VC',fleet:'7 days'},
+   roi:'−11.86M TC',tot_lbl:'Days active',tot:'7 days',profit:'+140 000 TC',price:'12M TC',fleet:'30 days'},
   {e:'🛫',r:'rl',t:'AIRPORT',n:'DUBAI INTL DXB',loc:'🇦🇪 Dubai, UAE',lat:25.253,lon:55.365,
-   s1:'80 000 TC/day',sub:null,s2:'1 287 flights',s3:'+102 960 TC',
-   roi:'−199 897 040 TC',tot_lbl:'Days active',tot:'3 days',profit:'+308 880 TC',price:'200 000 000 VC',fleet:'3 days'},
+   s1:'40 000 TC/ops',sub:null,s2:'1 200 ops',s3:'+48M TC',
+   roi:'−32.86B TC',tot_lbl:'Total operations',tot:'3 600 ops',profit:'+144M TC',price:'33B TC',fleet:'3 days'},
   {e:'🌪️',r:'rl',t:'WIND FARM',n:'MIDDELGRUNDEN #0048',loc:'🇩🇰 Copenhagen, Denmark',lat:55.687,lon:12.646,
-   s1:'1 800 TC/day',sub:null,s2:'6.4 MWh',s3:'+2 240 TC',
-   roi:'−87 800 TC',tot_lbl:'Total output',tot:'192 MWh',profit:'+62 200 TC',price:'150 000 VC',fleet:'30 days'},
+   s1:'1 400 TC/MWh',sub:null,s2:'6.4 MWh',s3:'+8 960 TC',
+   roi:'−1.73M TC',tot_lbl:'Total output',tot:'192 MWh',profit:'+268 800 TC',price:'2M TC',fleet:'30 days'},
   {e:'🏟️',r:'rl',t:'STADIUM',n:'MARACANÃ STADIUM',loc:'🇧🇷 Rio de Janeiro, Brazil',lat:-22.912,lon:-43.230,
-   s1:'25 000 TC/event',sub:null,s2:'1 match',s3:'+25 000 TC',
-   roi:'−49 950 000 TC',tot_lbl:'Events held',tot:'2 total',profit:'+50 000 TC',price:'50 000 000 VC',fleet:'2 days'},
+   s1:'1 500 000 TC/event',sub:null,s2:'1 match',s3:'+1.5M TC',
+   roi:'−1.27B TC',tot_lbl:'Events held',tot:'21 events',profit:'+31.5M TC',price:'1.3B TC',fleet:'51 days'},
 ];
 
 const ASSET_SVGS = {
@@ -1344,7 +1345,7 @@ function buildPopup(a){
       <div class="gcst"><div class="gclbl">Last 24h profit</div><div class="gcval gold">${a.s3}</div></div>
     </div>
     <div class="gcstats">
-      <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">${a.roi}</div></div>
+      <div class="gcst"><div class="gclbl">ROI</div><div class="gcval ${a.roi_pos ? 'pos' : 'red'} sm">${a.roi}</div></div>
       <div class="gcst"><div class="gclbl">${a.tot_lbl||'Total'}</div><div class="gcval">${a.tot}</div></div>
       <div class="gcst"><div class="gclbl">Profit</div><div class="gcval gold">${a.profit}</div></div>
     </div>
