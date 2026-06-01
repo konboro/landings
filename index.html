@@ -21,6 +21,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TMH0LK83N"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1TMH0LK83N');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" media="print" onload="this.media='all'"/>
@@ -128,6 +129,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
 @keyframes ctapulse{0%{box-shadow:0 0 0 0 rgba(234,179,8,.45)}70%{box-shadow:0 0 0 10px rgba(234,179,8,0)}100%{box-shadow:0 0 0 0 rgba(234,179,8,0)}}
 .wlr button:hover{background:#fbbf24;animation:none}
 .wl-note{font-family:var(--fm);font-size:.6rem;color:#6b7280;letter-spacing:.04em}
+.platform-row{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+.platform-badge{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);
+  font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:#4a5068;
+  border:1px solid #1e2130;padding:.25rem .55rem}
 .wl-ok{display:none;font-family:var(--fm);font-size:.78rem;color:var(--gold);
   border:1px solid rgba(234,179,8,.3);padding:.7rem 1rem;
   background:rgba(234,179,8,.05);width:100%;text-align:center}
@@ -190,7 +195,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
   color:#eef1f8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gcloc{font-size:.6rem;font-weight:500;letter-spacing:.05em;color:#4a5068;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:.3rem}
-.gcloc-flag{font-size:.75rem;line-height:1;flex-shrink:0}
+.gcloc-flag{font-size:1rem;line-height:1;flex-shrink:0}
 .gcbadges{display:flex;gap:.3rem;margin-left:auto;flex-shrink:0;align-items:center}
 .gctype{font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   padding:.18rem .5rem;border:1px solid var(--b2);background:#13151c;color:#666}
@@ -336,7 +341,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
 .tc-bar-logo .tc-logo-mobile{display:block;height:22px;width:auto}
 .tc-bar-logo .tc-logo-desktop{display:none;height:30px;width:auto}
 .tc-bar-center{display:flex;justify-content:center}
-.tc-bar-val{font-family:var(--fm);font-size:.85rem;font-weight:700;
+.tc-bar-val{font-family:'Roboto Mono',var(--fm),monospace;font-size:.85rem;font-weight:700;
   color:var(--gold);letter-spacing:.08em;transition:color .25s;text-transform:uppercase}
 .tc-bar-val.tick{color:#4ade80}
 @media(min-width:768px){
@@ -403,7 +408,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
   </div>
   <p class="hero-sub">
     Buy <strong>Wembley Stadium</strong>. Run <strong>river-buses on the Thames</strong>.
-    Invest in an <strong>offshore wind farm</strong>. Every asset at real GPS coordinates, earning from live data around the clock.
+    Invest in an <strong>offshore wind farm</strong>. Tycoon.live is a multi-platform built on real-world data. 70 million real-world assets. Passive and active income. Living global economy that never stops moving. We turn live data into a competitive, dynamic gameplay experience unlike anything before.
   </p>
   <div class="pills">
     <div class="pills-track">
@@ -450,6 +455,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
     </div>
     <div class="wl-ok" id="oh">✓ &nbsp;You're on the list. We'll reach out before beta launches.</div>
     <p class="wl-note">Early signups get founding bonuses on launch day</p>
+    <div class="platform-row">
+      <span class="platform-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        iOS
+      </span>
+      <span class="platform-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.523 0.976L15.27 5.07C14.22 4.4 12.978 4 11.654 4S9.088 4.4 8.038 5.07L5.785.976a.5.5 0 0 0-.68-.184.5.5 0 0 0-.184.68L7.168 5.58C5.535 6.814 4.5 8.742 4.5 11h14.308c0-2.258-1.035-4.186-2.668-5.42l2.247-4.108a.5.5 0 0 0-.864-.5v.004zM8.885 8.5a.885.885 0 1 1 0-1.77.885.885 0 0 1 0 1.77zm5.538 0a.885.885 0 1 1 0-1.77.885.885 0 0 1 0 1.77zM4.5 12v7a1.5 1.5 0 0 0 3 0v-7H4.5zm13.308 0H15.5v7a1.5 1.5 0 0 0 3 0v-7h-.692zM6 11.5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9H6z"/></svg>
+        Android
+      </span>
+      <span class="platform-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v10h16V6H4zm3 11h10v1H7v-1z"/></svg>
+        PC / Mac
+      </span>
+    </div>
   </div>
   <div class="scroll-cue" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
@@ -825,13 +844,65 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
 
     <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" data-type="airport" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
-        <div class="cico">🛫</div>
+        <div class="cico"><svg viewBox="0 0 100 100" fill="currentColor" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><g transform="translate(0,100) scale(0.0125,-0.0125)" stroke="none"><path d="M2080 7120 l0 -560 -400 0 -400 0 0 -360 0 -360 40 0 40 0 0 -40 0
+-40 40 0 40 0 0 -80 0 -80 40 0 40 0 0 -80 0 -80 40 0 40 0 0 -40 0 -40 40 0
+40 0 0 -80 0 -80 40 0 40 0 0 -40 0 -40 -200 0 -200 0 0 -40 0 -40 -40 0 -40
+0 0 -1080 0 -1080 -320 0 -320 0 0 -1000 0 -1000 40 0 40 0 0 -40 0 -40 2400
+0 2400 0 0 40 0 40 40 0 40 0 0 680 0 680 400 0 400 0 0 -720 0 -720 400 0
+400 0 0 1040 0 1040 -2000 0 -2000 0 0 1080 0 1080 -40 0 -40 0 0 40 0 40
+-200 0 -200 0 0 40 0 40 40 0 40 0 0 80 0 80 40 0 40 0 0 40 0 40 40 0 40 0 0
+80 0 80 40 0 40 0 0 80 0 80 40 0 40 0 0 40 0 40 40 0 40 0 0 360 0 360 -400
+0 -400 0 0 560 0 560 -160 0 -160 0 0 -560z m960 -5200 l0 -320 -880 0 -880 0
+0 320 0 320 880 0 880 0 0 -320z m2080 0 l0 -320 -880 0 -880 0 0 320 0 320
+880 0 880 0 0 -320z M5120 7200 l0 -80 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40
+0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40
+0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0
+-40 0 -40 40 0 40 0 0 -40 0 -40 -40 0 -40 0 0 -40 0 -40 -80 0 -80 0 0 -40 0
+-40 -80 0 -80 0 0 -40 0 -40 -160 0 -160 0 0 40 0 40 -160 0 -160 0 0 40 0 40
+-40 0 -40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 -40 0 -40 0 0 -40 0 -40 40 0
+40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -160 0 -160 40 0 40 0 0
+-80 0 -80 80 0 80 0 0 40 0 40 40 0 40 0 0 80 0 80 40 0 40 0 0 80 0 80 40 0
+40 0 0 40 0 40 80 0 80 0 0 40 0 40 120 0 120 0 0 40 0 40 80 0 80 0 0 -600 0
+-600 80 0 80 0 0 80 0 80 40 0 40 0 0 120 0 120 40 0 40 0 0 80 0 80 40 0 40
+0 0 120 0 120 40 0 40 0 0 80 0 80 40 0 40 0 0 120 0 120 40 0 40 0 0 80 0 80
+40 0 40 0 0 80 0 80 40 0 40 0 0 40 0 40 80 0 80 0 0 40 0 40 80 0 80 0 0 40
+0 40 120 0 120 0 0 40 0 40 40 0 40 0 0 40 0 40 -40 0 -40 0 0 80 0 80 -120 0
+-120 0 0 -40 0 -40 -80 0 -80 0 0 -40 0 -40 -120 0 -120 0 0 -40 0 -40 -80 0
+-80 0 0 40 0 40 -120 0 -120 0 0 40 0 40 -80 0 -80 0 0 40 0 40 -120 0 -120 0
+0 40 0 40 -80 0 -80 0 0 40 0 40 -120 0 -120 0 0 40 0 40 -80 0 -80 0 0 40 0
+40 -120 0 -120 0 0 40 0 40 -40 0 -40 0 0 -80z"/></g></svg></div>
         <div class="cinfo"><div class="ctitle">Airports</div><div class="cshort">Heathrow, Schiphol, Dubai International. Airports handle massive passenger flows across global networks. Revenue is generated per arrival and departure, higher for punctuality and lower for delays.</div></div>
         <span class="rb rl">Legendary</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
         <div class="gc">
-          <div class="gchead"><div class="gcthumb">🛫</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">DUBAI INTL DXB</span></div><div class="gcloc"><span class="gcloc-flag">🇦🇪</span>Dubai, UAE</div></div><div class="gcbadges"><span class="gctype">AIRPORT</span></div></div>
+          <div class="gchead"><div class="gcthumb" style="overflow:hidden"><svg viewBox="0 0 100 100" fill="currentColor" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><g transform="translate(0,100) scale(0.0125,-0.0125)" stroke="none"><path d="M2080 7120 l0 -560 -400 0 -400 0 0 -360 0 -360 40 0 40 0 0 -40 0
+-40 40 0 40 0 0 -80 0 -80 40 0 40 0 0 -80 0 -80 40 0 40 0 0 -40 0 -40 40 0
+40 0 0 -80 0 -80 40 0 40 0 0 -40 0 -40 -200 0 -200 0 0 -40 0 -40 -40 0 -40
+0 0 -1080 0 -1080 -320 0 -320 0 0 -1000 0 -1000 40 0 40 0 0 -40 0 -40 2400
+0 2400 0 0 40 0 40 40 0 40 0 0 680 0 680 400 0 400 0 0 -720 0 -720 400 0
+400 0 0 1040 0 1040 -2000 0 -2000 0 0 1080 0 1080 -40 0 -40 0 0 40 0 40
+-200 0 -200 0 0 40 0 40 40 0 40 0 0 80 0 80 40 0 40 0 0 40 0 40 40 0 40 0 0
+80 0 80 40 0 40 0 0 80 0 80 40 0 40 0 0 40 0 40 40 0 40 0 0 360 0 360 -400
+0 -400 0 0 560 0 560 -160 0 -160 0 0 -560z m960 -5200 l0 -320 -880 0 -880 0
+0 320 0 320 880 0 880 0 0 -320z m2080 0 l0 -320 -880 0 -880 0 0 320 0 320
+880 0 880 0 0 -320z M5120 7200 l0 -80 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40
+0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40
+0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0
+-40 0 -40 40 0 40 0 0 -40 0 -40 -40 0 -40 0 0 -40 0 -40 -80 0 -80 0 0 -40 0
+-40 -80 0 -80 0 0 -40 0 -40 -160 0 -160 0 0 40 0 40 -160 0 -160 0 0 40 0 40
+-40 0 -40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 -40 0 -40 0 0 -40 0 -40 40 0
+40 0 0 -40 0 -40 40 0 40 0 0 -40 0 -40 40 0 40 0 0 -160 0 -160 40 0 40 0 0
+-80 0 -80 80 0 80 0 0 40 0 40 40 0 40 0 0 80 0 80 40 0 40 0 0 80 0 80 40 0
+40 0 0 40 0 40 80 0 80 0 0 40 0 40 120 0 120 0 0 40 0 40 80 0 80 0 0 -600 0
+-600 80 0 80 0 0 80 0 80 40 0 40 0 0 120 0 120 40 0 40 0 0 80 0 80 40 0 40
+0 0 120 0 120 40 0 40 0 0 80 0 80 40 0 40 0 0 120 0 120 40 0 40 0 0 80 0 80
+40 0 40 0 0 80 0 80 40 0 40 0 0 40 0 40 80 0 80 0 0 40 0 40 80 0 80 0 0 40
+0 40 120 0 120 0 0 40 0 40 40 0 40 0 0 40 0 40 -40 0 -40 0 0 80 0 80 -120 0
+-120 0 0 -40 0 -40 -80 0 -80 0 0 -40 0 -40 -120 0 -120 0 0 -40 0 -40 -80 0
+-80 0 0 40 0 40 -120 0 -120 0 0 40 0 40 -80 0 -80 0 0 40 0 40 -120 0 -120 0
+0 40 0 40 -80 0 -80 0 0 40 0 40 -120 0 -120 0 0 40 0 40 -80 0 -80 0 0 40 0
+40 -120 0 -120 0 0 40 0 40 -40 0 -40 0 0 -80z"/></g></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">DUBAI INTL DXB</span></div><div class="gcloc"><span class="gcloc-flag">🇦🇪</span>Dubai, UAE</div></div><div class="gcbadges"><span class="gctype">AIRPORT</span></div></div>
           <div class="gcstats">
             <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">80 000 TC</div><div class="gcsub">per day</div></div>
             <div class="gcst"><div class="gclbl">LAST 24H FLIGHTS</div><div class="gcval">1 287<span class="u">ops</span></div></div>
@@ -855,13 +926,113 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
 
     <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" data-type="windmill" data-rarity="rl" onclick="tog(this)">
       <div class="catrow">
-        <div class="cico">🌪️</div>
+        <div class="cico"><svg viewBox="0 0 100 100" fill="currentColor" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><g transform="translate(0,100) scale(0.01302083,-0.01302083)" stroke="none"><path d="M3792 7520 c-12 -5 -61 -47 -108 -93 -74 -73 -87 -91 -99 -138 -9
+-32 -24 -62 -38 -74 -34 -28 -47 -57 -47 -107 0 -27 -9 -61 -25 -91 -17 -32
+-30 -81 -40 -151 -15 -107 -20 -124 -56 -204 -17 -35 -26 -85 -36 -197 -7 -82
+-24 -193 -37 -245 -18 -67 -27 -137 -31 -240 -8 -166 -26 -299 -56 -403 -17
+-61 -22 -117 -30 -372 -5 -165 -14 -358 -20 -430 -52 -619 -55 -637 -137 -675
+-26 -12 -58 -32 -72 -45 -14 -13 -46 -33 -71 -44 -25 -11 -63 -34 -84 -51 -21
+-16 -42 -30 -47 -30 -5 0 -24 -16 -44 -35 -24 -24 -47 -37 -77 -42 -28 -4 -51
+-16 -70 -37 -43 -45 -145 -114 -181 -121 -17 -4 -48 -23 -68 -42 -40 -39 -85
+-69 -160 -106 -27 -14 -69 -44 -95 -69 -46 -42 -230 -158 -253 -158 -6 0 -29
+-17 -53 -39 -23 -21 -60 -48 -82 -59 -22 -11 -71 -49 -109 -84 -38 -34 -83
+-70 -100 -80 -17 -9 -42 -28 -56 -43 -14 -15 -40 -33 -58 -41 -42 -17 -107
+-69 -202 -161 -41 -40 -78 -73 -83 -73 -4 0 -29 -20 -55 -44 -26 -24 -62 -51
+-81 -61 -50 -25 -277 -258 -341 -349 -30 -43 -69 -96 -87 -118 -18 -21 -35
+-55 -39 -74 -7 -41 2 -173 16 -208 4 -12 43 -47 87 -77 l78 -54 116 -3 c111
+-3 120 -2 194 27 54 22 111 35 193 45 71 8 136 22 163 35 26 12 91 30 144 41
+68 14 114 30 153 54 36 22 80 38 121 45 37 6 81 21 102 35 21 15 65 30 100 35
+35 6 71 19 83 30 31 28 75 48 126 56 25 4 68 20 95 35 28 16 68 31 90 35 22 4
+63 22 90 40 28 19 66 37 85 40 19 4 59 21 89 36 30 16 65 29 78 29 28 0 58 15
+132 64 29 20 59 36 66 36 7 0 42 15 77 34 35 18 83 37 106 41 25 4 58 20 81
+40 22 18 60 37 84 44 25 6 58 22 74 35 16 13 55 31 86 39 33 9 72 28 91 45 19
+16 52 36 73 43 21 6 54 23 73 35 20 13 59 28 89 34 29 5 65 19 81 30 48 34 85
+36 124 7 19 -15 56 -31 82 -37 27 -6 71 -24 99 -39 27 -16 64 -32 80 -35 17
+-4 46 -22 65 -41 19 -18 54 -38 78 -45 24 -6 64 -24 89 -41 26 -16 55 -29 66
+-29 24 0 54 -16 93 -50 18 -15 49 -31 70 -34 21 -4 63 -20 93 -35 31 -16 73
+-34 93 -40 20 -7 54 -26 75 -42 44 -36 82 -53 138 -63 22 -4 58 -18 80 -31 22
+-13 56 -26 75 -30 19 -4 58 -22 85 -40 28 -18 69 -36 92 -40 23 -4 63 -20 88
+-37 32 -21 64 -32 105 -37 39 -5 70 -15 88 -29 57 -46 73 -54 125 -61 29 -4
+69 -17 88 -28 19 -12 67 -29 108 -37 44 -9 92 -28 121 -46 33 -21 77 -37 142
+-50 51 -10 115 -28 142 -40 27 -11 94 -27 150 -35 55 -8 141 -28 190 -45 83
+-30 96 -31 205 -28 117 3 117 3 180 43 110 69 118 80 126 169 10 104 2 150
+-32 192 -15 20 -57 78 -93 128 -84 119 -201 240 -317 327 -50 38 -95 74 -98
+80 -4 6 -21 19 -37 29 -26 15 -104 84 -242 213 -17 16 -46 35 -65 43 -18 8
+-51 30 -72 49 -22 19 -44 35 -49 35 -6 0 -47 33 -93 73 -45 40 -102 85 -127
+99 -25 14 -56 38 -70 53 -14 14 -63 44 -110 67 -107 50 -179 97 -207 136 -12
+17 -39 36 -60 42 -40 13 -183 115 -183 130 0 5 -25 18 -56 30 -56 21 -163 91
+-198 129 -11 12 -38 26 -60 32 -23 6 -52 21 -66 34 -26 24 -123 85 -190 120
+-22 11 -52 32 -67 47 -15 14 -46 35 -69 46 -23 12 -48 31 -56 44 -33 51 -35
+65 -83 553 -8 83 -17 282 -21 443 -6 299 -7 306 -58 537 -9 39 -21 156 -27
+260 -8 143 -17 213 -35 282 -15 56 -29 150 -36 235 -9 125 -15 153 -45 226
+-21 51 -37 114 -44 165 -12 101 -24 145 -45 176 -9 12 -20 55 -24 94 -7 60
+-12 74 -39 99 -26 24 -51 79 -51 114 0 19 -166 174 -203 189 -41 17 -62 18
+-95 5z m108 -3560 c19 -11 60 -33 91 -49 47 -25 59 -38 74 -73 9 -24 23 -51
+32 -60 8 -9 21 -34 28 -54 15 -45 7 -82 -28 -123 -13 -16 -29 -50 -36 -75 -11
+-43 -16 -48 -70 -75 -32 -15 -69 -35 -82 -44 -37 -27 -89 -20 -181 22 -94 44
+-103 51 -113 101 -4 19 -19 53 -34 75 -42 60 -45 85 -16 136 14 24 35 67 49
+95 19 42 31 54 67 68 24 10 51 24 59 31 26 23 74 45 100 45 14 0 41 -9 60 -20z
+M3762 2610 c-17 -11 -52 -25 -77 -31 -25 -6 -66 -25 -91 -42 -25 -16 -66 -34
+-92 -39 -53 -9 -108 -49 -137 -99 -20 -33 -20 -54 -23 -1088 -2 -1048 -2
+-1054 18 -1097 39 -79 21 -76 477 -76 393 0 406 0 433 20 15 12 37 41 49 65
+21 43 21 45 21 1083 l0 1040 -22 44 c-30 58 -82 98 -141 109 -27 5 -67 22 -91
+39 -23 16 -60 35 -83 41 -23 6 -61 20 -85 31 -55 25 -114 25 -156 0z"/></g></svg></div>
         <div class="cinfo"><div class="ctitle">Wind Turbines</div><div class="cshort">Wind speed directly impacts output, with stronger winds increasing energy production and therefore revenue.</div></div>
         <span class="rb rl">Legendary</span><span class="carrow">›</span>
       </div>
       <div class="catbody"><div class="cat-expand">
         <div class="gc">
-          <div class="gchead"><div class="gcthumb">🌪️</div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">MIDDELGRUNDEN #0048</span></div><div class="gcloc"><span class="gcloc-flag">🇩🇰</span>Copenhagen, Denmark</div></div><div class="gcbadges"><span class="gctype">WINDMILL</span></div></div>
+          <div class="gchead"><div class="gcthumb" style="overflow:hidden"><svg viewBox="0 0 100 100" fill="currentColor" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><g transform="translate(0,100) scale(0.01302083,-0.01302083)" stroke="none"><path d="M3792 7520 c-12 -5 -61 -47 -108 -93 -74 -73 -87 -91 -99 -138 -9
+-32 -24 -62 -38 -74 -34 -28 -47 -57 -47 -107 0 -27 -9 -61 -25 -91 -17 -32
+-30 -81 -40 -151 -15 -107 -20 -124 -56 -204 -17 -35 -26 -85 -36 -197 -7 -82
+-24 -193 -37 -245 -18 -67 -27 -137 -31 -240 -8 -166 -26 -299 -56 -403 -17
+-61 -22 -117 -30 -372 -5 -165 -14 -358 -20 -430 -52 -619 -55 -637 -137 -675
+-26 -12 -58 -32 -72 -45 -14 -13 -46 -33 -71 -44 -25 -11 -63 -34 -84 -51 -21
+-16 -42 -30 -47 -30 -5 0 -24 -16 -44 -35 -24 -24 -47 -37 -77 -42 -28 -4 -51
+-16 -70 -37 -43 -45 -145 -114 -181 -121 -17 -4 -48 -23 -68 -42 -40 -39 -85
+-69 -160 -106 -27 -14 -69 -44 -95 -69 -46 -42 -230 -158 -253 -158 -6 0 -29
+-17 -53 -39 -23 -21 -60 -48 -82 -59 -22 -11 -71 -49 -109 -84 -38 -34 -83
+-70 -100 -80 -17 -9 -42 -28 -56 -43 -14 -15 -40 -33 -58 -41 -42 -17 -107
+-69 -202 -161 -41 -40 -78 -73 -83 -73 -4 0 -29 -20 -55 -44 -26 -24 -62 -51
+-81 -61 -50 -25 -277 -258 -341 -349 -30 -43 -69 -96 -87 -118 -18 -21 -35
+-55 -39 -74 -7 -41 2 -173 16 -208 4 -12 43 -47 87 -77 l78 -54 116 -3 c111
+-3 120 -2 194 27 54 22 111 35 193 45 71 8 136 22 163 35 26 12 91 30 144 41
+68 14 114 30 153 54 36 22 80 38 121 45 37 6 81 21 102 35 21 15 65 30 100 35
+35 6 71 19 83 30 31 28 75 48 126 56 25 4 68 20 95 35 28 16 68 31 90 35 22 4
+63 22 90 40 28 19 66 37 85 40 19 4 59 21 89 36 30 16 65 29 78 29 28 0 58 15
+132 64 29 20 59 36 66 36 7 0 42 15 77 34 35 18 83 37 106 41 25 4 58 20 81
+40 22 18 60 37 84 44 25 6 58 22 74 35 16 13 55 31 86 39 33 9 72 28 91 45 19
+16 52 36 73 43 21 6 54 23 73 35 20 13 59 28 89 34 29 5 65 19 81 30 48 34 85
+36 124 7 19 -15 56 -31 82 -37 27 -6 71 -24 99 -39 27 -16 64 -32 80 -35 17
+-4 46 -22 65 -41 19 -18 54 -38 78 -45 24 -6 64 -24 89 -41 26 -16 55 -29 66
+-29 24 0 54 -16 93 -50 18 -15 49 -31 70 -34 21 -4 63 -20 93 -35 31 -16 73
+-34 93 -40 20 -7 54 -26 75 -42 44 -36 82 -53 138 -63 22 -4 58 -18 80 -31 22
+-13 56 -26 75 -30 19 -4 58 -22 85 -40 28 -18 69 -36 92 -40 23 -4 63 -20 88
+-37 32 -21 64 -32 105 -37 39 -5 70 -15 88 -29 57 -46 73 -54 125 -61 29 -4
+69 -17 88 -28 19 -12 67 -29 108 -37 44 -9 92 -28 121 -46 33 -21 77 -37 142
+-50 51 -10 115 -28 142 -40 27 -11 94 -27 150 -35 55 -8 141 -28 190 -45 83
+-30 96 -31 205 -28 117 3 117 3 180 43 110 69 118 80 126 169 10 104 2 150
+-32 192 -15 20 -57 78 -93 128 -84 119 -201 240 -317 327 -50 38 -95 74 -98
+80 -4 6 -21 19 -37 29 -26 15 -104 84 -242 213 -17 16 -46 35 -65 43 -18 8
+-51 30 -72 49 -22 19 -44 35 -49 35 -6 0 -47 33 -93 73 -45 40 -102 85 -127
+99 -25 14 -56 38 -70 53 -14 14 -63 44 -110 67 -107 50 -179 97 -207 136 -12
+17 -39 36 -60 42 -40 13 -183 115 -183 130 0 5 -25 18 -56 30 -56 21 -163 91
+-198 129 -11 12 -38 26 -60 32 -23 6 -52 21 -66 34 -26 24 -123 85 -190 120
+-22 11 -52 32 -67 47 -15 14 -46 35 -69 46 -23 12 -48 31 -56 44 -33 51 -35
+65 -83 553 -8 83 -17 282 -21 443 -6 299 -7 306 -58 537 -9 39 -21 156 -27
+260 -8 143 -17 213 -35 282 -15 56 -29 150 -36 235 -9 125 -15 153 -45 226
+-21 51 -37 114 -44 165 -12 101 -24 145 -45 176 -9 12 -20 55 -24 94 -7 60
+-12 74 -39 99 -26 24 -51 79 -51 114 0 19 -166 174 -203 189 -41 17 -62 18
+-95 5z m108 -3560 c19 -11 60 -33 91 -49 47 -25 59 -38 74 -73 9 -24 23 -51
+32 -60 8 -9 21 -34 28 -54 15 -45 7 -82 -28 -123 -13 -16 -29 -50 -36 -75 -11
+-43 -16 -48 -70 -75 -32 -15 -69 -35 -82 -44 -37 -27 -89 -20 -181 22 -94 44
+-103 51 -113 101 -4 19 -19 53 -34 75 -42 60 -45 85 -16 136 14 24 35 67 49
+95 19 42 31 54 67 68 24 10 51 24 59 31 26 23 74 45 100 45 14 0 41 -9 60 -20z
+M3762 2610 c-17 -11 -52 -25 -77 -31 -25 -6 -66 -25 -91 -42 -25 -16 -66 -34
+-92 -39 -53 -9 -108 -49 -137 -99 -20 -33 -20 -54 -23 -1088 -2 -1048 -2
+-1054 18 -1097 39 -79 21 -76 477 -76 393 0 406 0 433 20 15 12 37 41 49 65
+21 43 21 45 21 1083 l0 1040 -22 44 c-30 58 -82 98 -141 109 -27 5 -67 22 -91
+39 -23 16 -60 35 -83 41 -23 6 -61 20 -85 31 -55 25 -114 25 -156 0z"/></g></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">MIDDELGRUNDEN #0048</span></div><div class="gcloc"><span class="gcloc-flag">🇩🇰</span>Copenhagen, Denmark</div></div><div class="gcbadges"><span class="gctype">WINDMILL</span></div></div>
           <div style="padding:.55rem .8rem .45rem;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:.75rem">
             <div style="font-family:var(--fm);font-size:.48rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);white-space:nowrap">WIND NOW</div>
             <div style="flex:1;height:5px;background:#0d0f14;border:1px solid var(--b1);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;height:100%;width:74%;background:linear-gradient(90deg,#1d4ed8,#3b82f6)"></div></div>
@@ -1117,21 +1288,21 @@ const ASSETS = [
 ];
 
 const ASSET_SVGS = {
-  plane:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>`,
-  bus:        `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4S4 2.5 4 6v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h10v5z"/></svg>`,
-  train:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zm0 2c3.51 0 5.44.49 5.93 1H6.07C6.56 4.49 8.49 4 12 4zM6 7h5v4H6zm6 0h6v4h-6zm-4.5 8c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`,
-  tube:       `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 4 2.5 4 6v9.5A2.5 2.5 0 0 0 6.5 18l-1 1v1h13v-1l-1-1a2.5 2.5 0 0 0 2.5-2.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 5.5.5 6 1H6c.5-.5 2.5-1 6-1zM6 7h5v4H6zm7 0h5v4h-5zm-5.5 8A1.5 1.5 0 0 1 6 13.5 1.5 1.5 0 0 1 7.5 12 1.5 1.5 0 0 1 9 13.5 1.5 1.5 0 0 1 7.5 15zm9 0A1.5 1.5 0 0 1 15 13.5a1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5z"/></svg>`,
-  boat:       `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zm-2.58-1.58-1.43-.86C15.09 18.21 14.05 18 13 18c-1.05 0-2.09.21-3 .56l-1.42-.86.42-.7C9.88 16.36 11.43 16 13 16s3.12.36 4 1zM10 9H7l-.76-1.14A1 1 0 0 0 5.38 7.5L4 14h16l-3-6h-4V6h-3z"/></svg>`,
-  scooter:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h5.08a1 1 0 0 0 1-.85 6 6 0 0 1 5-5.07"/><circle cx="19" cy="19" r="2"/><circle cx="5" cy="19" r="2"/><path d="M18 7h-2a1 1 0 0 0-1 1.15L16.69 19"/></svg>`,
-  moped:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1zM19 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>`,
-  bike:       `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4C7.3 8.8 7 9.4 7 10c0 .6.3 1.2.8 1.6l3.2 2.7V19h2v-5.5l-2.2-3zm9.2 2c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>`,
-  ev_charger: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0v-6.998a2 2 0 0 0-.59-1.42L18 5"/><path d="M14 21V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16"/><path d="M2 21h13"/><path d="M3 7h11"/><path d="m9 11-2 3h3l-2 3"/></svg>`,
-  station:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 4 2.5 4 6v9.5A2.5 2.5 0 0 0 6.5 18l-1 1v1h13v-1l-1-1a2.5 2.5 0 0 0 2.5-2.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 5.5.5 6 1H6c.5-.5 2.5-1 6-1zM6 7h5v4H6zm7 0h5v4h-5z"/></svg>`,
-  windmill:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c2.76 0 5-2.01 5-4.5S14.76 3 12 3v9"/><path d="M12 12c0 2.76 2.01 5 4.5 5S21 14.76 21 12h-9"/><path d="M12 12c-2.76 0-5 2.01-5 4.5S9.24 21 12 21v-9"/><path d="M12 12c0-2.76-2.01-5-4.5-5S3 9.24 3 12h9"/></svg>`,
-  stadium:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>`,
-  cable_car:  `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H7L5.5 4.5 4 6H3v2h1l2 9h12l2-9h1V6h-1L18.5 4.5 17 6zm0 9H7l-1.5-7h9.5V6h2l1.5 7z"/></svg>`,
-  airport:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L8 7h2v2H7l-3 4h4v2H5v2h4v5h2v-5h2v5h2v-5h4v-2h-3v-2h4l-3-4h-3V7h2L12 2zm0 2.5L13.5 7h-3L12 4.5zM9 9h6v2H9V9z"/></svg>`,
-  factory:    `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18V9l5 3V9l5 3V4l5 14H4z"/></svg>`,
+  plane:      `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>`,
+  bus:        `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4S4 2.5 4 6v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h10v5z"/></svg>`,
+  train:      `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zm0 2c3.51 0 5.44.49 5.93 1H6.07C6.56 4.49 8.49 4 12 4zM6 7h5v4H6zm6 0h6v4h-6zm-4.5 8c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`,
+  tube:       `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 4 2.5 4 6v9.5A2.5 2.5 0 0 0 6.5 18l-1 1v1h13v-1l-1-1a2.5 2.5 0 0 0 2.5-2.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 5.5.5 6 1H6c.5-.5 2.5-1 6-1zM6 7h5v4H6zm7 0h5v4h-5zm-5.5 8A1.5 1.5 0 0 1 6 13.5 1.5 1.5 0 0 1 7.5 12 1.5 1.5 0 0 1 9 13.5 1.5 1.5 0 0 1 7.5 15zm9 0A1.5 1.5 0 0 1 15 13.5a1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5z"/></svg>`,
+  boat:       `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zm-2.58-1.58-1.43-.86C15.09 18.21 14.05 18 13 18c-1.05 0-2.09.21-3 .56l-1.42-.86.42-.7C9.88 16.36 11.43 16 13 16s3.12.36 4 1zM10 9H7l-.76-1.14A1 1 0 0 0 5.38 7.5L4 14h16l-3-6h-4V6h-3z"/></svg>`,
+  scooter:    `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h5.08a1 1 0 0 0 1-.85 6 6 0 0 1 5-5.07"/><circle cx="19" cy="19" r="2"/><circle cx="5" cy="19" r="2"/><path d="M18 7h-2a1 1 0 0 0-1 1.15L16.69 19"/></svg>`,
+  moped:      `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1zM19 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>`,
+  bike:       `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4C7.3 8.8 7 9.4 7 10c0 .6.3 1.2.8 1.6l3.2 2.7V19h2v-5.5l-2.2-3zm9.2 2c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>`,
+  ev_charger: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0v-6.998a2 2 0 0 0-.59-1.42L18 5"/><path d="M14 21V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16"/><path d="M2 21h13"/><path d="M3 7h11"/><path d="m9 11-2 3h3l-2 3"/></svg>`,
+  station:    `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 4 2.5 4 6v9.5A2.5 2.5 0 0 0 6.5 18l-1 1v1h13v-1l-1-1a2.5 2.5 0 0 0 2.5-2.5V6c0-3.5-4-4-8-4zm0 2c3.5 0 5.5.5 6 1H6c.5-.5 2.5-1 6-1zM6 7h5v4H6zm7 0h5v4h-5z"/></svg>`,
+  windmill:   `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c2.76 0 5-2.01 5-4.5S14.76 3 12 3v9"/><path d="M12 12c0 2.76 2.01 5 4.5 5S21 14.76 21 12h-9"/><path d="M12 12c-2.76 0-5 2.01-5 4.5S9.24 21 12 21v-9"/><path d="M12 12c0-2.76-2.01-5-4.5-5S3 9.24 3 12h9"/></svg>`,
+  stadium:    `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>`,
+  cable_car:  `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H7L5.5 4.5 4 6H3v2h1l2 9h12l2-9h1V6h-1L18.5 4.5 17 6zm0 9H7l-1.5-7h9.5V6h2l1.5 7z"/></svg>`,
+  airport:    `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L8 7h2v2H7l-3 4h4v2H5v2h4v5h2v-5h2v5h2v-5h4v-2h-3v-2h4l-3-4h-3V7h2L12 2zm0 2.5L13.5 7h-3L12 4.5zM9 9h6v2H9V9z"/></svg>`,
+  factory:    `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M4 18V9l5 3V9l5 3V4l5 14H4z"/></svg>`,
 };
 
 const ASSET_COLORS = {
@@ -1153,12 +1324,17 @@ const RARITY_COLORS = {rl:'#eab308',re:'#8b5cf6',rr:'#3b82f6',rc:'#e5e5e5'};
 const rarityLabel = {rl:'Legendary',re:'Epic',rr:'Rare',rc:'Common'};
 
 function buildPopup(a){
+  // Extract flag emoji from loc string e.g. "🇨🇿 Prague, Czech Republic"
+  const locParts = a.loc.match(/^([\uD83C][\uDDE6-\uDDFF]{2})\s*(.*)$/u);
+  const flagHtml = locParts
+    ? `<span class="gcloc-flag">${locParts[1]}</span>${locParts[2]}`
+    : a.loc;
   return `
     <div class="gchead">
       <div class="gcthumb" style="border:2px solid ${RARITY_COLORS[a.r]}">${a.e}</div>
       <div class="gcnr">
         <div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">${a.n}</span></div>
-        <div class="gcloc">${a.loc}</div>
+        <div class="gcloc">${flagHtml}</div>
       </div>
       <div class="gcbadges"><span class="gctype">${a.t}</span></div>
     </div>
@@ -1732,6 +1908,47 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
   }, 2000);
 })();
 // ── END TC COUNTER ────────────────────────────────────────────────────────────
+
+// ── FLAG EMOJI → IMAGE ────────────────────────────────────────────────────────
+(function(){
+  function flagToCode(e){
+    const pts=[...e].map(c=>c.codePointAt(0));
+    if(pts.length===2 && pts[0]>=0x1F1E6 && pts[0]<=0x1F1FF)
+      return String.fromCharCode(pts[0]-0x1F1E6+65)+String.fromCharCode(pts[1]-0x1F1E6+65);
+    return null;
+  }
+  function replaceFlag(el){
+    if(el.dataset.flagDone) return;
+    el.dataset.flagDone = '1';
+    const code = flagToCode(el.textContent.trim());
+    if(code){
+      const img = document.createElement('img');
+      img.src = `https://flagcdn.com/16x12/${code.toLowerCase()}.png`;
+      img.alt = el.textContent.trim();
+      img.style.cssText = 'width:16px;height:12px;object-fit:cover;border-radius:1px;flex-shrink:0;vertical-align:middle';
+      el.innerHTML = '';
+      el.appendChild(img);
+    }
+  }
+  function replaceFlagSpans(){
+    document.querySelectorAll('.gcloc-flag:not([data-flag-done])').forEach(replaceFlag);
+  }
+  // Run on load
+  if(document.readyState==='loading')
+    document.addEventListener('DOMContentLoaded', replaceFlagSpans);
+  else replaceFlagSpans();
+  // Watch for dynamically added flags (Leaflet popups)
+  new MutationObserver(mutations=>{
+    mutations.forEach(m=>{
+      m.addedNodes.forEach(node=>{
+        if(node.nodeType!==1) return;
+        if(node.classList && node.classList.contains('gcloc-flag')) replaceFlag(node);
+        node.querySelectorAll && node.querySelectorAll('.gcloc-flag:not([data-flag-done])').forEach(replaceFlag);
+      });
+    });
+  }).observe(document.body, {childList:true, subtree:true});
+})();
+// ── END FLAG EMOJI → IMAGE ────────────────────────────────────────────────────
 
 </script>
 </body>
