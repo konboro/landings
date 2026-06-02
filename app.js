@@ -267,9 +267,7 @@ function initWorldMap(){
     const color   = RARITY_COLORS[a.r] || '#aaa';
     const svg     = ASSET_SVGS[typeKey]   || ASSET_SVGS.bus;
     const isLegendary = a.r === 'rl';
-    const glow = isLegendary
-      ? `drop-shadow(0 0 5px ${color}cc) drop-shadow(0 0 2px ${color}88)`
-      : `drop-shadow(0 1px 3px rgba(0,0,0,.9))`;
+    const glow = `drop-shadow(0 1px 3px rgba(0,0,0,.9))`;
 
     const html = `<div style="width:36px;height:36px;color:${color};filter:${glow};display:flex;align-items:center;justify-content:center;">${svg}</div>`;
 
@@ -462,9 +460,7 @@ function tog(el){
       const rarity  = el.dataset.rarity || 'rc';
       const isBus   = typeKey === 'bus';
       const isLeg   = rarity === 'rl';
-      const glow    = isLeg
-        ? `drop-shadow(0 0 7px ${color}cc) drop-shadow(0 0 3px ${color}88)`
-        : `drop-shadow(0 1px 4px rgba(0,0,0,.95))`;
+      const glow    = `drop-shadow(0 1px 4px rgba(0,0,0,.95))`;
 
       const startLat = isBus ? BUS_ROUTE[0][0] : lat;
       const startLon = isBus ? BUS_ROUTE[0][1] : lon;
