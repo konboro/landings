@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="[B64]">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#080a0f">
+<title>TYCOON.LIVE — Own the World</title>
+<meta name="description" content="Tycoon.live is a real-time strategy game built on 70 million real-world assets. Players own infrastructure, earn from live data feeds and compete on a global map that never stops moving.">
+<meta property="og:title" content="TYCOON.LIVE — Own the World">
+<meta property="og:description" content="Tycoon.live is a real-time strategy game built on 70 million real-world assets. Players own infrastructure, earn from live data feeds and compete on a global map that never stops moving.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://tycoon.live/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://tycoon.live/og-image.png">
+<meta property="og:url" content="https://tycoon.live/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TYCOON.LIVE — Own the World">
+<meta name="twitter:description" content="Tycoon.live is a real-time strategy game built on 70 million real-world assets. Players own infrastructure, earn from live data feeds and compete on a global map that never stops moving.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TMH0LK83N"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1TMH0LK83N');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="gbg"></div>
+
+<nav>
+  <a href="/" class="logo" aria-label="TYCOON.LIVE — Home"><video class="logo-desktop" aria-label="TYCOON.LIVE logo" autoplay loop muted playsinline style="height:44px;width:auto;object-fit:contain;background:transparent"><source src="[B64]" type="video/mp4"></video><video class="logo-mobile" aria-label="TYCOON.LIVE logo" autoplay loop muted playsinline style="height:34px;width:auto;object-fit:contain;background:transparent"><source src="[B64]" type="video/mp4"></video></div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:.6rem">
+    <a href="investors.html" class="nav-inv">INVESTORS</a>
+    <a href="https://discord.gg/qqVECTn6Ys" target="_blank" rel="noopener noreferrer" class="nav-dc">
+      <svg viewBox="0 0 24 24"><path d="[P]"/></svg>
+      Discord
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow"><span class="pdot"></span>FIRST GAME TRULY POWERED BY LIVE DATA</div>
+  <h1>Own the<br><em>real world</em></h1>
+  <div class="hstats">
+    <div class="hsi"><span class="hsn">70 000 000+</span><span class="hsl">Assets worldwide</span></div>
+    <div class="hsi"><span class="hsn">30+</span><span class="hsl">Countries</span></div>
+    <div class="hsi"><span class="hsn">15+</span><span class="hsl">Asset types</span></div>
+    <div class="hsi" style="border-right:none"><span class="hsn">Q3 2026</span><span class="hsl">Beta launch</span></div>
+  </div>
+  <div class="pills">
+    <div class="pills-track">
+    <div class="pill">🛴 Scooters</div>
+    <div class="pill">🚲 Bikes</div>
+    <div class="pill">🛵 Mopeds</div>
+    <div class="pill pr">🚌 Buses</div>
+    <div class="pill pr">🚊 Trams</div>
+    <div class="pill pr">⚡ EV Chargers</div>
+    <div class="pill pr">🚉 Stations</div>
+    <div class="pill pe">🚂 Trains</div>
+    <div class="pill pe">🚇 Metro</div>
+    <div class="pill pe">⛴️ Boats</div>
+    <div class="pill pl">✈️ Planes</div>
+    <div class="pill pl">🚠 Cable Cars</div>
+    <div class="pill pl">🛫 Airports</div>
+    <div class="pill pl">🌪️ Wind Farms</div>
+    <div class="pill pl">🏟️ Stadiums</div>
+    <div class="pill pl">🏭 Factories</div>
+    <div class="pill pl">⚡️ Power Plants</div>
+    <div class="pill">🛴 Scooters</div>
+    <div class="pill">🚲 Bikes</div>
+    <div class="pill">🛵 Mopeds</div>
+    <div class="pill pr">🚌 Buses</div>
+    <div class="pill pr">🚊 Trams</div>
+    <div class="pill pr">⚡ EV Chargers</div>
+    <div class="pill pr">🚉 Stations</div>
+    <div class="pill pe">🚂 Trains</div>
+    <div class="pill pe">🚇 Metro</div>
+    <div class="pill pe">⛴️ Boats</div>
+    <div class="pill pl">✈️ Planes</div>
+    <div class="pill pl">🚠 Cable Cars</div>
+    <div class="pill pl">🛫 Airports</div>
+    <div class="pill pl">🌪️ Wind Farms</div>
+    <div class="pill pl">🏟️ Stadiums</div>
+    <div class="pill pl">🏭 Factories</div>
+    <div class="pill pl">⚡️ Power Plants</div>
+    </div>
+  </div>
+  <div class="wlw" id="wh">
+    <div class="wlr">
+      <input type="email" id="eh" placeholder="your@email.com">
+      <button onclick="doWL('eh','oh','wh')">Get Early Access</button>
+    </div>
+    <div class="wl-ok" id="oh">✓ &nbsp;You're on the list. We'll reach out before beta launches.</div>
+    <p class="wl-note">Early signups get founding bonuses on launch day</p>
+    <div class="platform-row">
+      <span class="platform-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="[P]"/></svg>
+        iOS
+      </span>
+      <span class="platform-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="[P]"/></svg>
+        Android
+      </span>
+      <span class="platform-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="[P]"/></svg>
+        PC / Mac
+      </span>
+    </div>
+    <p class="hero-sub" style="margin-top:1.2rem;text-align:center;max-width:480px">Buy <strong>Wembley Stadium.</strong> Run <strong>river-buses on the Thames.</strong> Invest in an <strong>offshore wind farm.</strong> <strong>Tycoon.live</strong> is a multi-platform game built on <strong>real-world data.</strong><br><br><strong>Living global economy</strong> that never stops moving. We turn live data into a competitive, dynamic gameplay experience unlike anything before.</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="[P]"/></svg>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- WORLD MAP SECTION -->
+<section class="mapsec sec fi">
+  <div class="slabel">Live world map</div>
+  <h2 class="stitle">Your assets.<br>Real locations.</h2>
+  <p class="sdesc">Every dot is a real asset. Click to inspect ownership data.</p>
+  <div class="map-wrap">
+    <div class="tc-bar">
+      <div class="tc-bar-logo">
+        <video class="tc-logo-mobile" aria-label="TYCOON.LIVE logo" autoplay loop muted playsinline><source src="[B64]" type="video/mp4"></video>
+        <video class="tc-logo-desktop" aria-label="TYCOON.LIVE logo" autoplay loop muted playsinline><source src="[B64]" type="video/mp4"></video>
+      </div>
+      <div class="tc-bar-center">
+        <span class="tc-bar-val" id="tc-counter">0 TC</span>
+      </div>
+      <div></div>
+    </div>
+    <div id="world-map"></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+<div class="catsec sec fi">
+  <div class="slabel">What you can own</div>
+  <h2 class="stitle">TRUE OWNERSHIP.<br>GLOBAL ACCESS.</h2>
+  <p class="sdesc">From a rental scooter in Barcelona to Wembley Stadium in London - open any category to see what ownership actually looks like.</p>
+
+
+  <div class="catgrid">
+
+    <!-- COMMON -->
+    <div class="cat" data-lat="41.3851" data-lon="2.1734" data-icon="🛴" data-type="scooter" data-rarity="rc" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Scooters</div><div class="cshort">Zero fuel costs, minimal upkeep. Each scooter generates income per active ride based on distance.</div></div>
+        <span class="rb rc">Common</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">COOLTRA SCOOTER #8841</span></div><div class="gcloc"><span class="gcloc-flag">🇪🇸</span>Barcelona, Spain</div></div><div class="gcbadges"><span class="gctype">SCOOTER</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">8 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">35<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">280<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−660 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">105<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">840<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>1 500 TC</span></span><span>IN FLEET <span>3 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="50.0755" data-lon="14.4378" data-icon="🚲" data-type="bike" data-rarity="rc" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Bikes</div><div class="cshort">Nextbike, Velib, Bycyklen. Bike sharing networks fill the gap between major transit routes in cities. Revenue is generated per kilometer traveled, with no fuel or energy costs reducing operating profit.</div></div>
+        <span class="rb rc">Common</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">NEXTBIKE PRAGUE #4412</span></div><div class="gcloc"><span class="gcloc-flag">🇨🇿</span>Prague, Czech Republic</div></div><div class="gcbadges"><span class="gctype">BIKE</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">7 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">30<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">210<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+3 410 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">630<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">4 410<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>1 000 TC</span></span><span>IN FLEET <span>21 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="40.6401" data-lon="22.9444" data-icon="🛵" data-type="moped" data-rarity="rc" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 30 30" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Mopeds</div><div class="cshort">High-density cities have thousands of mopeds on the road at any hour, each generating active income whenever it's in use.</div></div>
+        <span class="rb rc">Common</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 30 30" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">PENNY.RENT #1147</span></div><div class="gcloc"><span class="gcloc-flag">🇬🇷</span>Thessaloniki, Greece</div></div><div class="gcbadges"><span class="gctype">MOPED</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">10 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">65<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">650<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+4 450 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">845<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">8 450<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>4 000 TC</span></span><span>IN FLEET <span>13 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <!-- RARE -->
+    <div class="cat" data-lat="51.2655" data-lon="22.5678" data-icon="🚌" data-type="bus" data-rarity="rr" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Buses & Trams</div><div class="cshort">Low entry cost. Real city routes. Real passenger flow data. Each bus generates income per kilometer driven.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">MPK BUS #2383</span></div><div class="gcloc"><span class="gcloc-flag">🇵🇱</span>Lublin, Poland</div></div><div class="gcbadges"><span class="gctype">BUS</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">160 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">300<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">48 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+368 000 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">4 800<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">768 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>400 000 TC</span></span><span>IN FLEET <span>16 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap" id="bus-minimap">
+          <div class="minimap-el" id="bus-minimap-el"></div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- RARE (cont.) -->
+    <div class="cat" data-lat="59.3293" data-lon="18.0686" data-icon="⚡" data-type="ev_charger" data-rarity="rr" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 64 64" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">EV Chargers</div><div class="cshort">Over 12,000 real charging stations on the map. Each one earns from live session counts. Income is based on charging power, number of plugs, and station density, linked to total energy usage.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 64 64" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">STOCKHOLM HUB #3847</span></div><div class="gcloc"><span class="gcloc-flag">🇸🇪</span>Stockholm, Sweden</div></div><div class="gcbadges"><span class="gctype">EV CHARGER</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">120 TC/session</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H SESSIONS</div><div class="gcval">847<span class="u">ses</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">101 640<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+213 120 TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL SESSIONS</div><div class="gcval">6 776<span class="u">ses</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">813 120<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>600 000 TC</span></span><span>IN FLEET <span>8 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="41.9009" data-lon="12.5009" data-icon="🚉" data-type="station" data-rarity="rr" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Stations</div><div class="cshort">The busiest stations handle thousands of arrivals and departures per day, generating revenue per movement, with payouts increasing for on-time operations and decreasing with delays.</div></div>
+        <span class="rb rr">Rare</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">ROMA TERMINI</span></div><div class="gcloc"><span class="gcloc-flag">🇮🇹</span>Rome, Italy</div></div><div class="gcbadges"><span class="gctype">STATION</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">55 000 TC/ops</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H OPS</div><div class="gcval">900<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+49.5M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+188M TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL OPERATIONS</div><div class="gcval">21 600<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+1.19B<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>1B TC</span></span><span>IN FLEET <span>24 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <!-- EPIC -->
+    <div class="cat" data-lat="60.1719" data-lon="24.9414" data-icon="🚂" data-type="train" data-rarity="re" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Trains</div><div class="cshort">Passenger rail networks running across real-world routes. Each train generates revenue per kilometer traveled.</div></div>
+        <span class="rb re">Epic</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">VR IC #2209</span></div><div class="gcloc"><span class="gcloc-flag">🇫🇮</span>Helsinki, Finland</div></div><div class="gcbadges"><span class="gctype">TRAIN</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">550 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">1 260<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">693 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−3.54M TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">6 300<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">3.47M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>7M TC</span></span><span>IN FLEET <span>5 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="48.8602" data-lon="2.3477" data-icon="🚇" data-type="tube" data-rarity="re" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Metro</div><div class="cshort">Underground networks from Paris to Tokyo. High volume routes mean steady income every hour regardless of weather or season.</div></div>
+        <span class="rb re">Epic</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">PARIS MÉTRO L14 #0774</span></div><div class="gcloc"><span class="gcloc-flag">🇫🇷</span>Paris, France</div></div><div class="gcbadges"><span class="gctype">METRO</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">230 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">1 300<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">299 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+6.36M TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">49 400<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">11.36M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>5M TC</span></span><span>IN FLEET <span>38 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+    <div class="cat" data-lat="52.3772" data-lon="4.9000" data-icon="⛴️" data-type="boat" data-rarity="re" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Boats</div><div class="cshort">River and harbor transport networks operating in major cities worldwide, generating income with every kilometer sailed.</div></div>
+        <span class="rb re">Epic</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">GVB FERRY #0312</span></div><div class="gcloc"><span class="gcloc-flag">🇳🇱</span>Amsterdam, Netherlands</div></div><div class="gcbadges"><span class="gctype">BOAT</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">600 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">210<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">126 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−118 000 TC</div></div>
+            <div class="gcst"><div class="gclbl">ODOMETER</div><div class="gcval">1 470<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">882 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>1M TC</span></span><span>IN FLEET <span>7 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <!-- LEGENDARY -->
+    <div class="cat" data-lat="35.7647" data-lon="140.3864" data-icon="✈️" data-type="plane" data-rarity="rl" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Planes</div><div class="cshort">The top of the food chain. Intercontinental range, sky-high income per km and some of the hardest assets to get your hands on.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">ANA B787 #001</span></div><div class="gcloc"><span class="gcloc-flag">🇯🇵</span>Narita, Japan</div></div><div class="gcbadges"><span class="gctype">PLANE</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">900 TC/km</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H ODOMETER</div><div class="gcval">8 500<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+7.65M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+90.65M TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL KM</div><div class="gcval">178 500<span class="u">km</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+160.65M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>70M TC</span></span><span>IN FLEET <span>21 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="38.7653" data-lon="-9.0967" data-icon="🚠" data-type="cable_car" data-rarity="rl" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Cable Cars</div><div class="cshort">Cable cars are niche infrastructure with a loyal daily ridership and no real competition. Revenue is generated per minute of active availability.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">TELECABINE LISBOA</span></div><div class="gcloc"><span class="gcloc-flag">🇵🇹</span>Lisbon, Portugal</div></div><div class="gcbadges"><span class="gctype">CABLE CAR</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">20 000 TC</div><div class="gcsub">per day</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PASSENGERS</div><div class="gcval">4 812<span class="u">pax</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">20 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−11.86M TC</div></div>
+            <div class="gcst"><div class="gclbl">DAYS ACTIVE</div><div class="gcval">7<span class="u">days</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">140 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>6M TC</span></span><span>IN FLEET <span>30 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="25.2532" data-lon="55.3657" data-icon="🛫" data-type="airport" data-rarity="rl" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Airports</div><div class="cshort">Heathrow, Schiphol, Dubai International. Airports handle massive passenger flows across global networks. Revenue is generated per arrival and departure, higher for punctuality and lower for delays.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb" style="overflow:hidden"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">DUBAI INTL DXB</span></div><div class="gcloc"><span class="gcloc-flag">🇦🇪</span>Dubai, UAE</div></div><div class="gcbadges"><span class="gctype">AIRPORT</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">500 000 TC/ops</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H OPS</div><div class="gcval">1 200<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+600M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−10.2B TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL OPERATIONS</div><div class="gcval">3 600<span class="u">ops</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+1.8B<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>12B TC</span></span><span>IN FLEET <span>3 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="55.6869" data-lon="12.6464" data-icon="🌪️" data-type="windmill" data-rarity="rl" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 48 48" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Wind Turbines</div><div class="cshort">Wind speed directly impacts output, with stronger winds increasing energy production and therefore revenue.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb" style="overflow:hidden"><svg viewBox="0 0 48 48" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#22c55e"></span><span class="gcname">MIDDELGRUNDEN #0048</span></div><div class="gcloc"><span class="gcloc-flag">🇩🇰</span>Copenhagen, Denmark</div></div><div class="gcbadges"><span class="gctype">WINDMILL</span></div></div>
+          <div style="padding:.55rem .8rem .45rem;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:.75rem">
+            <div style="font-family:var(--fm);font-size:.48rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);white-space:nowrap">WIND NOW</div>
+            <div style="flex:1;height:5px;background:#0d0f14;border:1px solid var(--b1);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;height:100%;width:74%;background:linear-gradient(90deg,#1d4ed8,#3b82f6)"></div></div>
+            <div style="font-family:var(--fm);font-size:.75rem;font-weight:700;color:#3b82f6;white-space:nowrap">14.2 m/s</div>
+            <div style="font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .38rem;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.07);color:#3b82f6;white-space:nowrap">STRONG</div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">20 000 TC/MWh</div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H OUTPUT</div><div class="gcval">6.4<span class="u">MWh</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">128 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−488 000 TC</div></div>
+            <div class="gcst"><div class="gclbl">TOTAL OUTPUT</div><div class="gcval">25.6<span class="u">MWh</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">512 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>1M TC</span></span><span>IN FLEET <span>4 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="-22.9122" data-lon="-43.2302" data-icon="🏟️" data-type="stadium" data-rarity="rl" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Stadiums</div><div class="cshort">Major stadiums remain quiet most of the week, but transform completely on match days. Revenue is generated per event, scaling directly with attendance - higher payouts at higher occupancy levels.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:var(--gold)"></span><span class="gcname">MARACANÃ STADIUM</span></div><div class="gcloc"><span class="gcloc-flag">🇧🇷</span>Rio de Janeiro, Brazil</div></div><div class="gcbadges"><span class="gctype">STADIUM</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">12M TC/event</div></div>
+            <div class="gcst"><div class="gclbl">EVENTS LAST 24H</div><div class="gcval">1<span class="u">match</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">+12M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval pos sm">+4M TC</div></div>
+            <div class="gcst"><div class="gclbl">EVENTS HELD</div><div class="gcval">17<span class="u">events</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">+204M<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>200M TC</span></span><span>IN FLEET <span>21 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>STATS</div>
+            <div class="gcbtn sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="[P]"/></svg>SELL</div>
+            <div class="gcbtn tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="[P]"/></svg>TRADE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+    <div class="cat" data-lat="50.4167" data-lon="13.7833" data-icon="🏭" data-type="factory" data-rarity="rl" onclick="tog(this)">
+      <div class="catrow">
+        <div class="cico"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle;flex-shrink:0"><path d="[P]"/></svg></div>
+        <div class="cinfo"><div class="ctitle">Power Plants</div><div class="cshort">The heaviest assets in the game. Power plants, coal stations, industrial parks. You need a guild to get in and serious capital to stay in.</div></div>
+        <span class="rb rl">Legendary</span><span class="carrow">›</span>
+      </div>
+      <div class="catbody"><div class="cat-expand">
+        <div class="gc">
+          <div class="gchead"><div class="gcthumb"><svg viewBox="0 0 50 50" fill="white" style="width:1.35rem;height:1.35rem;vertical-align:middle"><path d="[P]"/></svg></div><div class="gcnr"><div class="gcnr-top"><span class="gcdot" style="background:#8b5cf6"></span><span class="gcname">ELEKTRÁRNA POČERADY</span></div><div class="gcloc"><span class="gcloc-flag">🇨🇿</span>Počerady, Czech Republic</div></div><div class="gcbadges"><span class="gctype" style="color:#8b5cf6;border-color:rgba(139,92,246,.3)">GUILD</span></div></div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">STAKE</div><div class="gcval sm">11 000 TC</div><div class="gcsub">per tick</div></div>
+            <div class="gcst"><div class="gclbl">REAL PRODUCTION</div><div class="gcval">22<span class="u">TWh/yr</span></div></div>
+            <div class="gcst"><div class="gclbl">LAST 24H PROFIT</div><div class="gcval gold">264 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcstats">
+            <div class="gcst"><div class="gclbl">ROI</div><div class="gcval red sm">−247 360 000 TC</div></div>
+            <div class="gcst"><div class="gclbl">DAYS ACTIVE</div><div class="gcval">10<span class="u">days</span></div></div>
+            <div class="gcst"><div class="gclbl">PROFIT</div><div class="gcval gold">2 640 000<span class="u">TC</span></div></div>
+          </div>
+          <div class="gcmeta"><span>PURCHASE <span>250 000 000 VC</span></span><span>IN FLEET <span>10 days</span></span></div>
+          <div class="gcact">
+            <div class="gcbtn guild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="[P]"/><circle cx="9" cy="7" r="4"/><path d="[P]"/></svg>GUILD ACCESS REQUIRED TO ACQUIRE</div>
+          </div>
+        </div>
+        <div class="minimap"><div class="minimap-el"></div></div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sep"></div>
+<div class="sec fi">
+  <div class="slabel">How it works</div>
+  <h2 class="stitle">Real world.<br>Real economy.</h2>
+  <p class="sdesc">Every income tick is calculated from live APIs. Energy outputs, flight departures, match schedules. Nothing is made up.</p>
+  <div class="howgrid">
+    <div class="hcard"><div class="hbul">1</div><div class="htxt"><h3>Browse the map</h3><p>A live world map built from <strong>real infrastructure data</strong>. Every marker sits at actual GPS coordinates and represents something you can own.</p></div></div>
+    <div class="hcard"><div class="hbul">2</div><div class="htxt"><h3>Build your portfolio</h3><p>Buy directly, win auctions, open contracts. <strong>Each asset class comes with its own rarity and income ceiling.</strong> Some you find easily, some you hunt for weeks.</p></div></div>
+    <div class="hcard"><div class="hbul">3</div><div class="htxt"><h3>Reality drives income</h3><p>A wind farm earns more when it's <strong>actually windy</strong>. A stadium pays out on <strong>real match days</strong>. Your income follows the real world whether you're watching or not.</p></div></div>
+    <div class="hcard"><div class="hbul">4</div><div class="htxt"><h3>Dominate the rankings</h3><p>Trade on the open market and climb the global leaderboard. The best assets are <strong>scarce and people fight over them</strong>. Getting there first matters.</p></div></div>
+    <div class="hcard"><div class="hbul">5</div><div class="htxt"><h3>Form consortiums</h3><p>Some assets are too big to buy alone. Pool resources with other players, manage a shared treasury and divide the profits. <strong>Corporate play opens up a completely different tier</strong> of the game.</p></div></div>
+    <div class="hcard"><div class="hbul">6</div><div class="htxt"><h3>Customize your company</h3><p>Get <strong>unique skins</strong> and build a fleet that stands out. Make your presence <strong>visible on the map</strong> with visual upgrades and rare cosmetic collections.</p></div></div>
+    <div class="hcard"><div class="hbul">7</div><div class="htxt"><h3>Location gives you an edge</h3><p>Set up a branch close to the infrastructure you own and collect <strong>proximity bonuses</strong> on top of base income. GPS is not just decoration here.</p></div></div>
+    <div class="hcard"><div class="hbul">8</div><div class="htxt"><h3>Deep stats, your own path</h3><p>Every asset tracks utilisation rates, peak hours, weather correlation and ROI over time. Read the data, spot what others miss, and <strong>build a strategy nobody else is running</strong>.</p></div></div>
+  </div>
+</div>
+
+<div class="sep"></div>
+<div class="sec" style="text-align:center;padding-top:2.5rem;padding-bottom:2.5rem">
+  <div class="slabel">Find us online</div>
+  <div style="display:flex;justify-content:center;align-items:center;gap:.75rem;margin-top:1.2rem;flex-wrap:wrap">
+    <a href="https://discord.gg/qqVECTn6Ys" target="_blank" rel="noopener noreferrer" class="soc-btn" style="--sc:#5865f2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>Discord</a>
+    <a href="https://www.linkedin.com/company/tycoon-live/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="soc-btn" style="--sc:#0a66c2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>LinkedIn</a>
+    <a href="https://x.com/tycoonlivegame?s=21" target="_blank" rel="noopener noreferrer" class="soc-btn" style="--sc:#e7e7e7"><svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>X / Twitter</a>
+    <a href="https://www.tiktok.com/@tycoon.live?_r=1&_t=ZN-96hnk2S7L1y" target="_blank" rel="noopener noreferrer" class="soc-btn" style="--sc:#ee1d52"><svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>TikTok</a>
+    <a href="https://www.facebook.com/profile.php?id=61590222758992" target="_blank" rel="noopener noreferrer" class="soc-btn" style="--sc:#1877f2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>Facebook</a>
+    <a href="https://www.reddit.com/user/Tycoonlive/" target="_blank" rel="noopener noreferrer" class="soc-btn" style="--sc:#ff4500"><svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>Reddit</a>
+  </div>
+</div>
+
+<div class="sep"></div>
+<div class="sec fi" style="text-align:center;padding-bottom:3.5rem">
+  <div class="slabel">Beta launching soon</div>
+  <h2 class="stitle">Be first on<br>the map.</h2>
+  <p class="sdesc" style="max-width:400px;margin:0 auto 1.5rem">Early access players get founding bonuses. The best assets don't wait.</p>
+  <div class="wlw" style="margin:0 auto">
+    <div class="wlr">
+      <input type="email" id="ec" placeholder="your@email.com">
+      <button onclick="doWL('ec','oc',null)">Reserve Spot</button>
+    </div>
+    <div class="wl-ok" id="oc">✓ &nbsp;You're on the list.</div>
+    <p class="wl-note" style="text-align:center">Founding bonuses on launch day</p>
+  </div>
+</div>
+
+<div class="livebar">
+  <div class="lb-label">
+    <!-- bell icon -->
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>
+    LIVE
+  </div>
+  <div class="lb-ticker">
+    <div class="lb-scroll" id="lb-scroll">
+
+      <!-- LIVE PRICES -->
+      <span class="lb-msg lb-gold">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>
+        LIVE PRICES
+        <span style="color:#3a3f52;margin:0 .4rem">·</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" style="color:#4ade80"><path d="[P]"/></svg>
+        ENERGY <span class="lb-white">16 TC/kWh</span>
+        <span style="color:#3a3f52;margin:0 .4rem">·</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" style="color:#4ade80"><path d="[P]"/></svg>
+        PETROL <span class="lb-white">151 TC/L</span>
+        <span style="color:#3a3f52;margin:0 .4rem">·</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" style="color:#f87171"><path d="[P]"/></svg>
+        DIESEL <span class="lb-white">157 TC/L</span>
+        <span style="color:#3a3f52;margin:0 .4rem">·</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" style="color:#f87171"><path d="[P]"/></svg>
+        JET-A1 <span class="lb-white">64 TC/L</span>
+      </span>
+
+      <!-- SINCE YOUR LAST VISIT -->
+      <span class="lb-msg" style="color:#60a5fa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="[P]"/></svg>
+        SINCE YOUR LAST VISIT
+      </span>
+
+      <span class="lb-msg" style="color:#9ca3af">🚲 Bikes <span class="lb-white">83 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+366 TC</span></span>
+
+      <span class="lb-msg" style="color:#9ca3af">🛵 Mopeds <span class="lb-white">94 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+857 TC</span></span>
+
+      <span class="lb-msg" style="color:#3b82f6">🚌 Buses <span class="lb-white">160 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+1 376 TC</span></span>
+
+      <span class="lb-msg" style="color:#3b82f6">⚡ EV Chargers <span class="lb-white">84 sessions</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+2 508 TC</span></span>
+
+      <span class="lb-msg" style="color:#3b82f6">🚉 Stations <span class="lb-white">120 ops</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+12 000 TC</span></span>
+
+      <span class="lb-msg" style="color:#8b5cf6">🚂 Trains <span class="lb-white">812 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+9 744 TC</span></span>
+
+      <span class="lb-msg" style="color:#8b5cf6">🚇 Metro <span class="lb-white">496 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+4 464 TC</span></span>
+
+      <span class="lb-msg" style="color:#8b5cf6">⛴️ Boats <span class="lb-white">1 980 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+39 600 TC</span></span>
+
+      <span class="lb-msg" style="color:#f59e0b">✈️ Planes <span class="lb-white">10 243 km</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+256 075 TC</span></span>
+
+      <span class="lb-msg" style="color:#f59e0b">🚠 Cable Cars <span class="lb-white">20h ops</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+80 000 TC</span></span>
+
+      <span class="lb-msg" style="color:#f59e0b">🛫 Airports <span class="lb-white">1 287 ops</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+192 960 TC</span></span>
+
+      <span class="lb-msg" style="color:#f59e0b">🌪️ Wind Turbines <span class="lb-white">6.4 MWh</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+102 400 TC</span></span>
+
+      <span class="lb-msg" style="color:#f59e0b">🏟️ Stadiums <span class="lb-white">43 295 pax</span> <span style="color:#3a3f52">·</span> <span class="lb-gold">+4 329 500 TC</span></span>
+
+    </div>
+  </div>
+</div>
+
+<footer style="position:relative;z-index:1;text-align:center;padding:1.5rem 1rem calc(1.5rem + var(--sab));border-top:1px solid var(--b1)">
+  <p style="font-family:var(--fm);font-size:.58rem;color:#4a5068;letter-spacing:.08em">
+    © 2026 TYCOON.LIVE &nbsp;·&nbsp; <a href="/privacy.html" style="color:#4a5068;text-decoration:none;border-bottom:1px solid #2a2e3a">Privacy Policy</a>
+  </p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
