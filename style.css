@@ -9,11 +9,7 @@ html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--txt);font-family:var(--fb);overflow-x:hidden;
   padding-top:56px;padding-bottom:calc(44px + var(--sab))}
 
-.gbg{position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);
-  background-size:44px 44px;opacity:.5}
-.gbg::after{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 120% 55% at 50% 0%,transparent 20%,var(--bg) 80%)}
+.gbg{position:fixed;inset:0;pointer-events:none;z-index:0;background:var(--bg)}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;
   display:flex;align-items:center;justify-content:space-between;
