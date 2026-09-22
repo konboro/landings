@@ -1,0 +1,7 @@
+# Files that must not be served as static assets (wrangler assets.directory is ".")
+.git
+.gitattributes
+.gitignore
+.wrangler
+wrangler.jsonc
+.assetsignore
