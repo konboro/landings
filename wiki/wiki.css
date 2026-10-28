@@ -119,6 +119,16 @@
 }
 .note p:last-child { margin-bottom: 0; }
 
+/* how-to videos: 16:9 clips without sound, only the poster loads until the player starts */
+.howto { margin: 6px 0 22px; }
+.tldr + .howto { margin-top: 26px; }
+.howto video {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+  border-radius: 14px; border: 1px solid var(--line); background: var(--panel);
+}
+.howto figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
+.howto-tag { margin-right: 6px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); }
+
 /* tables (2–3 columns, wrap on phones — no horizontal scroll) */
 .tbl { margin: 8px 0 20px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .tbl table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; table-layout: auto; }
