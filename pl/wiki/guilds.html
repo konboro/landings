@@ -91,7 +91,8 @@
         <h2>W skrócie</h2>
         <ul class="ticks">
           <li>Gildia ma na start 10 miejsc, a każdy poziom gildii dodaje 2.</li>
-          <li>Każdy członek sam ustala swój podatek do skarbca gildii.</li>
+          <li>Każdy członek sam ustala swój podatek do skarbca gildii, nie niższy niż minimum ustalone przez lidera.</li>
+          <li>Lider może mianować do 2 zastępców, którzy pomagają prowadzić gildię.</li>
           <li>Skarbiec płaci za HQ; w strefie HQ członkowie tapują i kupują jak na miejscu.</li>
           <li>Co tydzień cała gildia zbiera tapnięcia w wyzwaniu tygodnia i zdobywa paczki.</li>
           <li>Znajomi, wiadomości i rankingi są w tym samym panelu.</li>
@@ -102,9 +103,9 @@
 
       <h2 id="join">Dołączanie do gildii</h2>
       <ul>
-        <li>W zakładce <span class="ui">GILDIA</span> jest lista gildii. Tapnij <span class="ui">DOŁĄCZ</span>, żeby wysłać prośbę — lider ją przyjmie albo odrzuci. Ponowne tapnięcie <span class="ui">PROŚBA WYSŁANA</span> cofa prośbę.</li>
+        <li>W zakładce <span class="ui">GILDIA</span> jest lista gildii. Tapnij <span class="ui">DOŁĄCZ</span>, żeby wysłać prośbę. Lider albo zastępca ją przyjmie lub odrzuci. Na liście widać też minimalny podatek każdej gildii. Ponowne tapnięcie <span class="ui">PROŚBA WYSŁANA</span> cofa prośbę.</li>
         <li>Lider może też zaprosić Cię po nazwie firmy. Zaproszenia znajdziesz w zakładce <span class="ui">ZAPROSZENIA</span>, a przyjęcie zaproszenia od razu dodaje Cię do gildii.</li>
-        <li>Gildia na 1. poziomie ma <strong>10 miejsc</strong>. Każdy kolejny poziom dodaje 2 miejsca, więc na 10. poziomie jest ich 28. Możesz należeć tylko do jednej gildii naraz.</li>
+        <li>Gildia na 1. poziomie ma <strong>10 miejsc</strong>. Każdy kolejny poziom dodaje 2 miejsca, więc na 10. poziomie jest ich 28, a na 30. poziomie 68. Możesz należeć tylko do jednej gildii naraz.</li>
       </ul>
 
       <h2 id="create">Zakładanie gildii</h2>
@@ -112,20 +113,37 @@
 
       <h2 id="roles">Role</h2>
       <ul>
-        <li><strong>Lider</strong>: zmienia nazwę, opis, godło i kolor gildii, zaprasza graczy, przyjmuje prośby, usuwa członków, nadaje rangi, stawia HQ i może rozwiązać gildię.</li>
+        <li><strong>Lider</strong>: zmienia nazwę, opis, godło i kolor gildii, zaprasza graczy, ustala minimalny podatek, mianuje zastępców i może rozwiązać gildię. Może też wszystko to, co zastępca.</li>
+        <li><strong>Zastępca</strong>: gildia może mieć najwyżej 2. Lider mianuje zastępcę przyciskiem z tarczą przy członku na liście. Zastępca przyjmuje i odrzuca prośby, usuwa zwykłych członków i nadaje im rangi, stawia i usuwa HQ oraz widzi widok aktywności.</li>
         <li><strong>Członek</strong>: ustala własny podatek, pisze na czacie gildii, korzysta ze strefy HQ i może w każdej chwili odejść.</li>
-        <li><strong>Rangi</strong>, np. „Oficer”, to tytuły nadawane przez lidera. Nie dają żadnych dodatkowych uprawnień.</li>
-      </ul>
+        <li><strong>Rangi</strong>, np. „Oficer”, to tytuły nadawane przez lidera albo zastępcę. Nie dają żadnych dodatkowych uprawnień.</li>
+        </ul>
+        <p>Przy każdym członku na liście widać pełną nazwę firmy, ile TC wpłacił do skarbca, jego podatek i kiedy był ostatnio w grze.</p>
+        <h3 id="activity">Widok aktywności</h3>
+        <p>Lider i zastępcy mogą przełączyć listę <span class="ui">CZŁONKOWIE</span> z <span class="ui">LISTA</span> na <span class="ui">AKTYWNOŚĆ</span>. Widać tam bieżący tydzień każdego członka: tapnięcia w strefie HQ liczone do wyzwania, wszystkie płatne tapnięcia, podatek wpłacony do skarbca i wykonane zadania tygodniowe. Tydzień trwa od poniedziałku do niedzieli, czasu polskiego.</p>
 
       <h2 id="tax">Skarbiec i podatek</h2>
       <p>Każdy członek sam wybiera swój podatek, od 0% do 50% (<span class="ui">MÓJ PODATEK</span>). Taka część jego dochodu godzinowego i tapnięć trafia do skarbca gildii (<span class="ui">SKARBIEC</span>). Ze skarbca opłaca się HQ.</p>
-      <p>Podatki zapłacone z czasem podnoszą też poziom gildii, od <span class="ui">POZ. 1</span> do <span class="ui">POZ. 10</span>. Wyższy poziom to więcej miejsc dla członków i większa strefa HQ.</p>
+      <p>Lider może ustalić <span class="ui">MINIMALNY PODATEK GILDII</span> w krokach co 5%, obecnie do 50%. Członkowie z niższym podatkiem od tej chwili płacą minimum i dostają powiadomienie. Zawsze możesz płacić więcej niż minimum, ale nie mniej. Gdy lider obniży minimum, wraca Twoje własne ustawienie.</p>
+      <p>Wszystkie podatki, jakie gildia kiedykolwiek zapłaciła, podnoszą jej poziom, od <span class="ui">POZ. 1</span> do <span class="ui">POZ. 30</span>. Wyższy poziom to więcej miejsc dla członków i większa strefa HQ. Poziomy powyżej 10 rosną dużo wolniej:</p>
+      <div class="tbl"><table>
+      <thead><tr><th scope="col">Poziom</th><th scope="col">Podatki łącznie</th><th scope="col">Miejsca</th><th scope="col">Strefa HQ</th></tr></thead>
+      <tbody>
+      <tr><td>1</td><td>0 TC</td><td>10</td><td>ok. 200 m</td></tr>
+      <tr><td>5</td><td>300 000 TC</td><td>18</td><td>ok. 240 m</td></tr>
+      <tr><td>10</td><td>10 mln TC</td><td>28</td><td>ok. 290 m</td></tr>
+      <tr><td>15</td><td>42 mln TC</td><td>38</td><td>ok. 340 m</td></tr>
+      <tr><td>20</td><td>98 mln TC</td><td>48</td><td>ok. 390 m</td></tr>
+      <tr><td>25</td><td>196 mln TC</td><td>58</td><td>ok. 440 m</td></tr>
+      <tr><td>30</td><td>370 mln TC</td><td>68</td><td>ok. 490 m</td></tr>
+      </tbody>
+      </table></div>
 
       <h2 id="hq">HQ gildii</h2>
-      <p>Lider może postawić do 6 HQ w dowolnych miejscach na mapie, każde za ok. 100 000 TC ze skarbca. W strefie HQ każdy członek tapuje aktywa i kupuje z rabatem jak w zasięgu, nawet daleko od domu. Te tapnięcia liczą się do zadań i do Albumu.</p>
+      <p>Lider albo zastępca może postawić do 6 HQ w dowolnych miejscach na mapie, każde za ok. 100 000 TC ze skarbca. W strefie HQ każdy członek tapuje aktywa i kupuje z rabatem jak w zasięgu, nawet daleko od domu. Te tapnięcia liczą się do zadań i do Albumu.</p>
       <ul>
-        <li>Strefa ma ok. 200 m na 1. poziomie i rośnie o ok. 10 m z każdym poziomem.</li>
-        <li>HQ nie da się przenieść. Lider może je usunąć (bez zwrotu) i postawić nowe.</li>
+        <li>Strefa ma ok. 200 m na 1. poziomie i rośnie o ok. 10 m z każdym poziomem, do ok. 490 m na 30. poziomie.</li>
+        <li>HQ nie da się przenieść. Lider albo zastępca może je usunąć (bez zwrotu) i postawić nowe.</li>
       </ul>
 
       <h2 id="weekly">Wyzwanie tygodnia</h2>
@@ -137,14 +155,15 @@
         <li>Paczki są tylko za progi zdobyte po Twoim dołączeniu do gildii.</li>
         <li>Paczki czekają w sekcji <span class="ui">TWOJE DARMOWE PACZKI</span> w zakładce <span class="ui">SKLEP</span>, a przy każdym progu dostajesz powiadomienie.</li>
         <li>Licznik wraca do zera w poniedziałek o północy czasu polskiego.</li>
-      </ul>
+        </ul>
+        <p>Czasem twórcy gry dodają jednej gildii na jeden tydzień dodatkowy próg, np. <span class="ui">BONUS ROUND</span> z paczką Mystery Gift dla każdego członka, który spełni warunki. Zasady są takie same jak przy innych progach.</p>
 
       <h2 id="chat">Czat gildii</h2>
-      <p><span class="ui">CZAT GILDII</span> widzą tylko członkowie gildii.</p>
+      <p><span class="ui">CZAT GILDII</span> widzą tylko członkowie gildii. Pokazuje 300 najnowszych wiadomości; starsze doczytasz, przewijając w górę.</p>
 
       <h2 id="leave">Odejście i rozwiązanie gildii</h2>
       <ul>
-        <li>Każdy może odejść. Gdy odchodzi lider, nowym liderem zostaje członek z najdłuższym stażem. Gdy odchodzi ostatni członek, gildia znika.</li>
+        <li>Każdy może odejść. Gdy odchodzi lider, nowym liderem zostaje zastępca, a gdy go nie ma, członek z najdłuższym stażem. Gdy odchodzi ostatni członek, gildia znika.</li>
         <li>Usunięty członek może ponownie poprosić o dołączenie.</li>
         <li>Rozwiązanie gildii na zawsze usuwa wszystkich członków, HQ i czat.</li>
       </ul>
@@ -156,7 +175,7 @@
         </video>
         <figcaption><span class="howto-tag">Poradnik</span> Jak dodać znajomego · 13 s, bez dźwięku</figcaption>
       </figure>
-      <p>Tapnij ikonę ludzików w prawym górnym rogu. W zakładce <span class="ui">ZNAJOMI</span> otwórz <span class="ui">ZAPROSZENIA</span>, wyszukaj gracza po tickerze lub nazwie i tapnij <span class="ui">＋ DODAJ</span>. Druga osoba przyjmuje albo odrzuca zaproszenie. Zaproszenia od innych graczy pojawiają się w tej samej zakładce: zielony znaczek je przyjmuje. Przy każdym znajomym widać <span class="ui">ONLINE</span>, <span class="ui">NIEOBECNY</span> albo <span class="ui">OFFLINE</span>. Kopertą wyślesz wiadomość prywatną.</p>
+      <p>Tapnij ikonę ludzików w prawym górnym rogu. W zakładce <span class="ui">ZNAJOMI</span> otwórz <span class="ui">ZAPROSZENIA</span>, wyszukaj gracza po tickerze lub nazwie i tapnij <span class="ui">＋ DODAJ</span>. Druga osoba przyjmuje albo odrzuca zaproszenie. Zaproszenia od innych graczy pojawiają się w tej samej zakładce: zielony znaczek je przyjmuje. Przy każdym znajomym widać, kiedy był ostatnio w grze: <span class="ui">ONLINE</span> albo np. <span class="ui">5 MIN TEMU</span> czy <span class="ui">2 DNI TEMU</span>. Tak samo przy członkach gildii. Kopertą wyślesz wiadomość prywatną.</p>
 
       <h2 id="ranking">Rankingi</h2>
       <p>Zakładka <span class="ui">RANKING</span> pokazuje 100 najlepszych graczy w trzech zestawieniach: <span class="ui">PRZYCHÓD</span> (łączny zarobek TC), <span class="ui">TAPNIĘCIA</span> i <span class="ui">ALBUM</span>. Dzienne wyzwanie ma własny ranking dnia (zobacz <a href="/pl/wiki/daily-play.html">Codzienna gra</a>).</p>
@@ -171,9 +190,9 @@
         </video>
         <figcaption><span class="howto-tag">Poradnik</span> Jak udostępnić kod polecający · 14 s, bez dźwięku</figcaption>
       </figure>
-      <p>W Ustawieniach, w sekcji <span class="ui">ZAPROŚ ZNAJOMYCH</span>, znajdziesz swój kod polecający. Znajomy, który wpisze go na koncie nie starszym niż 7 dni, dostaje darmową paczkę. Ty zdobywasz paczki, gdy znajomi zabezpieczają konto i grają — za maksymalnie 25 znajomych.</p>
+      <p>W Ustawieniach, w sekcji <span class="ui">ZAPROŚ ZNAJOMYCH</span>, znajdziesz swój kod polecający. Znajomy, który wpisze go na koncie nie starszym niż 7 dni, dostaje darmową paczkę. Ty zdobywasz paczki, gdy znajomi zabezpieczają konto i grają, za maksymalnie 25 znajomych.</p>
       <p class="note">Liczby na tej stronie są orientacyjne. Ekonomię gry często stroimy, a aktualne wartości zawsze pokazuje gra.</p>
-      <p class="updated">Stan gry sprawdzony 27 października 2026.</p>
+      <p class="updated">Stan gry sprawdzony 4 listopada 2026.</p>
     </article>
     <nav class="pager" aria-label="Poprzedni i następny temat"><a class="prev" href="/pl/wiki/market.html" rel="prev"><small>Poprzedni</small><b>Rynek</b></a><a class="next" href="/pl/wiki/daily-play.html" rel="next"><small>Następny</small><b>Codzienna gra</b></a></nav>
   </main>
