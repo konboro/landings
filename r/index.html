@@ -135,8 +135,7 @@
   };
   document.querySelector('.badge-gp').addEventListener('click', function (e) {
     e.preventDefault();
-    var w = window.open(STORE.android, '_blank', 'noopener');
-    if (!w) location.href = STORE.android;
+    location.href = STORE.android;
   });
 
   function copyCode() {
