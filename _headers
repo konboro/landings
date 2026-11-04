@@ -1,0 +1,12 @@
+# Cloudflare Workers static assets: response headers per path.
+# The app-link files must be JSON; apple-app-site-association has no extension,
+# so without this rule it would go out as application/octet-stream.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+/.well-known/assetlinks.json
+  Content-Type: application/json
+
+# Invite pages carry a player's referral code in the path: keep them out of search.
+/r/*
+  X-Robots-Tag: noindex
