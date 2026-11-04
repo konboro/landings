@@ -110,9 +110,10 @@
     });
   }
 
-  // https://tycoon.live/r/<code>: referral codes are short, letters and digits only.
-  var raw = decodeURIComponent((location.pathname.split('/')[2] || '')).trim();
-  var code = /^[A-Za-z0-9]{4,12}$/.test(raw) ? raw.toUpperCase() : '';
+  // https://tycoon.live/r/<code>: referral codes are 6 letters and digits (profiles.referral_code).
+  var raw = '';
+  try { raw = decodeURIComponent(location.pathname.split('/')[2] || '').trim(); } catch (e) { raw = ''; }
+  var code = /^[A-Za-z0-9]{6}$/.test(raw) ? raw.toUpperCase() : '';
 
   var ua = navigator.userAgent || '';
   var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
@@ -121,12 +122,22 @@
   if (os) document.documentElement.classList.add('is-' + os);
 
   // Google Play hands the referrer to the app after install; `ref` is ours, utm_* go to analytics.
+  // Links keep the plain store address in href: GA4 logs outbound clicks with link_url = href, and the
+  // code must not reach analytics. The address with the code is opened only from the click handlers.
   var referrer = 'utm_source=tycoon.live&utm_medium=referral&utm_campaign=invite' + (code ? '&ref=' + code : '');
-  var STORE = {
+  var PLAIN = {
     ios: 'https://apps.apple.com/app/tycoon-live/id6814524571',
-    android: 'https://play.google.com/store/apps/details?id=live.tycoon.app&referrer=' + encodeURIComponent(referrer)
+    android: 'https://play.google.com/store/apps/details?id=live.tycoon.app'
   };
-  document.querySelector('.badge-gp').href = STORE.android;
+  var STORE = {
+    ios: PLAIN.ios,
+    android: PLAIN.android + '&referrer=' + encodeURIComponent(referrer)
+  };
+  document.querySelector('.badge-gp').addEventListener('click', function (e) {
+    e.preventDefault();
+    var w = window.open(STORE.android, '_blank', 'noopener');
+    if (!w) location.href = STORE.android;
+  });
 
   function copyCode() {
     if (!code) return Promise.resolve(false);
@@ -159,12 +170,11 @@
   // On a phone one button: copy the code (the tap allows the clipboard), then open that phone's store.
   if (os) {
     var get = document.getElementById('get');
-    get.href = STORE[os];
+    get.href = PLAIN[os];
     get.setAttribute('data-store', os);
     get.hidden = false;
     if (!code) get.textContent = pl ? 'Pobierz grę' : 'Get the game';
     get.addEventListener('click', function (e) {
-      if (!code) return;
       e.preventDefault();
       var go = function () { location.href = STORE[os]; };
       copyCode().then(go, go);
