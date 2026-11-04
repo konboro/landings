@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["WNR8873ZQB.live.tycoon.ios"],
+        "components": [
+          { "/": "/r/*", "comment": "Invite links: https://tycoon.live/r/<referral code>" }
+        ]
+      }
+    ]
+  }
+}

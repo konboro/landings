@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>You're invited to Tycoon.live</title>
+<meta name="description" content="A friend invited you to Tycoon.live, the tycoon game played on real live vehicles. Free on iOS and Android.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tycoon.live/">
+<meta name="theme-color" content="#0c0c0f">
+<meta name="apple-itunes-app" content="app-id=6814524571">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tycoon.live">
+<meta property="og:title" content="Join me in Tycoon.live">
+<meta property="og:description" content="Tap real vehicles around you, own them, and build a fleet that earns 24/7. Use my invite code for a welcome pack.">
+<meta property="og:image" content="https://tycoon.live/img/og.jpg">
+<meta property="og:image:width" content="955">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Join me in Tycoon.live">
+<meta name="twitter:image" content="https://tycoon.live/img/og.jpg">
+
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/landing.css">
+
+<!-- The referral code stays out of analytics: the page is reported as /r/ only. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TMH0LK83N"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1TMH0LK83N',{page_location:'https://tycoon.live/r/',page_path:'/r/'});</script>
+
+<style>
+  .invite { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; padding: 28px var(--gutter) 40px; }
+  .invite-top { width: 100%; max-width: 520px; display: flex; justify-content: center; }
+  .invite-top img { height: 36px; width: auto; }
+  .invite-card { width: 100%; max-width: 520px; margin-top: 28px; padding: 32px 24px 28px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+  .invite-icon { width: 88px; height: 88px; border-radius: 20px; margin: 0 auto; }
+  .invite h1 { margin-top: 20px; font-family: var(--display); font-size: clamp(30px, 8vw, 40px); line-height: 1.05; text-transform: uppercase; letter-spacing: .5px; }
+  .invite-lead { margin-top: 12px; color: var(--muted); font-size: 15px; }
+  .code-box { margin-top: 26px; padding: 16px; background: var(--bg-2); border: 1px dashed var(--line-2); border-radius: 14px; }
+  .code-label { color: var(--dim); font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; }
+  .code-row { margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .code { font-family: var(--display); font-size: 40px; line-height: 1; letter-spacing: 4px; color: var(--yellow); }
+  .copy { height: 36px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--text); font: 600 13px var(--body); cursor: pointer; }
+  .copy:hover { border-color: var(--yellow); }
+  .copy.done { border-color: var(--yellow); color: var(--yellow); }
+  .invite .btn.get { margin-top: 22px; width: 100%; height: 52px; font-size: 16px; }
+  .invite .badges { margin-top: 22px; justify-content: center; }
+  .invite-hint { margin-top: 20px; color: var(--muted); font-size: 14px; }
+  .invite-hint b { color: var(--text); font-weight: 600; }
+  .invite-foot { margin-top: 24px; color: var(--dim); font-size: 13px; }
+  .invite-foot a { color: var(--muted); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main class="invite">
+  <a class="invite-top" href="/"><img src="/img/logo.png" alt="Tycoon.live" width="160" height="36"></a>
+
+  <section class="invite-card">
+    <img class="invite-icon" src="/img/app-icon.png" alt="" width="88" height="88">
+    <h1 data-t="title">You're invited to Tycoon.live</h1>
+    <p class="invite-lead" data-t="lead">Tap real buses, trams and trains around you, own them, and build a fleet that earns 24/7.</p>
+
+    <div class="code-box" id="codeBox" hidden>
+      <div class="code-label" data-t="codeLabel">Your invite code</div>
+      <div class="code-row">
+        <span class="code" id="code"></span>
+        <button class="copy" id="copy" type="button" data-t="copy">Copy</button>
+      </div>
+    </div>
+
+    <a class="btn get" id="get" href="https://tycoon.live/#download" data-placement="invite-main" hidden data-t="get">Copy code &amp; get the game</a>
+
+    <div class="badges">
+      <a class="badge badge-as" data-store="ios" data-placement="invite" href="https://apps.apple.com/app/tycoon-live/id6814524571" target="_blank" rel="noopener"><img src="/img/badge-app-store.svg" alt="Download on the App Store" width="162" height="54"></a>
+      <a class="badge badge-gp" data-store="android" data-placement="invite" href="https://play.google.com/store/apps/details?id=live.tycoon.app" target="_blank" rel="noopener"><img src="/img/badge-google-play.png" alt="Get it on Google Play" width="180" height="54"></a>
+    </div>
+
+    <p class="invite-hint" id="hint" hidden data-t="hint">After installing, enter the code when you create your account (<b>Got a referral code from a friend?</b>) or later in <b>Settings → INVITE FRIENDS</b>. You get a welcome pack right away.</p>
+  </section>
+
+  <p class="invite-foot"><a href="/" data-t="more">What is Tycoon.live?</a></p>
+</main>
+
+<script>
+(function () {
+  var PL = {
+    title: 'Zaproszenie do Tycoon.live',
+    lead: 'Tapuj prawdziwe autobusy, tramwaje i pociągi wokół siebie, kupuj je i buduj flotę, która zarabia 24/7.',
+    codeLabel: 'Twój kod zaproszenia',
+    copy: 'Kopiuj',
+    copied: 'Skopiowano',
+    get: 'Skopiuj kod i pobierz grę',
+    hint: 'Po instalacji wpisz kod przy zakładaniu konta (<b>Masz kod polecający od znajomego?</b>) albo później w <b>Ustawienia → ZAPROŚ ZNAJOMYCH</b>. Paczkę powitalną dostaniesz od razu.',
+    more: 'Czym jest Tycoon.live?'
+  };
+  var EN = { copied: 'Copied' };
+  var pl = /^pl\b/i.test(navigator.language || '');
+  var T = pl ? PL : EN;
+  if (pl) {
+    document.documentElement.lang = 'pl';
+    document.title = PL.title;
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      if (PL[k]) el.innerHTML = PL[k];
+    });
+  }
+
+  // https://tycoon.live/r/<code>: referral codes are short, letters and digits only.
+  var raw = decodeURIComponent((location.pathname.split('/')[2] || '')).trim();
+  var code = /^[A-Za-z0-9]{4,12}$/.test(raw) ? raw.toUpperCase() : '';
+
+  var ua = navigator.userAgent || '';
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var os = ios ? 'ios' : android ? 'android' : null;
+  if (os) document.documentElement.classList.add('is-' + os);
+
+  // Google Play hands the referrer to the app after install; `ref` is ours, utm_* go to analytics.
+  var referrer = 'utm_source=tycoon.live&utm_medium=referral&utm_campaign=invite' + (code ? '&ref=' + code : '');
+  var STORE = {
+    ios: 'https://apps.apple.com/app/tycoon-live/id6814524571',
+    android: 'https://play.google.com/store/apps/details?id=live.tycoon.app&referrer=' + encodeURIComponent(referrer)
+  };
+  document.querySelector('.badge-gp').href = STORE.android;
+
+  function copyCode() {
+    if (!code) return Promise.resolve(false);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(code).then(function () { return true; }, fallback);
+    }
+    return Promise.resolve(fallback());
+    function fallback() {
+      try {
+        var t = document.createElement('textarea');
+        t.value = code; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select(); var ok = document.execCommand('copy'); t.remove(); return ok;
+      } catch (e) { return false; }
+    }
+  }
+
+  var copyBtn = document.getElementById('copy');
+  if (code) {
+    document.getElementById('code').textContent = code;
+    document.getElementById('codeBox').hidden = false;
+    document.getElementById('hint').hidden = false;
+    copyBtn.addEventListener('click', function () {
+      copyCode().then(function (ok) {
+        if (!ok) return;
+        copyBtn.textContent = T.copied; copyBtn.classList.add('done');
+      });
+    });
+  }
+
+  // On a phone one button: copy the code (the tap allows the clipboard), then open that phone's store.
+  if (os) {
+    var get = document.getElementById('get');
+    get.href = STORE[os];
+    get.setAttribute('data-store', os);
+    get.hidden = false;
+    if (!code) get.textContent = pl ? 'Pobierz grę' : 'Get the game';
+    get.addEventListener('click', function (e) {
+      if (!code) return;
+      e.preventDefault();
+      var go = function () { location.href = STORE[os]; };
+      copyCode().then(go, go);
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-store]');
+    if (a && window.gtag) gtag('event', 'store_click', { store: a.getAttribute('data-store'), placement: a.getAttribute('data-placement') || '' });
+  });
+})();
+</script>
+</body>
+</html>
