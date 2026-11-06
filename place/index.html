@@ -105,8 +105,8 @@
     });
   }
 
-  // The game shares https://tycoon.live/r/@<lat>,<lon> (4 decimals); _redirects serves this page for it. The invite page
-  // hands over /place/#@<lat>,<lon> when the @ came in encoded. Same limits as the game: |lat| <= 85, |lon| <= 180.
+  // The game shares https://tycoon.live/r/@<lat>,<lon> (4 decimals); worker.js serves this page for it. The invite page
+  // hands over /place/#@<lat>,<lon> should one still reach it. Same limits as the game: |lat| <= 85, |lon| <= 180.
   var raw = '';
   try {
     raw = decodeURIComponent(location.pathname.split('/')[2] || '') || decodeURIComponent(location.hash.slice(1));

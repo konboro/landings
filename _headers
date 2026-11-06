@@ -11,6 +11,6 @@
 /r/*
   X-Robots-Tag: noindex
 
-# Shared map places (served for /r/@<lat>,<lon>, see _redirects): keep them out of search too.
+# Shared map places (served for /r/@<lat>,<lon>, see worker.js): keep them out of search too.
 /place/*
   X-Robots-Tag: noindex
