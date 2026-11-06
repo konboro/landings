@@ -1,3 +1,6 @@
 # Cloudflare Workers static assets. Every invite link https://tycoon.live/r/<code>
 # serves the one invite page (200 = rewrite, the address bar keeps the code).
+# A shared map place https://tycoon.live/r/@<lat>,<lon> (the link the game shares) gets its own page.
+# It must stay above the invite rule: the first matching rule wins.
+/r/@* /place/ 200
 /r/* /r/ 200

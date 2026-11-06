@@ -10,3 +10,7 @@
 # Invite pages carry a player's referral code in the path: keep them out of search.
 /r/*
   X-Robots-Tag: noindex
+
+# Shared map places (served for /r/@<lat>,<lon>, see _redirects): keep them out of search too.
+/place/*
+  X-Robots-Tag: noindex
