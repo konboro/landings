@@ -113,6 +113,8 @@
   // https://tycoon.live/r/<code>: referral codes are 6 letters and digits (profiles.referral_code).
   var raw = '';
   try { raw = decodeURIComponent(location.pathname.split('/')[2] || '').trim(); } catch (e) { raw = ''; }
+  // A shared map place (/r/@lat,lon) gets /place/ from worker.js; should one still land here, hand it over.
+  if (raw.charAt(0) === '@') { location.replace('/place/#' + raw); return; }
   var code = /^[A-Za-z0-9]{6}$/.test(raw) ? raw.toUpperCase() : '';
 
   var ua = navigator.userAgent || '';

@@ -3,10 +3,13 @@
   "name": "landings",
   "compatibility_date": "2026-07-10",
   "observability": {
-    "enabled": true
+    "enabled": false
   },
+  "main": "worker.js",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/r/*"]
   },
   "compatibility_flags": [
     "nodejs_compat"
