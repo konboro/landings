@@ -1,3 +1,4 @@
 # Cloudflare Workers static assets. Every invite link https://tycoon.live/r/<code>
 # serves the one invite page (200 = rewrite, the address bar keeps the code).
+# A shared map place https://tycoon.live/r/@<lat>,<lon> never gets here: worker.js sends it to /place/.
 /r/* /r/ 200

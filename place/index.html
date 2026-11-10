@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>A shared place in Tycoon.live</title>
+<meta name="description" content="A player shared a spot on the Tycoon.live map with you. Open it in the game or get Tycoon.live free on iOS and Android.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tycoon.live/">
+<meta name="theme-color" content="#0c0c0f">
+<meta name="apple-itunes-app" content="app-id=6814524571">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tycoon.live">
+<meta property="og:title" content="A spot on the Tycoon.live map">
+<meta property="og:description" content="A player shared this place with you. Open it in the game and see what is around.">
+<meta property="og:image" content="https://tycoon.live/img/og.jpg">
+<meta property="og:image:width" content="955">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A spot on the Tycoon.live map">
+<meta name="twitter:image" content="https://tycoon.live/img/og.jpg">
+
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/landing.css">
+
+<!-- Shared spots can sit near a player's home: the coordinates stay out of analytics, the page is reported as /r/place/ only. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TMH0LK83N"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1TMH0LK83N',{page_location:'https://tycoon.live/r/place/',page_path:'/r/place/'});</script>
+
+<style>
+  .invite { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; padding: 28px var(--gutter) 40px; }
+  .invite-top { width: 100%; max-width: 520px; display: flex; justify-content: center; }
+  .invite-top img { height: 36px; width: auto; }
+  .invite-card { width: 100%; max-width: 520px; margin-top: 28px; padding: 28px 24px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+  .place-eyebrow { color: var(--yellow); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .invite h1 { margin-top: 10px; font-family: var(--display); font-size: clamp(30px, 8vw, 40px); line-height: 1.05; text-transform: uppercase; letter-spacing: .5px; }
+  .invite-lead { margin-top: 10px; color: var(--muted); font-size: 15px; }
+  .coords { margin-top: 20px; font-family: var(--display); font-size: clamp(24px, 7vw, 32px); line-height: 1.1; letter-spacing: 1px; color: var(--yellow); }
+  .map { margin-top: 18px; height: 220px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-2); background: var(--bg-2); }
+  .map iframe { display: block; width: 100%; height: 100%; border: 0; }
+  .invite .btn.get { margin-top: 20px; width: 100%; height: 52px; font-size: 16px; }
+  .maplink { display: inline-block; margin-top: 14px; color: var(--muted); font-size: 14px; font-weight: 600; }
+  .maplink:hover { color: var(--text); }
+  .invite-hint { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .invite-hint b { color: var(--text); font-weight: 600; }
+  .invite .badges { margin-top: 18px; justify-content: center; }
+  .invite-foot { margin-top: 24px; color: var(--dim); font-size: 13px; }
+  .invite-foot a { color: var(--muted); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main class="invite">
+  <a class="invite-top" href="/"><img src="/img/logo.png" alt="Tycoon.live" width="160" height="36"></a>
+
+  <section class="invite-card">
+    <div class="place-eyebrow" data-t="eyebrow">Tycoon.live map</div>
+    <h1 data-t="title">A shared place</h1>
+    <p class="invite-lead" id="lead" data-t="lead">A player sent you this spot on the Tycoon.live map.</p>
+
+    <div id="place" hidden>
+      <div class="coords" id="coords"></div>
+      <div class="map"><iframe id="map" title="Map" referrerpolicy="no-referrer"></iframe></div>
+      <a class="btn get" id="open" href="https://tycoon.live/#download" hidden data-t="open">Open in the game</a>
+      <a class="maplink" id="gmaps" href="https://www.google.com/maps" target="_blank" rel="noopener" data-t="gmaps">Show in Google Maps</a>
+    </div>
+
+    <p class="invite-hint" data-t="hint"><b>No game yet?</b> Tycoon.live is free. Tap real buses, trams and trains around you and build a fleet that earns 24/7.</p>
+
+    <div class="badges">
+      <a class="badge badge-as" data-store="ios" data-placement="place" href="https://apps.apple.com/app/tycoon-live/id6814524571" target="_blank" rel="noopener"><img src="/img/badge-app-store.svg" alt="Download on the App Store" width="162" height="54"></a>
+      <a class="badge badge-gp" data-store="android" data-placement="place" href="https://play.google.com/store/apps/details?id=live.tycoon.app" target="_blank" rel="noopener"><img src="/img/badge-google-play.png" alt="Get it on Google Play" width="180" height="54"></a>
+    </div>
+  </section>
+
+  <p class="invite-foot"><a href="/" data-t="more">What is Tycoon.live?</a></p>
+</main>
+
+<script>
+(function () {
+  var PL = {
+    eyebrow: 'Mapa Tycoon.live',
+    title: 'Udostępnione miejsce',
+    lead: 'Gracz wysłał Ci to miejsce na mapie Tycoon.live.',
+    open: 'Otwórz w grze',
+    gmaps: 'Pokaż w Mapach Google',
+    hint: '<b>Nie masz jeszcze gry?</b> Tycoon.live jest za darmo. Tapuj prawdziwe autobusy, tramwaje i pociągi wokół siebie i buduj flotę, która zarabia 24/7.',
+    bad: 'Ten link do miejsca nie działa. Poproś o nowy.',
+    more: 'Czym jest Tycoon.live?'
+  };
+  var EN = { bad: 'This place link does not work. Ask for a new one.' };
+  var pl = /^pl\b/i.test(navigator.language || '');
+  var T = pl ? PL : EN;
+  if (pl) {
+    document.documentElement.lang = 'pl';
+    document.title = 'Udostępnione miejsce w Tycoon.live';
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      if (PL[k]) el.innerHTML = PL[k];
+    });
+  }
+
+  // The game shares https://tycoon.live/r/@<lat>,<lon> (4 decimals); worker.js serves this page for it. The invite page
+  // hands over /place/#@<lat>,<lon> should one still reach it. Same limits as the game: |lat| <= 85, |lon| <= 180.
+  var raw = '';
+  try {
+    raw = decodeURIComponent(location.pathname.split('/')[2] || '') || decodeURIComponent(location.hash.slice(1));
+  } catch (e) { raw = ''; }
+  var m = raw.trim().match(/^@?(-?\d{1,2}(?:\.\d+)?),(-?\d{1,3}(?:\.\d+)?)\/?$/);
+  var lat = m ? Number(m[1]) : NaN, lon = m ? Number(m[2]) : NaN;
+  if (!(isFinite(lat) && isFinite(lon) && Math.abs(lat) <= 85 && Math.abs(lon) <= 180)) {
+    document.getElementById('lead').textContent = T.bad;
+    return;
+  }
+  lat = Math.round(lat * 1e4) / 1e4;
+  lon = Math.round(lon * 1e4) / 1e4;
+  var at = lat.toFixed(4) + ',' + lon.toFixed(4);
+
+  // „51,1072° N, 17,0337° E” like the card in the game (decimal comma in Polish).
+  function f(v) { var s = Math.abs(v).toFixed(4); return pl ? s.replace('.', ',') : s; }
+  document.getElementById('coords').textContent =
+    f(lat) + '° ' + (lat >= 0 ? 'N' : 'S') + ', ' + f(lon) + '° ' + (lon >= 0 ? 'E' : 'W');
+
+  // About 600 m across (street level, close to the zoom the game flies to), the marker in the middle.
+  var dLat = 0.0027, dLon = 0.0027 / Math.max(Math.cos(lat * Math.PI / 180), 0.2);
+  document.getElementById('map').src = 'https://www.openstreetmap.org/export/embed.html?bbox=' +
+    [lon - dLon, lat - dLat, lon + dLon, lat + dLat].map(function (v) { return v.toFixed(5); }).join(',') +
+    '&layer=mapnik&marker=' + at;
+  document.getElementById('place').hidden = false;
+
+  var ua = navigator.userAgent || '';
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var os = ios ? 'ios' : android ? 'android' : null;
+  if (os) document.documentElement.classList.add('is-' + os);
+
+  // Links keep a plain address in href: GA4 logs outbound clicks with link_url = href, and the coordinates must not reach
+  // analytics. The address with the place is opened only from the click handlers.
+  var PLAY = 'https://play.google.com/store/apps/details?id=live.tycoon.app';
+  var referrer = 'utm_source=tycoon.live&utm_medium=referral&utm_campaign=place';
+  var GAME = {
+    // The game reads tycoonlive://r/@lat,lon like the https link (1.0.7 opens the map there, older versions just open).
+    ios: 'tycoonlive://r/@' + at,
+    // Android: the app if installed, otherwise Google Play.
+    android: 'intent://r/@' + at + '#Intent;scheme=tycoonlive;package=live.tycoon.app;S.browser_fallback_url=' +
+      encodeURIComponent(PLAY + '&referrer=' + encodeURIComponent(referrer)) + ';end'
+  };
+  if (os) {
+    var open = document.getElementById('open');
+    open.hidden = false;
+    open.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.gtag) gtag('event', 'place_open', { os: os });
+      location.href = GAME[os];
+    });
+  }
+
+  document.getElementById('gmaps').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.open('https://www.google.com/maps/search/?api=1&query=' + at, '_blank', 'noopener');
+  });
+
+  document.querySelector('.badge-gp').addEventListener('click', function (e) {
+    e.preventDefault();
+    location.href = PLAY + '&referrer=' + encodeURIComponent(referrer);
+  });
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-store]');
+    if (a && window.gtag) gtag('event', 'store_click', { store: a.getAttribute('data-store'), placement: a.getAttribute('data-placement') || '' });
+  });
+})();
+</script>
+</body>
+</html>
