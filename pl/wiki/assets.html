@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Aktywa | Tycoon LIVE Wiki</title>
-<meta name="description" content="Wszystkie kategorie aktywów w Tycoon LIVE, od autobusów i hulajnóg po turbiny wiatrowe i lotniska: skąd się biorą i jak zarabiają.">
+<meta name="description" content="Wszystkie kategorie aktywów w Tycoon LIVE, od autobusów i hulajnóg po turbiny wiatrowe, lotniska i elektrownie: skąd się biorą i jak zarabiają.">
 <link rel="canonical" href="https://tycoon.live/pl/wiki/assets">
 <link rel="alternate" hreflang="en" href="https://tycoon.live/wiki/assets">
 <link rel="alternate" hreflang="pl" href="https://tycoon.live/pl/wiki/assets">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="pl_PL">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="Aktywa | Tycoon LIVE Wiki">
-<meta property="og:description" content="Wszystkie kategorie aktywów w Tycoon LIVE, od autobusów i hulajnóg po turbiny wiatrowe i lotniska: skąd się biorą i jak zarabiają.">
+<meta property="og:description" content="Wszystkie kategorie aktywów w Tycoon LIVE, od autobusów i hulajnóg po turbiny wiatrowe, lotniska i elektrownie: skąd się biorą i jak zarabiają.">
 <meta property="og:image" content="https://tycoon.live/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
@@ -77,6 +77,7 @@
           <li><a href="/pl/wiki/faq.html">FAQ i słowniczek</a></li>
           <li><a href="/pl/wiki/changelog.html">Co nowego</a></li>
           <li><a href="/pl/wiki/branches.html">Oddziały</a></li>
+          <li><a href="/pl/wiki/power-plants.html">Elektrownie</a></li>
         </ol>
       </nav>
     </details>
@@ -124,19 +125,20 @@
           <tr><td>Stacja kolejowa, Stacja metra</td><td>Stały dochód godzinowy</td></tr>
           <tr><td>Przystań</td><td>Stały dochód godzinowy plus bonus za każde dobicie łodzi; karta pokazuje średnią liczbę dobić na dobę</td></tr>
           <tr><td>Kolej linowa</td><td>Stały dochód godzinowy</td></tr>
-          <tr><td>Lotnisko</td><td>Dochód godzinowy plus bonus za każdy prawdziwy lot, punktualny czy opóźniony. Ruchliwsze lotniska kosztują więcej i więcej zarabiają.</td></tr>
+          <tr><td>Lotnisko</td><td>Dochód godzinowy plus bonus za każdy prawdziwy lot, punktualny czy opóźniony. Ruchliwsze lotniska kosztują więcej i więcej zarabiają. Lotnisko ma <a href="#hangar">hangar</a> na Twoje samoloty.</td></tr>
+          <tr><td>Elektrownia</td><td>Dochód godzinowy zależny od prawdziwej produkcji bloku na żywo. Bloki jednej elektrowni połączysz w mocniejszą kartę. Zobacz <a href="/pl/wiki/power-plants.html">Elektrownie</a>.</td></tr>
         </tbody>
       </table></div>
-      <p>Każde aktywo poza lotniskiem daje Ci też <a href="/pl/wiki/map-and-taps.html#royalties">tantiemę</a>, gdy tapnie je inny gracz.</p>
+      <p>Każde aktywo poza lotniskiem i elektrownią daje Ci też <a href="/pl/wiki/map-and-taps.html#royalties">tantiemę</a>, gdy tapnie je inny gracz.</p>
       <p>Kultowe punkty nie mają właścicieli. Tapujesz je dla paczek i do Albumu.</p>
 
       <h2 id="sources">Skąd się biorą aktywa</h2>
-      <p>Pozycje pojazdów pochodzą z publicznych danych na żywo od przewoźników oraz od wypożyczalni rowerów i hulajnóg. Przystanki, ładowarki, turbiny, koleje linowe i lotniska pochodzą z otwartych danych. Z danych biorą się też nazwy, dlatego zostają w lokalnym języku. Pełną listę źródeł i licencji znajdziesz na stronie <a href="/data-sources.html">Źródła danych</a> (po angielsku).</p>
+      <p>Pozycje pojazdów pochodzą z publicznych danych na żywo od przewoźników oraz od wypożyczalni rowerów i hulajnóg. Przystanki, ładowarki, turbiny, koleje linowe i lotniska pochodzą z otwartych danych. Bloki elektrowni i ich produkcja pochodzą od operatorów sieci: ENTSO-E, PSE i Elexon. Z danych biorą się też nazwy, dlatego zostają w lokalnym języku. Pełną listę źródeł i licencji znajdziesz na stronie <a href="/data-sources.html">Źródła danych</a> (po angielsku).</p>
 
       <h2 id="get">Jak zdobyć aktywa</h2>
       <ul>
         <li>Kup je za TC w zakładce <span class="ui">RYNEK</span> albo prosto z mapy.</li>
-        <li>Wylosuj je w <a href="/pl/wiki/packs.html">paczkach</a>. Większość samolotów pochodzi z paczek.</li>
+        <li>Wylosuj je w <a href="/pl/wiki/packs.html">paczkach</a>. Większość samolotów pochodzi z paczek. Elektrowni w paczkach nie ma.</li>
         <li>Wymień 10 kart na paczkę w <a href="/pl/wiki/packs.html#swaps">SWAPS</a>. Lotnisko może wypaść tylko z paczki Magnat, którą dostaniesz w SWAPS albo kupisz za diamenty.</li>
         <li>Kup je od innych graczy na rynku graczy.</li>
       </ul>
@@ -148,6 +150,28 @@
       <p>Prawdziwe pojazdy zjeżdżają do zajezdni, stają na noc albo znikają z danych. Twoja karta nie przepada. Po krótkim czasie (kilka minut w przypadku hulajnóg i rowerów, kilka godzin w przypadku autobusów, tramwajów i pociągów) przechodzi na inny wolny pojazd tego samego przewoźnika, miasta i rodzaju. Pociąg najpierw szuka pociągu tej samej kategorii (np. EIC), a karta zachowuje kategorię z zakupu.</p>
       <p>Jeśli takiego pojazdu nie ma, karta ma status <span class="ui">UŚPIONE</span>. Znika z mapy, ale dalej przynosi dochód godzinowy i wraca, gdy tylko pojawi się pasujący pojazd. Samoloty zawsze zostają przy tej samej maszynie.</p>
       <p>Gdy prawdziwy pojazd Twojej uśpionej karty jest w Twoim zasięgu, nie musisz czekać. Tapnij go na mapie i kup jak wolne aktywo. Karta wraca na ten pojazd, a gra nie pobiera za to TC.</p>
+
+      <h2 id="airports">Lotniska i samoloty</h2>
+      <h3 id="hangar">Hangar</h3>
+      <p>Każde Twoje lotnisko ma hangar na Twoje samoloty. Otwórz kartę lotniska i tapnij <span class="ui">DODAJ SAMOLOT</span>. Samolot w hangarze zawsze zarabia tak samo jak w talii, a miejsca w talii nie zajmuje. Samolot może być w talii albo w jednym hangarze.</p>
+      <p>Liczba miejsc zależy od wielkości lotniska i jego gwiazdek. Wielkość zależy od tego, ile lotów ma lotnisko na dobę.</p>
+      <div class="tbl"><table>
+        <thead><tr><th scope="col">Lotnisko</th><th scope="col">0 ★</th><th scope="col">1 ★</th><th scope="col">2 ★</th><th scope="col">3 ★</th></tr></thead>
+        <tbody>
+          <tr><td>Hub</td><td>5</td><td>8</td><td>11</td><td>14</td></tr>
+          <tr><td>Średnie</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>
+          <tr><td>Regionalne</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        </tbody>
+      </table></div>
+      <p>Hangar działa też wtedy, gdy lotnisko jest poza talią. Lotnisko nie dostaje wtedy bonusów za loty, ale samoloty w jego hangarze zarabiają dalej.</p>
+
+      <h3 id="flight-board">Tablica lotów</h3>
+      <p>Tapnij <span class="ui">TABLICA LOTÓW</span> na karcie lotniska. Zobaczysz <span class="ui">ODLOTY</span> i <span class="ui">PRZYLOTY</span> w czasie lokalnym lotniska, z miastami i liniami lotniczymi. Zielony to lot o czasie, bursztynowy to opóźnienie do 15 minut, a czerwony ponad 15 minut. Odwołany lot jest przekreślony. Loty lotniska odświeżają się co 30 minut.</p>
+
+      <h3 id="plane-card">Karta samolotu</h3>
+      <p>Karta samolotu ma sekcję <span class="ui">OSTATNI LOT</span>: trasę, start i lądowanie w czasie lokalnym oraz kilometry. Gdy samolot jest w powietrzu, karta pokazuje <span class="ui">W LOCIE</span> i ETA, czyli przewidywaną godzinę lądowania.</p>
+      <p>Gra śledzi tylko samoloty w talii i w hangarach. Karta każdego innego samolotu pokazuje ostatni zarejestrowany lot z datą.</p>
+      <p>Szybka sprzedaż lotniska zwraca 5% ceny, którą za nie zapłaciłeś.</p>
 
       <h2 id="cards">Karty aktywów</h2>
       <figure class="howto">

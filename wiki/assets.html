@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Assets | Tycoon LIVE Wiki</title>
-<meta name="description" content="All asset categories in Tycoon LIVE, from buses and scooters to wind turbines and airports: where they come from and how each one earns.">
+<meta name="description" content="All asset categories in Tycoon LIVE, from buses and scooters to wind turbines, airports and power plants: where they come from and how each one earns.">
 <link rel="canonical" href="https://tycoon.live/wiki/assets">
 <link rel="alternate" hreflang="en" href="https://tycoon.live/wiki/assets">
 <link rel="alternate" hreflang="pl" href="https://tycoon.live/pl/wiki/assets">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="pl_PL">
 <meta property="og:title" content="Assets | Tycoon LIVE Wiki">
-<meta property="og:description" content="All asset categories in Tycoon LIVE, from buses and scooters to wind turbines and airports: where they come from and how each one earns.">
+<meta property="og:description" content="All asset categories in Tycoon LIVE, from buses and scooters to wind turbines, airports and power plants: where they come from and how each one earns.">
 <meta property="og:image" content="https://tycoon.live/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
@@ -77,6 +77,7 @@
           <li><a href="/wiki/faq.html">FAQ and glossary</a></li>
           <li><a href="/wiki/changelog.html">What's new</a></li>
           <li><a href="/wiki/branches.html">Branches</a></li>
+          <li><a href="/wiki/power-plants.html">Power plants</a></li>
         </ol>
       </nav>
     </details>
@@ -124,19 +125,20 @@
           <tr><td>Train station, Metro station</td><td>Steady hourly income</td></tr>
           <tr><td>Pier</td><td>Steady hourly income, plus a bonus for each boat arrival; the card shows the average arrivals per day</td></tr>
           <tr><td>Cable car</td><td>Steady hourly income</td></tr>
-          <tr><td>Airport</td><td>Hourly income plus a bonus for every real flight, on time or delayed. Busier airports cost more and earn more.</td></tr>
+          <tr><td>Airport</td><td>Hourly income plus a bonus for every real flight, on time or delayed. Busier airports cost more and earn more. An airport has a <a href="#hangar">hangar</a> for your planes.</td></tr>
+          <tr><td>Power plant</td><td>Hourly income that follows the block's real live output. Blocks of one plant can be merged into a stronger card. See <a href="/wiki/power-plants.html">Power plants</a>.</td></tr>
         </tbody>
       </table></div>
-      <p>Every asset except an airport also pays you a <a href="/wiki/map-and-taps.html#royalties">royalty</a> when another player taps it.</p>
+      <p>Every asset except an airport or a power plant also pays you a <a href="/wiki/map-and-taps.html#royalties">royalty</a> when another player taps it.</p>
       <p>Landmarks are not owned. You tap them for packs and for your Binder.</p>
 
       <h2 id="sources">Where assets come from</h2>
-      <p>Vehicle positions come from the public real-time feeds of transport operators and of bike and scooter-sharing services. Stops, chargers, wind turbines, cable cars and airports come from open data. Names come from the data too, so they stay in the local language. The full list of sources and licences is on the <a href="/data-sources.html">Data sources</a> page.</p>
+      <p>Vehicle positions come from the public real-time feeds of transport operators and of bike and scooter-sharing services. Stops, chargers, wind turbines, cable cars and airports come from open data. Power plant blocks and their output come from grid operators: ENTSO-E, PSE and Elexon. Names come from the data too, so they stay in the local language. The full list of sources and licences is on the <a href="/data-sources.html">Data sources</a> page.</p>
 
       <h2 id="get">How to get assets</h2>
       <ul>
         <li>Buy them for TC in the <span class="ui">MARKET</span> tab, or straight from the map.</li>
-        <li>Find them in <a href="/wiki/packs.html">packs</a>. Most planes come from packs.</li>
+        <li>Find them in <a href="/wiki/packs.html">packs</a>. Most planes come from packs. Power plants are not in packs.</li>
         <li>Trade 10 cards for a pack in <a href="/wiki/packs.html#swaps">SWAPS</a>. The Tycoon pack, from SWAPS or bought with diamonds, is the only pack that can hold an airport.</li>
         <li>Buy them from other players on the <span class="ui">AFTERMARKET</span>.</li>
       </ul>
@@ -148,6 +150,28 @@
       <p>Real vehicles go out of service, park for the night or drop out of the data. Your card is not lost. After a short wait (minutes for scooters and bikes, a few hours for buses, trams and trains) it moves to another free vehicle of the same operator, city and type. A train first looks for a train of the same category (for example EIC), and the card keeps the category you bought.</p>
       <p>If no such vehicle is free, the card shows <span class="ui">DORMANT</span>. It leaves the map but keeps its hourly income, and it comes back as soon as a matching vehicle is available. Planes always stay with the same aircraft.</p>
       <p>When the real vehicle of your dormant card is in your range, you don't have to wait. Tap it on the map and buy it like a free asset. Your card moves back onto that vehicle and the game charges no TC.</p>
+
+      <h2 id="airports">Airports and planes</h2>
+      <h3 id="hangar">Hangar</h3>
+      <p>Each airport you own has a hangar for your planes. Open the airport card and tap <span class="ui">ADD A PLANE</span>. A plane in the hangar always earns just like a plane in your deck, and it doesn't take a deck slot. A plane is either in your deck or in one hangar.</p>
+      <p>The number of slots depends on the airport's size and stars. The size depends on how many flights the airport has per day.</p>
+      <div class="tbl"><table>
+        <thead><tr><th scope="col">Airport</th><th scope="col">0 ★</th><th scope="col">1 ★</th><th scope="col">2 ★</th><th scope="col">3 ★</th></tr></thead>
+        <tbody>
+          <tr><td>Hub</td><td>5</td><td>8</td><td>11</td><td>14</td></tr>
+          <tr><td>Medium</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>
+          <tr><td>Regional</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        </tbody>
+      </table></div>
+      <p>The hangar works even when the airport is outside your deck. The airport then gets no flight bonus, but the planes in its hangar keep earning.</p>
+
+      <h3 id="flight-board">Flight board</h3>
+      <p>Tap <span class="ui">FLIGHT BOARD</span> on the airport card. You see <span class="ui">DEPARTURES</span> and <span class="ui">ARRIVALS</span> in the airport's local time, with cities and airlines. Green is on time, amber a delay of up to 15 minutes and red more than 15 minutes. A cancelled flight is struck through. Airport flights refresh every 30 minutes.</p>
+
+      <h3 id="plane-card">Plane card</h3>
+      <p>The plane card has a <span class="ui">LAST FLIGHT</span> section: the route, takeoff and landing in local time, and the kilometres. While the plane is in the air, the card shows <span class="ui">IN FLIGHT</span> with the ETA, the expected landing time.</p>
+      <p>The game only tracks planes in your deck and in hangars. For any other plane, the card shows the last recorded flight with its date.</p>
+      <p>Quick-selling an airport gives back 5% of the price you paid for it.</p>
 
       <h2 id="cards">Asset cards</h2>
       <figure class="howto">
