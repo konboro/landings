@@ -141,6 +141,8 @@
 .tbl td:first-child, .tbl th { overflow-wrap: normal; }
 .tbl tr:last-child td { border-bottom: 0; }
 .tbl td:first-child { color: var(--text); font-weight: 600; }
+/* guild HQ price list (4 columns): amounts stay whole, the last column takes the wrapping */
+.tbl-hq td:nth-child(2), .tbl-hq td:nth-child(3) { overflow-wrap: normal; white-space: nowrap; }
 
 /* steps (wiki home) */
 .steps { list-style: none; margin: 18px 0 8px; padding: 0; display: grid; gap: 12px; counter-reset: step; }
@@ -223,4 +225,9 @@
   .pager { grid-template-columns: minmax(0, 1fr); }
   .pager .next { grid-column: 1; }
   .lang-switch { height: 34px; min-width: 40px; padding: 0 10px; }
+}
+/* narrowest phones (320 px): tighter cells so the HQ price list fits without cutting the last column */
+@media (max-width: 340px) {
+  .tbl-hq th, .tbl-hq td { padding-left: 7px; padding-right: 7px; }
+  .tbl-hq th { letter-spacing: .04em; }
 }
