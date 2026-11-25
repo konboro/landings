@@ -18,3 +18,7 @@
 # Stadium images: file name plus the version folder identify the image, so it can be cached for good.
 /stadiums/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Card images: file name plus the version folder identify the image, so it can be cached for good.
+/cards/*
+  Cache-Control: public, max-age=31536000, immutable
