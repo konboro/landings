@@ -108,8 +108,9 @@
 
       <h2 id="join">Joining a guild</h2>
       <ul>
-        <li>The <span class="ui">GUILD LIST</span> shows all guilds. You can sort it by level or by members. Tap <span class="ui">JOIN</span> to send a request, and the guild's leader or a deputy approves or rejects it. The list also shows each guild's minimum tax. Tap <span class="ui">REQUEST SENT</span> again to cancel.</li>
-        <li>A leader can also invite you by your company name. Invites appear under <span class="ui">INVITES</span>, and accepting one lets you in straight away.</li>
+        <li>The <span class="ui">GUILD LIST</span> shows all guilds. You can sort it by level or by members. Tap <span class="ui">JOIN</span>. In a guild marked <span class="ui">INSTANT JOIN</span> you become a member right away. In the other guilds <span class="ui">JOIN</span> sends a request, and the guild's leader or a deputy approves or rejects it. The list also shows each guild's minimum tax. Tap <span class="ui">REQUEST SENT</span> again to cancel.</li>
+        <li>The leader chooses how players join in the guild's edit form. The pencil at the top of the guild's page opens it. The <span class="ui">JOINING</span> switch is under the description: <span class="ui">INSTANT</span>, which is the default, or <span class="ui">BY APPROVAL</span>.</li>
+        <li>A leader can also invite you by your company name. Invites appear under <span class="ui">INVITES</span>, and accepting one lets you in straight away. Invites work in both modes.</li>
         <li>A guild has <strong>10 member slots</strong> at level 1. Each new level adds 2 more, so a level 10 guild has room for 28 and a level 30 guild for 68. You can only be in one guild at a time.</li>
       </ul>
 
@@ -119,16 +120,17 @@
       <h2 id="roles">Roles</h2>
       <ul>
         <li><strong>Leader</strong>: edits the guild's name, description, emblem and colour, invites players, sets the minimum tax, names deputies and can disband the guild. Only the leader buys in the guild shop and buys or sells a refinery. The leader can also do everything a deputy can.</li>
-        <li><strong>Deputy</strong>: a guild can have up to 2. The leader names one with the shield button on a member's row. A deputy approves or rejects join requests, removes regular members and gives them ranks, places, moves and removes HQs and sees the activity view.</li>
+        <li><strong>Deputy</strong>: a guild can have up to 2. The leader names one with the shield button on a member's card. A deputy approves or rejects join requests, removes regular members and gives them ranks, places, moves and removes HQs and sees the activity view.</li>
         <li><strong>Member</strong>: sets their own tax, uses the guild chat and the HQ zone, and can leave at any time.</li>
         <li><strong>Ranks</strong> such as "Officer" are titles the leader or a deputy gives. They don't add any permissions.</li>
         </ul>
-        <p>Each row in the member list shows the full company name, the TC the member gave to the treasury, their tax and when they were last in the game.</p>
+        <p>The <span class="ui">MEMBERS</span> list shows a card for every member: logo with an online dot, tag and company name, role and rank, when they were last in the game, the tax they paid since joining, their taps and their tax rate. The message button on a card opens a private chat with that player.</p>
         <h3 id="activity">Activity view</h3>
         <p>The leader and deputies can switch the <span class="ui">MEMBERS</span> list from <span class="ui">LIST</span> to <span class="ui">ACTIVITY</span>. It shows this week for every member: taps in the HQ zone that count for the weekly challenge, all paid taps, tax paid to the treasury and weekly bounties done. The week runs from Monday to Sunday, Polish time.</p>
 
       <h2 id="tax">Treasury and tax</h2>
       <p>Each member chooses their own tax, from 0% to 50%. Set it with minus and plus in the <span class="ui">YOUR TAX</span> tile on your guild's page, 1% per tap. That share of your hourly income and taps goes to the guild's treasury. The treasury pays for HQs and their rent, for the guild shop and for refineries.</p>
+      <p>The <span class="ui">TREASURY</span> tile on your guild's page opens the <span class="ui">TREASURY HISTORY</span>. On top are the tiles for this week: income, spending, balance, HQ tax, member tax with the top payer and the best day, plus a chart of daily income. The arrows next to the heading switch to earlier weeks. Below are the member ranking, by tax or by taps, and the list of entries, which you can filter with <span class="ui">ALL</span>, <span class="ui">IN</span>, <span class="ui">OUT</span> and <span class="ui">EVENTS</span>.</p>
       <p>The leader can set a <span class="ui">GUILD MINIMUM</span> in the same place, in steps of 5%, currently up to 50%. Members below it pay the minimum from that moment and get a notification. You can always pay more than the minimum, but not less. If the leader lowers the minimum, your own setting comes back.</p>
       <p>All the tax a guild has ever paid raises its level, from <span class="ui">LVL 1</span> to <span class="ui">LVL 30</span>. A higher level means more member slots and a bigger HQ zone. Levels above 10 take much longer:</p>
       <div class="tbl"><table>
@@ -179,7 +181,7 @@
       <ul>
         <li><strong>Buying.</strong> Only the leader buys, with TC from the treasury, in the <span class="ui">SHOP</span> section of the guild panel.</li>
         <li><strong>Price.</strong> It depends on the real refining capacity: 24 million TC plus 1.2 million TC for every 1,000 barrels a day, never below 30 million and never above 900 million TC. Today the cheapest costs 37 million TC and the most expensive 811.5 million TC.</li>
-        <li><strong>Income.</strong> A refinery pays into the treasury every 15 minutes. At an average margin a refinery pays for itself in about 50 days, the largest ones in 60 days at the latest. Once a week the income changes by a multiplier from ×0.8 to ×1.2, following real refining margins (Brent crude, gasoline and diesel).</li>
+        <li><strong>Income.</strong> A refinery pays into the treasury every 15 minutes. At an average margin a refinery pays for itself in about 50 days, the largest ones in 60 days at the latest. Once a week the income changes by a multiplier from ×0.8 to ×1.2, following real refining margins (Brent crude, gasoline and diesel). On top of that comes the market of the refinery's country, so together the multiplier ranges from ×0.75 to ×1.3.</li>
         <li><strong>Slots.</strong> A guild can own 1 refinery and 1 more for every 10 guild levels: 2 from level 10, 3 from level 20 and 4 at level 30.</li>
         <li><strong>Selling.</strong> The leader can sell a refinery back to the game for half the purchase price, 7 days after buying at the earliest. Guilds can't trade refineries with each other.</li>
         <li>If the guild is disbanded, its refinery goes back to the pool and nothing is paid out.</li>
@@ -195,7 +197,7 @@
       </ul>
 
       <h2 id="weekly">Weekly challenge</h2>
-      <p>Every week the whole guild adds taps to one shared counter. You find it under <span class="ui">WEEKLY TASK</span> on your guild's page in the guild panel.</p>
+      <p>Every week the whole guild adds taps to one shared counter. You find it under <span class="ui">WEEKLY TASK</span> on your guild's page in the guild panel. The tasks panel on the map has a <span class="ui">GUILD</span> tab with the same task: the guild's counter, the tiers with their packs, your place in the guild and the most active members. A player without a guild sees an invitation to join one there.</p>
       <ul>
         <li>Members' taps that earn TC count when the tapped asset is within 2 km of any of the guild's HQs. You can tap on the spot or remotely, in an HQ or agent zone.</li>
         <li>The goals depend on the size of the guild. The tiers are <span class="ui">BRONZE</span> at 1,000 taps per member (Standard pack), <span class="ui">SILVER</span> at 3,500 per member (Premium pack) and <span class="ui">GOLD</span> at 10,000 per member (Elite pack). A guild of 10 needs 10,000, 35,000 and 100,000 taps.</li>
@@ -219,7 +221,7 @@
       <h2 id="leave">Leaving and disbanding</h2>
       <ul>
         <li>Anyone can leave. If the leader leaves, a deputy becomes the new leader, or without a deputy the member who joined earliest. If the last member leaves, the guild is closed.</li>
-        <li>A removed member can ask to join again.</li>
+        <li>A removed member can come back only through a request that the leader or a deputy approves, or through an invite. This also applies in a guild marked <span class="ui">INSTANT JOIN</span>.</li>
         <li>Disbanding removes all members, HQs and the chat for good. A refinery goes back to the pool with no payout.</li>
       </ul>
 
@@ -233,11 +235,11 @@
       <p>Tap the people icon in the top-right corner. In <span class="ui">FRIENDS</span>, open <span class="ui">INVITES</span>, search for a player by ticker or name and tap <span class="ui">＋ ADD</span>. They accept or reject your request. Requests from other players appear in the same tab: tap the green tick to accept one. Each friend shows when they were last in the game: <span class="ui">ONLINE</span>, or for example <span class="ui">5 MIN AGO</span> or <span class="ui">2 DAYS AGO</span>. Guild members show the same. Tap the envelope to send a direct message.</p>
 
       <h2 id="ranking">Rankings</h2>
-      <p>Guilds have their own <span class="ui">RANKINGS</span> in the guild panel: <span class="ui">INCOME</span> (what came into the treasury since Monday), <span class="ui">TAPS</span> (taps by all members since Monday) and <span class="ui">WEALTH</span> (the treasury plus the value of the guild's HQs and refineries). The two weekly rankings start from zero every Monday, and your own guild is highlighted with its place.</p>
+      <p>Guilds have their own <span class="ui">RANKINGS</span> in the guild panel: <span class="ui">INCOME</span> (what came into the treasury since Monday) and <span class="ui">TAPS</span> (taps by all members since Monday). Both start from zero every Monday, and your own guild is highlighted with its place.</p>
       <p>Player ranking: <span class="ui">RANKING</span> in the social panel shows the top 100 players by <span class="ui">INCOME</span> (total TC earned), <span class="ui">TAPS</span> or <span class="ui">BINDER</span>. The daily challenge has its own daily ranking (see <a href="/wiki/daily-play.html">Daily play</a>).</p>
 
       <h2 id="profiles">Player profiles</h2>
-      <p>Tap a player's logo on the map, in your friends, your guild or the ranking to see their profile: net worth, income, kilometres, portfolio and Binder. A profile never shows a player's TC balance.</p>
+      <p>Tap a player's logo on the map, in your friends list, your guild or the ranking to see their profile: net worth, income, kilometres, their active deck, portfolio and Binder. The active deck shows the vehicles and the infrastructure the player has in play. The portfolio is folded, tap it to open. A profile never shows a player's TC balance.</p>
 
       <h2 id="invite">Invite friends</h2>
       <figure class="howto">
