@@ -14,3 +14,7 @@
 # Shared map places (served for /r/@<lat>,<lon>, see worker.js): keep them out of search too.
 /place/*
   X-Robots-Tag: noindex
+
+# Stadium images: file name plus the version folder identify the image, so it can be cached for good.
+/stadiums/*
+  Cache-Control: public, max-age=31536000, immutable
